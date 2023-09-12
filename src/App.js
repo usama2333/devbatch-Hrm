@@ -7,8 +7,8 @@ import Login from './pages/login/Login';
 function App() {
   return (
     <Fragment>
-      {/* <Signup/> */}
-      <Login/>
+      <Signup/>
+      {/* <Login/> */}
 
     </Fragment>
   );
