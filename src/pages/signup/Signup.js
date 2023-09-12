@@ -20,20 +20,23 @@ const Signup = () => {
         <Stack direction="row">
           <Box
             sx={{
-              flex: "0 0 50%",
+              flex: {xs : '0 0 0%', sm :'0 0 0%' , md : '0 0 40%'},
+              position : 'relative'
             }}
           >
             <Box
               sx={{
                 mt: "5rem",
                 // mb : '2rem',
-                width: "551px",
+                width: {xs : '350px',sm : '551px' , },
                 // height: "500px",
                 /* UI Properties */
                 background: "#F9F9F9 0% 0% no-repeat padding-box",
                 boxShadow: "0px 0px 70px #FE80626E",
-                borderRadius: "44px",
+                borderRadius: {xs : '2rem' , sm : '4rem'},
                 opacity: 1,
+                position : 'absolute',
+                left : {xs : '0rem' , lg : '10.5rem'}
               }}
             >
               <Box>
@@ -65,7 +68,8 @@ const Signup = () => {
 
                 <Box
                   sx={{
-                    marginLeft: "8rem",
+                    marginLeft: {xs : '1.5rem' , sm : '8rem'},
+                    mr : {xs : '1.5rem'}
                   }}
                 >
                   <Stack>
@@ -171,7 +175,7 @@ const Signup = () => {
                         opacity: 1,
                         pb : '3rem'
                   }}>
-                  If you have already account please <span style={{color : '#FE8062'}}>Sign in</span> 
+                  If you have already account please <span style={{color : '#FE8062', textDecoration : 'underline'}}>Sign in</span> 
                   </Typography>
                 </Box>
               </Box>
@@ -180,7 +184,7 @@ const Signup = () => {
 
           <Box
             sx={{
-              flex: "0 0 50%",
+              flex: {xs : '0 0 100%' , sm : '0 0 100%' , md : '0 0 60%'},
             }}
           >
             <Box

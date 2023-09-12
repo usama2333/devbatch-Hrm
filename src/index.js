@@ -13,9 +13,8 @@ const theme = createTheme({
       sm: 600,
       md: 960,
       lg: 1280,
-      xlg: 1500,
-      xl: 1920,
-      custom: 2000,
+      xl: 1500,
+      custom: 1920,
     },
   },
 });
