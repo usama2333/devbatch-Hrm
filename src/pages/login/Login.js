@@ -168,8 +168,6 @@ const Login = () => {
                     sx={{
                       textAlign: "center",
                       ml: "-8rem",
-                      font: "normal normal bold 1.3rem Product Sans",
-                      letterSpacing: "0px",
                       color: "#344054",
                       opacity: 1,
                       pb: "5rem",
