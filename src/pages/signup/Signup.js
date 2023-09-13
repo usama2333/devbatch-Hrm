@@ -5,8 +5,14 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import {absBox,alreadyAccount,conBox,createBox,emailBox,emailTypo,firstBox,
   imgBox,secondHaf,signUpBtn,signUpTypo,} from "./style";
+  import { useHistory } from "react-router-dom";
 
 const Signup = () => {
+  const history = useHistory();
+  const signinHandler = () => {
+    history.push('/login')
+    console.log('sign............')
+  }
   return (
     <Fragment>
       <Container disableGutters maxWidth="custom" sx={conBox}>
@@ -62,8 +68,8 @@ const Signup = () => {
                   </Button>
                   <Typography sx={alreadyAccount}>
                     If you have already account please?{" "}
-                    <span
-                      style={{ color: "#FE8062", textDecoration: "underline" }}
+                    <span onClick={signinHandler}
+                      style={{ color: "#FE8062", textDecoration: "underline", cursor : 'pointer' }}
                     >
                       Sign in
                     </span>

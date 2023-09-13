@@ -106,6 +106,7 @@ export const spanBox = {
   color: "#FE8062",
   textDecoration: "underline",
   textTransform: "capitalize",
+  cursor : 'pointer'
 };
 
 export const devBox = {

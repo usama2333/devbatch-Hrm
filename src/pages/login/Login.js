@@ -7,10 +7,15 @@ import Checkbox from "@mui/material/Checkbox";
 import {absoluteBox,accountBox,conSx,detailTypo,devBox,emailBox,firstBox,forgotBox,formBox,
   loginTypo,passwordBox, remBox,remTypo,spanBox,secondBox,signInBox,imgBox,
 } from "./style";
+import { useHistory } from "react-router-dom";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const Login = () => {
+  const history = useHistory();
+  const signupHandler = () => {
+    history.push('/');
+  }
   return (
     <Fragment>
       <Container disableGutters maxWidth="custom" sx={conSx}>
@@ -60,7 +65,7 @@ const Login = () => {
                     Sign in
                   </Button>
                   <Typography sx={accountBox}>
-                    Don't have an account? <span style={spanBox}>Sign up</span>
+                    Don't have an account? <span onClick={signupHandler} style={spanBox}>Sign up</span>
                   </Typography>
                   <Typography sx={devBox}>Createdby Devbatch</Typography>
                 </Box>
