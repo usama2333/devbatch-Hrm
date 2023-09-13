@@ -11,5 +11,5 @@ export const userName = {
     letterSpacing: '0px',
     color: '#2D2D2D',
     opacity: 1,
-    ml : '-80px'
+    ml : {xs : '-30px' , sm :'-80px'}
 }

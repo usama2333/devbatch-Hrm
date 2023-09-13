@@ -8,11 +8,13 @@ const Department = ({img , name , user}) => {
     <Fragment>
       <Box
         sx={{
-          width: "24rem",
-          height: "111px",
+          width: {xs : '14rem',sm : '20rem',md : '16rem',lg : '23rem'},
+        //   height: "111px",
           background: "#FCFCFC 0% 0% no-repeat padding-box",
           borderRadius: "10px",
           opacity: 1,
+          pb : '3.5rem',
+          mt : {xs :'2rem',md :'0rem'}
         }}
       >
         <Box
@@ -31,7 +33,7 @@ const Department = ({img , name , user}) => {
           ></Box>
           <Typography
             sx={{
-              font: "normal normal bold 18px/22px Product Sans",
+              font: {xs : "normal normal bold 14px/20px Product Sans", sm : "normal normal bold 18px/22px Product Sans"},
               letterSpacing: "0px",
 
               color: "#FE8062",
@@ -44,7 +46,7 @@ const Department = ({img , name , user}) => {
         </Box>
         <Typography
           sx={{
-            font: "normal normal bold 21px/25px Product Sans",
+            font: {xs : "normal normal bold 18px/20px Product Sans", sm : "normal normal bold 21px/25px Product Sans"},
             letterSpacing: "0px",
 
             color: "#707787",

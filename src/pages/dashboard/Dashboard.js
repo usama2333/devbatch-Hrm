@@ -51,7 +51,7 @@ const Dashboard = () => {
                 "transparent linear-gradient(180deg, #FE8062 0%, #7B2713 100%) 0% 0% no-repeat padding-box",
               boxShadow: "3px 0px 10px #0000000D",
               opacity: 1,
-              height: "65rem",
+              // height: "65rem",
             }}
           >
             <Box
@@ -82,8 +82,8 @@ const Dashboard = () => {
                   opacity: 1,
                   borderRadius: "100%",
                   cursor: "pointer",
-                  display : 'grid',
-                  placeContent : 'center'
+                  display: "grid",
+                  placeContent: "center",
                 }}
               >
                 <Box
@@ -163,10 +163,13 @@ const Dashboard = () => {
                 <Box sx={{ mt: "4rem" }}>
                   <Typography
                     sx={{
-                      font: "normal normal normal 20px/24px Product Sans",
+                      font: {
+                        xs: "normal normal normal 18px/22px Product Sans",
+                        sm: "normal normal normal 20px/24px Product Sans",
+                      },
                       letterSpacing: "0px",
 
-                      ml: "4rem",
+                      ml: { xs: "2rem", sm: "4rem" },
                       opacity: 1,
                     }}
                   >
@@ -174,10 +177,14 @@ const Dashboard = () => {
                   </Typography>
                   <Typography
                     sx={{
-                      font: "normal normal bold 20px/24px Product Sans",
+                      font: {
+                        xs: "normal normal bold 18px/22px Product Sans",
+                        sm: "normal normal bold 20px/24px Product Sans",
+                      },
+                      letterSpacing: "0px",
                       letterSpacing: "0px",
 
-                      ml: "4rem",
+                      ml: { xs: "2rem", sm: "4rem" },
                       opacity: 1,
                     }}
                   >
@@ -244,7 +251,7 @@ const Dashboard = () => {
                     background: "#FE8062 0% 0% no-repeat padding-box",
                     borderRadius: "10px",
                     opacity: 1,
-                    width: "50rem",
+                    width: { md: "50rem", sm: "45rem", xs: "28rem" },
                     pb: "1rem",
                   }}
                 >
@@ -256,7 +263,11 @@ const Dashboard = () => {
                   >
                     <Typography
                       sx={{
-                        font: "normal normal normal 20px/24px Product Sans",
+                        font: {
+                          xs: "normal normal normal 16px/20px Product Sans",
+                          sm: "normal normal normal 18px/22px Product Sans",
+                          md: "normal normal normal 20px/24px Product Sans",
+                        },
                         letterSpacing: "0px",
                         color: "#FFFFFF",
                         opacity: 1,
@@ -279,7 +290,7 @@ const Dashboard = () => {
                     <Stack direction="row">
                       <Box
                         sx={{
-                          width: "29rem",
+                          width: { xs: "14rem", sm: "25rem", md: "29rem" },
                           height: "3.2rem",
                           background: "#FFFFFF 0% 0% no-repeat padding-box",
                           border: "1px solid #EAEAEA",
@@ -294,7 +305,10 @@ const Dashboard = () => {
                         <Typography
                           sx={{
                             ml: "1rem",
-                            font: "normal normal normal 14px/17px Product Sans",
+                            font: {
+                              xs: "normal normal normal 12px/15px Product Sans",
+                              sm: "normal normal normal 14px/17px Product Sans",
+                            },
                             letterSpacing: "0px",
                             color: "#707787",
                           }}
@@ -305,7 +319,7 @@ const Dashboard = () => {
 
                       <Box
                         sx={{
-                          width: "16rem",
+                          width: { xs: "9rem", sm: "14rem", md: "16rem" },
                           height: "3.2rem",
                           background: "#FFFFFF 0% 0% no-repeat padding-box",
                           border: "1px solid #EAEAEA",
@@ -321,7 +335,10 @@ const Dashboard = () => {
                         <Typography
                           sx={{
                             ml: "1rem",
-                            font: "normal normal normal 13px/15px Product Sans",
+                            font: {
+                              xs: "normal normal normal 12px/14px Product Sans",
+                              sm: "normal normal normal 13px/15px Product Sans",
+                            },
                             letterSpacing: "0px",
                             color: "#707787",
                             mr: "1.1rem",
@@ -343,14 +360,19 @@ const Dashboard = () => {
 
             <Stack
               direction="row"
+              flexWrap="wrap-reverse"
+              justifyContent="center"
+              alignItems="center"
               sx={{
                 mt: "2rem",
-                ml: "3rem",
+                ml: {xs : '0rem', sm :'3rem'},
+                pb: "4.2rem",
               }}
             >
               <Box
                 sx={{
-                  flex: "0 0 50%",
+                  flex: {lg : "0 0 50%" , md : "0 0 80%", sm : "0 0 90%", xs : '0 0 90%'},
+                  mt : {xs : '2rem' ,lg : '0rem' }
                 }}
               >
                 <Typography
@@ -359,6 +381,7 @@ const Dashboard = () => {
                     letterSpacing: "0px",
                     color: "#3A3A3A",
                     mb: "1rem",
+
                   }}
                 >
                   Users (General)
@@ -367,7 +390,7 @@ const Dashboard = () => {
                   component="img"
                   src={graph}
                   sx={{
-                    width: "51rem",
+                    width: { lg: "49.5rem", xs: "100%" },
                     height: "25rem",
                   }}
                 ></Box>
@@ -375,7 +398,7 @@ const Dashboard = () => {
 
               <Box
                 sx={{
-                  flex: "0 0 50%",
+                  flex: {lg : "0 0 50%" , md : "0 0 80%", sm : "0 0 90%",xs : '0 0 90%'},
                 }}
               >
                 <Typography
@@ -392,21 +415,27 @@ const Dashboard = () => {
                   sx={{
                     border: "1px solid #F3F3F3",
                     borderRadius: "11px",
-                    mr : '3rem',
-                    padding : '0.9rem 1.3rem'
+                    mr: {xs : '0rem' , lg : '3rem'},
+                    padding: "0.9rem 1.3rem",
                   }}
                 >
-                  <Stack direction='row' justifyContent='space-evenly' alignItems='center' sx={{
-                    background: '#F3F3F3 0% 0% no-repeat padding-box' ,padding : '0.6rem 0rem' , boxSizing : 'border-box', borderRadius: '3px'
-                  }}>
-
-                   <Typography sx={userName}>User name</Typography>
-                   <Typography sx={userRecent}>Department</Typography>
-                   <Typography sx={userRecent}>Timing/Date</Typography>
-
+                  <Stack
+                    direction="row"
+                    justifyContent="space-evenly"
+                    alignItems="center"
+                    sx={{
+                      background: "#F3F3F3 0% 0% no-repeat padding-box",
+                      padding: "0.6rem 0rem",
+                      boxSizing: "border-box",
+                      borderRadius: "3px",
+                    }}
+                  >
+                    <Typography sx={userName}>User name</Typography>
+                    <Typography sx={userRecent}>Department</Typography>
+                    <Typography sx={userRecent}>Timing/Date</Typography>
                   </Stack>
 
-                  <User/>
+                  <User />
                 </Box>
               </Box>
             </Stack>

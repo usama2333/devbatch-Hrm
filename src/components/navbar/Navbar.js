@@ -13,7 +13,7 @@ import { Stack } from "@mui/material";
 const Navbarr = () => {
   return (
     <Fragment>
-      <Box sx={{ flexGrow: 1 , ml :'2rem', mt : '2rem'}}>
+      <Box sx={{ flexGrow: 1 , ml:{xs : '0rem' , sm :'1rem', md : '2rem'}, mt : '2rem'}}>
         <AppBar position="static" sx={{background : 'inherit', boxShadow : 'none'}}>
           <Toolbar>
             <Typography
@@ -21,7 +21,7 @@ const Navbarr = () => {
               component="div"
               sx={{
                 flexGrow: 1,
-                font: "normal normal bold 23px/30px Product Sans",
+                font: {xs : 'normal normal bold 18px/24px Product Sans',md : "normal normal bold 20px/26px Product Sans",lg : "normal normal bold 23px/30px Product Sans"},
                 letterSpacing: "0.78px",
                 color: "#222222",
                 textTransform: "uppercase",
@@ -31,14 +31,18 @@ const Navbarr = () => {
               Dashboard
             </Typography>
           
-            <Box component='img' src={bell}></Box>
+            <Box component='img' sx={{
+              width : {xs : '3rem',sm : '3rem',md : '3.5rem' , lg : 'auto'},
+              height : {xs : '3rem',sm : '3rem',md : '3.5rem' , lg : 'auto'},
+            }} src={bell}></Box>
            
             <Stack sx={{
                 ml : '1.5rem',
-                mr : '1.3rem'
+                mr : '1.3rem',
+                display : {xs : 'none' , sm : 'flex'}
             }}>
                 <Typography sx={{
-                     font: "normal normal normal 14px/20px Product Sans",
+                     font: {md : "normal normal normal 12px/18px Product Sans",lg : "normal normal normal 14px/20px Product Sans"},
                     letterSpacing: "0px",
                     color: "#0E1B42",
                     opacity: 1,
@@ -57,7 +61,11 @@ const Navbarr = () => {
                 </Typography>
             </Stack>
 
-            <Box component='img' src={pie}></Box>
+            <Box component='img' sx={{
+               width : {xs : '2.5rem',sm : '3rem',md : '3.5rem' , lg : 'auto'},
+              height : {xs : '2.5rem',sm : '3rem',md : '3.5rem' , lg : 'auto'},
+              display : {xs : 'none' , sm : 'flex'}
+            }} src={pie}></Box>
            
           </Toolbar>
         </AppBar>
