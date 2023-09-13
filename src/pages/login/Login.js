@@ -13,7 +13,7 @@ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 const Login = () => {
   return (
     <Fragment>
-      <Container maxWidth="custom" sx={conSx}>
+      <Container disableGutters maxWidth="custom" sx={conSx}>
         <Stack direction="row">
           <Box sx={firstBox}>
             <Box sx={absoluteBox}>
@@ -40,6 +40,7 @@ const Login = () => {
                       sx={{ maxWidth: "376px" }}
                       id="outlined-basic"
                       variant="outlined"
+                      type="password"
                     />
                   </Stack>
                   <Stack

@@ -9,7 +9,7 @@ import {absBox,alreadyAccount,conBox,createBox,emailBox,emailTypo,firstBox,
 const Signup = () => {
   return (
     <Fragment>
-      <Container maxWidth="custom" sx={conBox}>
+      <Container disableGutters maxWidth="custom" sx={conBox}>
         <Stack direction="row">
           <Box sx={firstBox}>
             <Box sx={absBox}>
@@ -43,8 +43,8 @@ const Signup = () => {
                     <Typography sx={emailTypo}>Password</Typography>
                     <TextField
                       sx={{ maxWidth: "376px" }}
-                      id="outlined-basic"
                       variant="outlined"
+                      type="password"
                     />
                   </Stack>
 
@@ -54,13 +54,14 @@ const Signup = () => {
                       sx={{ maxWidth: "376px" }}
                       id="outlined-basic"
                       variant="outlined"
+                      type="password"
                     />
                   </Stack>
                   <Button sx={signUpBtn} fullWidth variant="contained">
                     Sign Up
                   </Button>
                   <Typography sx={alreadyAccount}>
-                    If you have already account please{" "}
+                    If you have already account please?{" "}
                     <span
                       style={{ color: "#FE8062", textDecoration: "underline" }}
                     >
