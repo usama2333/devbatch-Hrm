@@ -1,5 +1,5 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import logo from "../../assests/images/logo.png";
 import dashboard from "../../assests/images/dashboard.png";
 import user from "../../assests/images/user.png";
@@ -15,10 +15,7 @@ import graph from "../../assests/images/graph.png";
 import { userName, userRecent } from "./style";
 import Users from "../../components/user/Users";
 import User from "../../components/user/User";
-
-const testHandler = () => {
-  console.log("click");
-};
+import flower from "../../assests/images/flower.png";
 
 const depart = [
   {
@@ -34,6 +31,18 @@ const depart = [
 ];
 
 const Dashboard = () => {
+  const [firstH, setFirstH] = useState("20%");
+  const [secondH, setSecondH] = useState("80%");
+  const [check, setCheck] = useState(false);
+  const [displayText, setDisplayText] = useState("grid");
+
+  const heightHandler = () => {
+    setFirstH((pre) => (pre == "20%" ? "10%" : "20%"));
+    setSecondH((pre) => (pre == "80%" ? "90%" : "80%"));
+    setCheck((pre) => (pre == false ? true : false));
+    setDisplayText((pre) => (pre == "grid" ? "none" : "grid"));
+    console.log("click");
+  };
   return (
     <Fragment>
       <Container
@@ -46,7 +55,7 @@ const Dashboard = () => {
         <Stack direction="row">
           <Box
             sx={{
-              flex: "0 0 20%",
+              flex: `0 0 ${firstH}`,
               background:
                 "transparent linear-gradient(180deg, #FE8062 0%, #7B2713 100%) 0% 0% no-repeat padding-box",
               boxShadow: "3px 0px 10px #0000000D",
@@ -63,7 +72,7 @@ const Dashboard = () => {
               }}
             >
               <Box
-                onClick={testHandler}
+                onClick={heightHandler}
                 sx={{
                   height: "5.4rem",
                   width: "5.4rem",
@@ -82,7 +91,7 @@ const Dashboard = () => {
                   opacity: 1,
                   borderRadius: "100%",
                   cursor: "pointer",
-                  display: "grid",
+                  display: displayText,
                   placeContent: "center",
                 }}
               >
@@ -93,8 +102,19 @@ const Dashboard = () => {
                 ></Box>
               </Box>
 
-              <Box component="img" src={logo}></Box>
+              {!check ? (
+                <Box component="img" src={logo}></Box>
+              ) : (
+                <Box
+                  onClick={heightHandler}
+                  component="img"
+                  sx={{ cursor: "pointer" }}
+                  src={flower}
+                ></Box>
+              )}
+
               <Stack
+                onClick={heightHandler}
                 direction="row"
                 sx={{
                   mt: "4.4rem",
@@ -113,6 +133,7 @@ const Dashboard = () => {
                     color: "#FFFFFF",
                     ml: "1.3rem",
                     opacity: 1,
+                    display: displayText,
                   }}
                 >
                   Dashboard
@@ -120,6 +141,7 @@ const Dashboard = () => {
               </Stack>
 
               <Stack
+                onClick={heightHandler}
                 direction="row"
                 sx={{
                   mt: "1rem",
@@ -138,6 +160,7 @@ const Dashboard = () => {
                     color: "#FFFFFF",
                     ml: "1.3rem",
                     opacity: 1,
+                    display: displayText,
                   }}
                 >
                   User
@@ -147,7 +170,7 @@ const Dashboard = () => {
           </Box>
           <Box
             sx={{
-              flex: "0 0 80%",
+              flex: `0 0 ${secondH}`,
             }}
           >
             <Box>
@@ -365,14 +388,19 @@ const Dashboard = () => {
               alignItems="center"
               sx={{
                 mt: "2rem",
-                ml: {xs : '0rem', sm :'3rem'},
+                ml: { xs: "0rem", sm: "3rem" },
                 pb: "4.2rem",
               }}
             >
               <Box
                 sx={{
-                  flex: {lg : "0 0 50%" , md : "0 0 80%", sm : "0 0 90%", xs : '0 0 90%'},
-                  mt : {xs : '2rem' ,lg : '0rem' }
+                  flex: {
+                    lg: "0 0 50%",
+                    md: "0 0 80%",
+                    sm: "0 0 90%",
+                    xs: "0 0 90%",
+                  },
+                  mt: { xs: "2rem", lg: "0rem" },
                 }}
               >
                 <Typography
@@ -381,7 +409,6 @@ const Dashboard = () => {
                     letterSpacing: "0px",
                     color: "#3A3A3A",
                     mb: "1rem",
-
                   }}
                 >
                   Users (General)
@@ -398,7 +425,12 @@ const Dashboard = () => {
 
               <Box
                 sx={{
-                  flex: {lg : "0 0 50%" , md : "0 0 80%", sm : "0 0 90%",xs : '0 0 90%'},
+                  flex: {
+                    lg: "0 0 50%",
+                    md: "0 0 80%",
+                    sm: "0 0 90%",
+                    xs: "0 0 90%",
+                  },
                 }}
               >
                 <Typography
@@ -415,7 +447,7 @@ const Dashboard = () => {
                   sx={{
                     border: "1px solid #F3F3F3",
                     borderRadius: "11px",
-                    mr: {xs : '0rem' , lg : '3rem'},
+                    mr: { xs: "0rem", lg: "3rem" },
                     padding: "0.9rem 1.3rem",
                   }}
                 >
