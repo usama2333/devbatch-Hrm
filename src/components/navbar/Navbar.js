@@ -21,7 +21,7 @@ const Navbarr = () => {
               component="div"
               sx={{
                 flexGrow: 1,
-                font: "normal normal bold 25px/30px Product Sans",
+                font: "normal normal bold 23px/30px Product Sans",
                 letterSpacing: "0.78px",
                 color: "#222222",
                 textTransform: "uppercase",

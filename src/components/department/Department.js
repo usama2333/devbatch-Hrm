@@ -8,7 +8,7 @@ const Department = ({img , name , user}) => {
     <Fragment>
       <Box
         sx={{
-          width: "255px",
+          width: "24rem",
           height: "111px",
           background: "#FCFCFC 0% 0% no-repeat padding-box",
           borderRadius: "10px",
