@@ -126,13 +126,14 @@ const User = () => {
       <Box
         sx={{
           width: "92%",
-          height: "379px",
+          // height: "379px",
           margin: "0px auto",
           background: "#FFFFFF 0% 0% no-repeat padding-box",
           border: "1px solid #EAEAEA",
           borderRadius: "4px",
           opacity: 1,
-          mt: "5.9rem",
+          mt: "5rem",
+          pb : '2rem'
         }}
       >
         <Box
@@ -270,10 +271,11 @@ const User = () => {
         sx={{
           width: "93%",
           margin: "0px auto",
-          mt: "2.7rem",
+          mt: "2rem",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          // pb :'6.9rem'
         }}
       >
         <Box

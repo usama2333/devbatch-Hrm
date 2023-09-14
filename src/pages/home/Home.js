@@ -9,6 +9,7 @@ import flower from "../../assests/images/flower.png";
 import Dashboard from "../../components/dashboard/Dashboard";
 import User from "../../components/user/User";
 import { dashboardSx, relBox, userSx } from "./style";
+import AddUser from "../../components/addUser/AddUser";
 
 const Home = () => {
   const [firstH, setFirstH] = useState("20%");
@@ -49,13 +50,15 @@ const Home = () => {
             sx={{
               // transition : `flex 0 0 ${firstH} 0.3s ease-in-out`,
               flex: `0 0 ${firstH}`,
-              // transition: 'flex 0.3s ease-in-out',
+              transition: 'flex 0.3s ease-in-out',
               backfaceVisibility : 'hidden',
               background:
                 "transparent linear-gradient(180deg, #FE8062 0%, #7B2713 100%) 0% 0% no-repeat padding-box",
               boxShadow: "3px 0px 10px #0000000D",
               opacity: 1,
-              height: "65rem",
+              // height: "65rem",
+              height : '100vh',
+              position : 'sticky'
             }}
           >
             <Box sx={relBox}>
@@ -66,25 +69,14 @@ const Home = () => {
                   width: "5.4rem",
                   position: "absolute",
                   backfaceVisibility : 'hidden',
-                  // transition: 'margin 0.3s ease-in-out',
-                  marginLeft: check
-                    ? "110px"
-                    : {
-                      xxs: "100px",
-                        xs: "100px",
-                        sm: "120px",
-                        md: "170px",
-                        lg: "247px",
-                        xl: "280px",
-                        custom: "355px",
-                      },
+                  transition: 'all 0.3s ease-in-out',
+                  right : {xxs : '-3rem',xs : '-4rem',sm : '-5rem', md : '-2.25rem'},
                   mt: "30px",
                   background: "#FE8062 0% 0% no-repeat padding-box",
                   boxShadow: "-5px 0px 6px #0000000D",
                   opacity: 1,
                   borderRadius: "100%",
                   cursor: "pointer",
-                  // display: displayText,
                   display: "grid",
                   placeContent: "center",
                 }}
@@ -168,6 +160,7 @@ const Home = () => {
           <Box
             sx={{
               flex: `0 0 ${secondH}`,
+              transition: 'all 0.3s ease-in-out',
             }}
           >
             <Box>
@@ -175,8 +168,9 @@ const Home = () => {
             </Box>
 
             <Box>
-              {show === "dashboard" && <Dashboard />}
-              {show === "user" && <User />}
+              {/* {show === "dashboard" && <Dashboard />}
+              {show === "user" && <User />} */}
+              <AddUser/>
             </Box>
           </Box>
         </Stack>
