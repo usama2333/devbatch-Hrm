@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import { EnergySavingsLeafSharp, Search } from "@mui/icons-material";
@@ -11,7 +11,14 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { tableHeader, tableBodyText } from "./style";
+import {
+  tableHeader,
+  tableBodyText,
+  backColor,
+  backText,
+  normalColor,
+  normalText,
+} from "./style";
 import eyes from "../../assests/images/eye.png";
 import bin from "../../assests/images/bin.png";
 import edit from "../../assests/images/edit.png";
@@ -113,6 +120,7 @@ const rows = [
 ];
 
 const User = () => {
+  const [activeState, seteactiveState] = useState(0);
   return (
     <Fragment>
       <Box
@@ -299,104 +307,26 @@ const User = () => {
           }}
         >
           <Box
-            sx={{ width: "2.5rem", height: "2.5rem", mr : '1rem' }}
+            sx={{ width: "2.5rem", height: "2.5rem", mr: "1rem" }}
             component="img"
             src={leftArrow}
           ></Box>
-          <Box
-            sx={{
-              width: "2.5rem",
-              height: "2.5rem",
-              background: "#FE8062 0% 0% no-repeat padding-box",
 
-              borderRadius: "4px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Typography
-              sx={{
-                font: "normal normal normal 8px Product Sans",
-                letterSpacing: "0px",
-                color: "#FFFFFF",
-              }}
-            >
-              01
-            </Typography>
-          </Box>
+          {[0, 1, 2, 3].map((item) => {
+            return (
+              <Box
+                onClick={() => seteactiveState(item)}
+                sx={item === activeState ? backColor : normalColor}
+              >
+                <Typography
+                  sx={item === activeState ? backText : normalText}
+                >{`0${item + 1}`}</Typography>
+              </Box>
+            );
+          })}
 
           <Box
-            sx={{
-              width: "2.5rem",
-              height: "2.5rem",
-              // background: "#FE8062 0% 0% no-repeat padding-box",
-
-              borderRadius: "4px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Typography
-              sx={{
-                font: "normal normal normal 8px Product Sans",
-                letterSpacing: "0px",
-                color: "#707787",
-              }}
-            >
-              01
-            </Typography>
-          </Box>
-
-          <Box
-            sx={{
-              width: "2.5rem",
-              height: "2.5rem",
-              // background: "#FE8062 0% 0% no-repeat padding-box",
-
-              borderRadius: "4px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Typography
-              sx={{
-                font: "normal normal normal 8px Product Sans",
-                letterSpacing: "0px",
-                color: "#707787",
-              }}
-            >
-              03
-            </Typography>
-          </Box>
-
-          <Box
-            sx={{
-              width: "2.5rem",
-              height: "2.5rem",
-              // background: "#FE8062 0% 0% no-repeat padding-box",
-
-              borderRadius: "4px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Typography
-              sx={{
-                font: "normal normal normal 8px Product Sans",
-                letterSpacing: "0px",
-                color: "#707787",
-              }}
-            >
-              04
-            </Typography>
-          </Box>
-
-          <Box
-            sx={{ width: "2.5rem", height: "2.5rem", ml :'1rem' }}
+            sx={{ width: "2.5rem", height: "2.5rem", ml: "1rem" }}
             component="img"
             src={rightArrow}
           ></Box>
