@@ -7,22 +7,22 @@ export const conSx = {
 };
 
 export const firstBox = {
-  flex: { xs: "0 0 0%", sm: "0 0 0%", md: "0 0 40%" },
+  flex: { xxs: "0 0 0%",xs: "0 0 0%", sm: "0 0 0%", md: "0 0 40%" },
   position: "relative",
 };
 
 export const absoluteBox = {
   mt: "6.5rem",
   // mb : '2rem',
-  width: { xs: "350px", sm: "551px" },
+  width: { xxs: "270px",xs: "370px", sm: "551px" },
   // height: "500px",
   /* UI Properties */
   background: "#F9F9F9 0% 0% no-repeat padding-box",
   boxShadow: "0px 0px 70px #FE80626E",
-  borderRadius: { xs: "2rem", sm: "4rem" },
+  borderRadius: { xxs: "2rem",xs: "2rem", sm: "4rem" },
   opacity: 1,
   position: "absolute",
-  left: { xs: "0rem", lg: "10.5rem" },
+  left: { xxs: "0.5rem",xs: "2rem",sm : '4rem',md : '8rem', lg: "10.5rem" },
 };
 
 export const loginTypo = {
@@ -45,8 +45,8 @@ export const detailTypo = {
 };
 
 export const formBox = {
-  marginLeft: { xs: "1.5rem", sm: "8rem" },
-  mr: { xs: "1.5rem" },
+  marginLeft: { xxs: "1.5rem",xs: "1.5rem", sm: "8rem" },
+  mr: { xs: "1.5rem",xxs: "1.5rem" },
 };
 
 export const emailBox = {
@@ -92,11 +92,15 @@ export const signInBox = {
   maxWidth: "376px",
   background: "#FE8062 0% 0% no-repeat padding-box",
   mb: "3rem",
+  '&:hover': {
+    backgroundColor: '#d66145'
+}
 };
 
 export const accountBox = {
   textAlign: "center",
-  ml: "-8rem",
+  ml: {xxs : '0rem',xs : '-3rem', sm : '-8rem'},
+  font: "normal normal normal 1.2rem Product Sans",
   color: "#344054",
   opacity: 1,
   pb: "5rem",
@@ -110,7 +114,7 @@ export const spanBox = {
 };
 
 export const devBox = {
-  ml: "-8rem",
+  ml: {xxs : '0rem',xs : '-3rem', sm : '-8rem'},
   textAlign: "center",
   font: "italic normal normal 1.3rem Product Sans",
   letterSpacing: "0px",
@@ -120,7 +124,7 @@ export const devBox = {
 };
 
 export const secondBox = {
-  flex: { xs: "0 0 100%", sm: "0 0 100%", md: "0 0 60%" },
+  flex: { xxs: "0 0 100%",xs: "0 0 100%", sm: "0 0 100%", md: "0 0 60%" },
 };
 
 export const imgBox = {

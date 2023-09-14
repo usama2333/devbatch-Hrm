@@ -8,6 +8,14 @@ import {absoluteBox,accountBox,conSx,detailTypo,devBox,emailBox,firstBox,forgotB
   loginTypo,passwordBox, remBox,remTypo,spanBox,secondBox,signInBox,imgBox,
 } from "./style";
 import { useHistory } from "react-router-dom";
+import { useFormik } from "formik";
+import { loginSchema } from "../../schema/login";
+
+const initialValues = {
+  email: "",
+  password: "",
+
+};
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -16,6 +24,15 @@ const Login = () => {
   const signupHandler = () => {
     history.push('/');
   }
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: initialValues,
+      validationSchema: loginSchema,
+      onSubmit: (values, action) => {
+        console.log(values,'data....................')
+        // AddInputData(values, history, notify);
+      },
+    });
   return (
     <Fragment>
       <Container disableGutters maxWidth="custom" sx={conSx}>
@@ -29,24 +46,54 @@ const Login = () => {
                 </Typography>
 
                 <Box sx={formBox}>
+                <form onSubmit={handleSubmit}>
                   <Stack>
                     <Typography sx={emailBox}>Email</Typography>
 
                     <TextField
                       sx={{ maxWidth: "376px" }}
-                      id="outlined-basic"
                       variant="outlined"
+                      size="small"
+                      id="email"
+                        name="email"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.email}
                     />
+                    {errors.email && touched.email ? (
+                        <Typography
+                          variant="p"
+                          color="red"
+                          sx={{ fontSize: "14px",  }}
+                        >
+                          {errors.email}
+                        </Typography>
+                      ) : null}
                   </Stack>
 
                   <Stack>
                     <Typography sx={passwordBox}>Password</Typography>
                     <TextField
                       sx={{ maxWidth: "376px" }}
-                      id="outlined-basic"
+                      
                       variant="outlined"
                       type="password"
+                      size="small"
+                      id="password"
+                        name="password"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.password}
                     />
+                    {errors.password && touched.password ? (
+                        <Typography
+                          variant="p"
+                          color="red"
+                          sx={{ fontSize: "14px" }}
+                        >
+                          {errors.password}
+                        </Typography>
+                      ) : null}
                   </Stack>
                   <Stack
                     direction="row"
@@ -61,9 +108,10 @@ const Login = () => {
                     <Typography sx={forgotBox}>Forgot password?</Typography>
                   </Stack>
 
-                  <Button sx={signInBox} fullWidth variant="contained">
+                  <Button type="submit" sx={signInBox} fullWidth variant="contained">
                     Sign in
                   </Button>
+                  </form>
                   <Typography sx={accountBox}>
                     Don't have an account? <span onClick={signupHandler} style={spanBox}>Sign up</span>
                   </Typography>

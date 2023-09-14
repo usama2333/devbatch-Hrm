@@ -5,6 +5,7 @@ import Signup from './pages/signup/Signup';
 import Login from './pages/login/Login';
 import Home from './pages/home/Home';
 
+
 function App() {
   return (
     <Fragment>
@@ -21,6 +22,7 @@ function App() {
       <Route exact path="/" component={Signup} />
       </Switch>
       </Router>
+      
 
     </Fragment>
   );

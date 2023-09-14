@@ -15,20 +15,14 @@ export const userName = {
     letterSpacing: '0px',
     color: '#2D2D2D',
     opacity: 1,
-    ml : {xs : '-30px' , sm :'-80px'}
+    ml : {xxs : '-30px' ,xs : '-30px' , sm :'-80px'}
 }
 
 export const relBox = {
-    ml: { xs: "1rem", sm: "2rem" },
-    mr: { xs: "1rem", sm: "2rem", md: "0rem" },
+    
+    mr: { xxs: "1rem",xs: "1rem", sm: "2rem", md: "0rem" },
     mt: "3rem",
     position: "relative",
 }
 
-// export const dashboardSx= {
-   
-// }
 
-export const userSx= {
-    
-}

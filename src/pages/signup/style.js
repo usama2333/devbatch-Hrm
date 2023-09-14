@@ -7,22 +7,24 @@ export const conBox = {
 };
 
 export const firstBox = {
-  flex: { xs: "0 0 0%", sm: "0 0 0%", md: "0 0 40%" },
+  flex: { xxs: "0 0 0%",xs: "0 0 0%", sm: "0 0 0%", md: "0 0 40%" },
   position: "relative",
 };
 
 export const absBox = {
-  mt: "5rem",
+  mt: "7rem",
   // mb : '2rem',
-  width: { xs: "350px", sm: "551px" },
+  width: { xxs: "270px",xs: "370px", sm: "551px" },
   // height: "500px",
   /* UI Properties */
   background: "#F9F9F9 0% 0% no-repeat padding-box",
   boxShadow: "0px 0px 70px #FE80626E",
-  borderRadius: { xs: "2rem", sm: "4rem" },
+  borderRadius: {xxs: "2rem",xs: "2rem", sm: "4rem" },
+  boxSizing : 'border-box',
   opacity: 1,
   position: "absolute",
-  left: { xs: "0rem", lg: "10.5rem" },
+  left: { xxs: "0.5rem",xs: "2rem",sm : '4rem',md : '8rem', lg: "10.5rem" },
+  
 };
 
 export const signUpTypo = {
@@ -45,8 +47,8 @@ export const createBox = {
 };
 
 export const emailBox = {
-  marginLeft: { xs: "1.5rem", sm: "8rem" },
-  mr: { xs: "1.5rem" },
+  marginLeft: { xxs: "1.5rem",xs: "1.5rem", sm: "8rem" },
+  mr: { xxs: "1.5rem",xs: "1.5rem" },
 };
 
 export const emailTypo = {
@@ -65,12 +67,15 @@ export const signUpBtn = {
   maxWidth: "376px",
   background: "#FE8062 0% 0% no-repeat padding-box",
   mb: "2rem",
-};
+  '&:hover': {
+    backgroundColor: '#d66145'
+}
+}
 
 export const alreadyAccount = {
   textAlign: "center",
-  ml: "-8rem",
-  font: "normal normal normal 1.3rem Product Sans",
+  ml: {xxs : '0rem',xs : '-3rem', sm : '-8rem'},
+  font: "normal normal normal 1.2rem Product Sans",
   letterSpacing: "0px",
   color: "#344054",
   opacity: 1,
@@ -78,12 +83,13 @@ export const alreadyAccount = {
 };
 
 export const secondHaf = {
-  flex: { xs: "0 0 100%", sm: "0 0 100%", md: "0 0 60%" },
+  flex: { xxs: "0 0 100%", xs: "0 0 100%", sm: "0 0 100%", md: "0 0 60%" },
 };
 
 export const imgBox = {
   width: "100%",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
+  // backgroundPosition : 'center',
   height: "64.8rem",
 };

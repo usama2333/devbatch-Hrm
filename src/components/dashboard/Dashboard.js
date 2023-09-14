@@ -2,12 +2,12 @@ import { Box, Container, Stack, Typography } from "@mui/material";
 import React, { Fragment, useState } from "react";
 import calander from "../../assests/images/calander.png";
 import Department from "../department/Department";
-import icon from "../../assests/images/icon.png";
 import graph from "../../assests/images/graph.png";
-import {addEmail,adduser,adduserBox,adduserInner,calanderMain,dateBox,depart,emailMain,
-  graphBox,graphFlex,graphStack,linkBox,linkTypo,nameTypo,recentFlex,recentTypo,recentUserBox,
-  recentUserStack, secondMail,userGeneral,userName,userRecent,welcome} from "./style";
+import {calanderMain,dateBox,depart,
+  graphBox,graphFlex,graphStack,nameTypo,recentFlex,recentTypo,recentUserBox,
+  recentUserStack,userGeneral,userName,userRecent,welcome} from "./style";
 import User from "../recent/Recent";
+import AddNew from "../newsuer/AddNew";
 
 const Dashboard = () => {
   return (
@@ -46,25 +46,9 @@ const Dashboard = () => {
             </Box>
           ))}
 
-          <Box sx={adduserBox}>
-            <Box sx={adduserInner}>
-              <Typography sx={adduser}>Add New Users</Typography>
-              <Typography sx={addEmail}>
-                Add an Email & send the magic link to users.
-              </Typography>
+         <AddNew/>
 
-              <Stack direction="row">
-                <Box sx={emailMain}>
-                  <Typography sx={secondMail}>hassan@gmail.com</Typography>
-                </Box>
 
-                <Box sx={linkBox}>
-                  <Typography sx={linkTypo}>send link</Typography>
-                  <Box component="img" src={icon}></Box>
-                </Box>
-              </Stack>
-            </Box>
-          </Box>
         </Stack>
       </Box>
 

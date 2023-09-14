@@ -43,10 +43,14 @@ const Home = () => {
           width: "100%",
         }}
       >
+     
         <Stack direction="row">
           <Box
             sx={{
+              // transition : `flex 0 0 ${firstH} 0.3s ease-in-out`,
               flex: `0 0 ${firstH}`,
+              // transition: 'flex 0.3s ease-in-out',
+              backfaceVisibility : 'hidden',
               background:
                 "transparent linear-gradient(180deg, #FE8062 0%, #7B2713 100%) 0% 0% no-repeat padding-box",
               boxShadow: "3px 0px 10px #0000000D",
@@ -61,16 +65,18 @@ const Home = () => {
                   height: "5.4rem",
                   width: "5.4rem",
                   position: "absolute",
-
-                  ml: check
-                    ? "90px"
+                  backfaceVisibility : 'hidden',
+                  // transition: 'margin 0.3s ease-in-out',
+                  marginLeft: check
+                    ? "110px"
                     : {
-                        xs: "80px",
-                        sm: "100px",
+                      xxs: "100px",
+                        xs: "100px",
+                        sm: "120px",
                         md: "170px",
-                        lg: "227px",
+                        lg: "247px",
                         xl: "280px",
-                        custom: "330px",
+                        custom: "355px",
                       },
                   mt: "30px",
                   background: "#FE8062 0% 0% no-repeat padding-box",
@@ -91,11 +97,11 @@ const Home = () => {
               </Box>
 
               {!check ? (
-                <Box component="img" src={logo}></Box>
+                <Box component="img" sx={{ml: { xxs: "1rem",xs: "1rem", sm: "2rem" }}} src={logo}></Box>
               ) : (
                 <Box
                   component="img"
-                  sx={{ cursor: "pointer" }}
+                  sx={{ cursor: "pointer",ml: { xxs: "1rem",xs: "1rem", sm: "2rem" } }}
                   src={flower}
                 ></Box>
               )}
@@ -104,6 +110,7 @@ const Home = () => {
                 onClick={dashboardHandler}
                 direction="row"
                 sx={{
+                  
                   mt: "4.4rem",
                   padding: "1rem 0",
                   width: "100%",
@@ -113,7 +120,7 @@ const Home = () => {
                     
                 }}
               >
-                <Box component="img" src={dashboard}></Box>
+                <Box sx={{ml: { xxs: "1rem",xs: "1rem", sm: "2rem" }}} component="img" src={dashboard}></Box>
 
                 <Typography
                   sx={{
@@ -138,10 +145,10 @@ const Home = () => {
                   padding: "1rem 0",
                   boxSizing: "border-box",
                   cursor: "pointer",
-                  background: show === 'dashboard' && "transparent linear-gradient(90deg, #FFFFFF26 0%, #4A90E200 100%) 0% 0% no-repeat padding-box" 
+                  background: show === 'user' && "transparent linear-gradient(90deg, #FFFFFF26 0%, #4A90E200 100%) 0% 0% no-repeat padding-box" 
                 }}
               >
-                <Box component="img" src={user}></Box>
+                <Box sx={{ml: { xxs: "1rem",xs: "1rem", sm: "2rem" }}} component="img" src={user}></Box>
 
                 <Typography
                   sx={{
