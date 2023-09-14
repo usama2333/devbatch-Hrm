@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React, { Fragment, useState } from "react";
 import TextField from "@mui/material/TextField";
-import { inputTextStyle } from "./style";
+import { inputTextStyle, phoneTextStyle } from "./style";
 import SwitchButton from "../switch/SwitchButton";
 import Button from "@mui/material/Button";
 import dummy from "../../assests/images/dummy.png";
@@ -138,7 +138,8 @@ const AddUser = () => {
                 sx={{
                   display: "flex",
                   justifyContent: "space-between",
-                  pr: "3rem",
+                  flexWrap : {xxs : 'wrap', sm :'nowrap'},
+                  pr: {sm : '0rem',md : '2rem', lg : '3rem'},
                 }}
               >
                 <Typography sx={inputTextStyle}>Upload Image</Typography>
@@ -147,16 +148,22 @@ const AddUser = () => {
                     background: "#FFFFFF 0% 0% no-repeat padding-box",
                     border: "1px solid #D0D5DD",
                     borderRadius: "10px",
-                    height: "130px",
-                    width: "130px",
+                    height: {sm : '60px',md : '118px',lg :'130px',},
+                    width: {sm : '60px',md : '118px',lg :'130px',},
                     mt: "1rem",
                     display: "flex",
+                    // flexWrap : {xxs : 'wrap', md :'nowrap'},
                     justifyContent: "center",
                     alignItems: "center",
+                    display : {xxs : 'none' , sm :'flex'}
                     // ml : '4rem'
                   }}
                 >
-                  <Box component="img" src={dummy}></Box>
+                  <Box component="img" sx={{
+                    width : {sm : '40px',md : '70px' , lg : '80px'},
+                    height : {sm :'30px', md :'60px'},
+                    
+                  }} src={dummy}></Box>
                 </Box>
                 <Box
                   sx={{
@@ -174,6 +181,7 @@ const AddUser = () => {
                       },
                     }}
                     variant="contained"
+                    size ='small'
                   >
                     <Box
                       sx={{
@@ -188,7 +196,7 @@ const AddUser = () => {
                           font: "normal normal normal 14px/17px Product Sans",
                           color: "#FFFFFF",
                           textTransform: "capitalize",
-                          ml: "0.8rem",
+                          ml: "0.7rem",
                         }}
                       >
                         Upload
@@ -199,11 +207,11 @@ const AddUser = () => {
                 <Box
                   component="img"
                   src={cancel}
-                  sx={{ height: "22px", width: "22px", mt: "1rem" }}
+                  sx={{ height: "22px", width: "22px", mt: "1rem" ,cursor :'pointer'}}
                 ></Box>
               </Box>
 
-              <Typography sx={inputTextStyle}>Phone No</Typography>
+              <Typography sx={phoneTextStyle}>Phone No</Typography>
               <TextField
                 id="outlined-basic"
                 fullWidth
