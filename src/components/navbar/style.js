@@ -14,6 +14,7 @@ export const dashboardBox = {
 export const bellIconBox= {
     width : {xxs : '3rem',xs : '3rem',sm : '3rem',md : '3.5rem' , lg : 'auto'},
     height : {xxs : '3rem',xs : '3rem',sm : '3rem',md : '3.5rem' , lg : 'auto'},
+    display : {xxs : 'none' ,xs : 'none' , sm : 'flex'}
 }
 
 export const navStack= {
@@ -40,5 +41,6 @@ export const navEmail = {
 export const pieIcon = {
     width : {xxs : '2.5rem',xs : '2.5rem',sm : '3rem',md : '3.5rem' , lg : 'auto'},
               height : {xxs : '2.5rem',xs : '2.5rem',sm : '3rem',md : '3.5rem' , lg : 'auto'},
-              display : {xxs : 'none' ,xs : 'none' , sm : 'flex'}
+              cursor : 'pointer'
+            //   display : {xxs : 'none' ,xs : 'none' , sm : 'flex'}
 }

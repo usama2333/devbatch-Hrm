@@ -10,34 +10,38 @@ import Dashboard from "../../components/dashboard/Dashboard";
 import User from "../../components/user/User";
 import { dashboardSx, relBox, transitionBox, userSx } from "./style";
 import AddUser from "../../components/addUser/AddUser";
+import { useDispatch, useSelector } from "react-redux";
+import { tableActions } from "../../store/table";
+
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const show = useSelector((state) => state.table.show);
+  
   const [firstH, setFirstH] = useState("20%");
   const [secondH, setSecondH] = useState("80%");
   const [check, setCheck] = useState(false);
   const [displayText, setDisplayText] = useState("grid");
-  const [show, setShow] = useState("dashboard");
-
+ 
   const heightHandler = () => {
     setFirstH((pre) => (pre == "20%" ? "10%" : "20%"));
     setSecondH((pre) => (pre == "80%" ? "90%" : "80%"));
     setCheck((pre) => (pre == false ? true : false));
     setDisplayText((pre) => (pre == "grid" ? "none" : "grid"));
+  
     console.log("click");
   };
 
   const dashboardHandler = () => {
-    console.log("dashboard Click");
-    setShow("dashboard");
+    dispatch(tableActions.setShow('dashboard'));
   };
 
   const userHandler = () => {
-    console.log("user Click");
-    setShow("user");
+    dispatch(tableActions.setShow('user'));
   };
 
   const addUserHandler = () => {
-      setShow('adduser')
+      dispatch(tableActions.setShow('adduser'));
   }
   return (
     <Fragment>
@@ -52,7 +56,7 @@ const Home = () => {
         <Stack direction="row">
           <Box
             sx={{
-              // transition : `flex 0 0 ${firstH} 0.3s ease-in-out`,
+            
               flex: `0 0 ${firstH}`,
               transition: 'flex 0.3s ease-in-out',
               backfaceVisibility : 'hidden',
@@ -82,7 +86,7 @@ const Home = () => {
               ) : (
                 <Box
                   component="img"
-                  sx={{ cursor: "pointer",ml: { xxs: "1rem",xs: "1rem", sm: "2rem" } }}
+                  sx={{ cursor: "pointer",ml: { xxs: "1rem",xs: "1rem", sm: "1rem" } }}
                   src={flower}
                 ></Box>
               )}
@@ -126,7 +130,7 @@ const Home = () => {
                   padding: "1rem 0",
                   boxSizing: "border-box",
                   cursor: "pointer",
-                  background: show === 'user' && "transparent linear-gradient(90deg, #FFFFFF26 0%, #4A90E200 100%) 0% 0% no-repeat padding-box" 
+                  background: show == 'user' && "transparent linear-gradient(90deg, #FFFFFF26 0%, #4A90E200 100%) 0% 0% no-repeat padding-box" 
                 }}
               >
                 <Box sx={{ml: { xxs: "1rem",xs: "1rem", sm: "2rem" }}} component="img" src={user}></Box>

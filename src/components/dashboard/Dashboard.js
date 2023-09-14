@@ -8,6 +8,7 @@ import {calanderMain,dateBox,depart,
   recentUserStack,userGeneral,userName,userRecent,welcome} from "./style";
 import User from "../recent/Recent";
 import AddNew from "../newsuer/AddNew";
+import DatePick from "../datepicker/DatePick";
 
 const Dashboard = () => {
   return (
@@ -25,8 +26,9 @@ const Dashboard = () => {
 
           <Box sx={calanderMain}>
             <Stack direction="row">
-              <Box component="img" src={calander}></Box>
-              <Typography sx={dateBox}>Jul, 28 2022 - Jul, 28 2022</Typography>
+              {/* <Box component="img" src={calander}></Box> */}
+              <DatePick/>
+              {/* <Typography sx={dateBox}>Jul, 28 2022 - Jul, 28 2022</Typography> */}
             </Stack>
           </Box>
         </Stack>

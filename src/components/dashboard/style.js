@@ -57,15 +57,10 @@ export const nameTypo = {
 }
 
 export const calanderMain={
-    background: "#FCFCFC 0% 0% no-repeat padding-box",
+    background: "#FCFCFC 0% 0% no-repeat border-box",
     borderRadius: "5px",
     opacity: 1,
     mr: {xxs : '2rem',xs : '4rem'},
-    height: "5rem",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: "0px 2rem",
     mt: "3rem",
 }
 
