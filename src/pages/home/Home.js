@@ -8,7 +8,7 @@ import Navbar from "../../components/navbar/Navbar";
 import flower from "../../assests/images/flower.png";
 import Dashboard from "../../components/dashboard/Dashboard";
 import User from "../../components/user/User";
-import { dashboardSx, relBox, userSx } from "./style";
+import { dashboardSx, relBox, transitionBox, userSx } from "./style";
 import AddUser from "../../components/addUser/AddUser";
 
 const Home = () => {
@@ -35,6 +35,10 @@ const Home = () => {
     console.log("user Click");
     setShow("user");
   };
+
+  const addUserHandler = () => {
+      setShow('adduser')
+  }
   return (
     <Fragment>
       <Container
@@ -64,22 +68,7 @@ const Home = () => {
             <Box sx={relBox}>
               <Box
                 onClick={heightHandler}
-                sx={{
-                  height: "5.4rem",
-                  width: "5.4rem",
-                  position: "absolute",
-                  backfaceVisibility : 'hidden',
-                  transition: 'all 0.3s ease-in-out',
-                  right : {xxs : '-3rem',xs : '-4rem',sm : '-5rem', md : '-2.25rem'},
-                  mt: "30px",
-                  background: "#FE8062 0% 0% no-repeat padding-box",
-                  boxShadow: "-5px 0px 6px #0000000D",
-                  opacity: 1,
-                  borderRadius: "100%",
-                  cursor: "pointer",
-                  display: "grid",
-                  placeContent: "center",
-                }}
+                sx={transitionBox}
               >
                 <Box
                   component="img"
@@ -168,9 +157,10 @@ const Home = () => {
             </Box>
 
             <Box>
-              {/* {show === "dashboard" && <Dashboard />}
-              {show === "user" && <User />} */}
-              <AddUser/>
+              {show === "dashboard" && <Dashboard />}
+              {show === "user" && <User adduser={addUserHandler} />}
+              {show === "adduser" && <AddUser/>}
+              
             </Box>
           </Box>
         </Stack>

@@ -119,7 +119,7 @@ const rows = [
   ),
 ];
 
-const User = () => {
+const User = ({adduser}) => {
   const [activeState, seteactiveState] = useState(0);
   return (
     <Fragment>
@@ -168,6 +168,7 @@ const User = () => {
               },
             }}
             variant="contained"
+            onClick={adduser}
           >
             + &nbsp; Add Users
           </Button>
