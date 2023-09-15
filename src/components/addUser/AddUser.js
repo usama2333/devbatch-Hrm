@@ -6,23 +6,36 @@ import SwitchButton from "../switch/SwitchButton";
 import Button from "@mui/material/Button";
 import dummy from "../../assests/images/dummy.png";
 import cancel from "../../assests/images/cancel.png";
-import download from "../../assests/images/download.png";
 import UploadIcon from "@mui/icons-material/Upload";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { useFormik } from "formik";
+import { userSchema } from "../../schema/user";
+
+const initialValues = {
+  name: "",
+  email: "",
+  designation: "",
+  department: "",
+  gender: "",
+  // image: "",
+  phone: "",
+  cnic: "",
+  address: "",
+};
 
 const AddUser = () => {
-  const [department, setDepartment] = useState("Select your department");
-  const [gender, setGender] = useState("Male");
-  const handleChangeDepartment = (event) => {
-    setDepartment(event.target.value);
-  };
-  const handleChangeGender = (event) => {
-    setGender(event.target.value);
-  };
-
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: initialValues,
+      validationSchema: userSchema,
+      onSubmit: (values, action) => {
+        console.log("data submited");
+        console.log(values, "new user data");
+        // AddInputData(values, history, notify);
+      },
+    });
   return (
     <Fragment>
       <Box
@@ -60,7 +73,7 @@ const AddUser = () => {
 
         {/* form section */}
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <Box
             sx={{
               display: "flex",
@@ -68,69 +81,119 @@ const AddUser = () => {
             }}
           >
             <Box sx={{ flex: "0 0 49%", pr: "2rem" }}>
-              <Typography sx={inputTextStyle}>Name</Typography>
+              <Typography style={{color : errors.name && touched.name ? 'red' : '#344054'}} sx={inputTextStyle}>
+              Name 
+              {errors.name && touched.name ? (
+                <span style={{color : 'red'}}>
+                  &nbsp;*
+                </span>
+              ) : null}
+              </Typography>
               <TextField
-                id="outlined-basic"
                 fullWidth
                 size="small"
                 variant="outlined"
                 placeholder="Enter your name"
                 autoComplete="off"
+                id="name"
+                name="name"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.name}
               />
+             
 
-              <Typography sx={inputTextStyle}>Email</Typography>
+              <Typography style={{color : errors.email && touched.email ? 'red' : '#344054'}} sx={inputTextStyle}>
+              Email
+              {errors.email && touched.email ? (
+                <span style={{color : 'red'}}>
+                  &nbsp;*
+                </span>
+              ) : null}
+              </Typography>
               <TextField
-                id="outlined-basic"
                 fullWidth
                 size="small"
                 variant="outlined"
                 placeholder="Enter your email"
                 autoComplete="off"
+                id="email"
+                name="email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
               />
+             
 
-              <Typography sx={inputTextStyle}>Designation</Typography>
+              <Typography style={{color : errors.designation && touched.designation ? 'red' : '#344054'}} sx={inputTextStyle}>
+              Designation
+              {errors.designation && touched.designation ? (
+                <span style={{color : 'red'}}>
+                  &nbsp;*
+                </span>
+              ) : null}
+              </Typography>
               <TextField
-                id="outlined-basic"
                 fullWidth
                 size="small"
                 variant="outlined"
                 placeholder="Add your designation"
                 autoComplete="off"
+                id="designation"
+                name="designation"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.designation}
               />
+             
 
-              <InputLabel sx={inputTextStyle} id="department">
+              <InputLabel style={{color : errors.department && touched.department ? 'red' : '#344054'}} sx={inputTextStyle} id="department">
                 Department
+                {errors.department && touched.department ? (
+                <span style={{color : 'red'}}>
+                  &nbsp;*
+                </span>
+              ) : null}
               </InputLabel>
               <Select
                 labelId="department"
                 fullWidth
-                // placeholder="Select a department"
                 size="small"
                 id="department"
-                value={department}
-                onChange={handleChangeDepartment}
+                name="department"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.department}
               >
-                <MenuItem value={10}>IT</MenuItem>
-                <MenuItem value={20}>Computer Science</MenuItem>
-                <MenuItem value={30}>Engeeniring</MenuItem>
+                <MenuItem value={"IT"}>IT</MenuItem>
+                <MenuItem value={"Computer Science"}>Computer Science</MenuItem>
+                <MenuItem value={"Engeeniring"}>Engeeniring</MenuItem>
               </Select>
+             
 
-              <InputLabel sx={inputTextStyle} id="gender">
+              <InputLabel style={{color : errors.gender && touched.gender ? 'red' : '#344054'}} sx={inputTextStyle} id="gender">
                 Gender
+                {errors.gender && touched.gender ? (
+                <span style={{color : 'red'}}>
+                  &nbsp;*
+                </span>
+              ) : null}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-label"
                 fullWidth
-                // placeholder="Select a department"
                 size="small"
                 id="gender"
-                value={gender}
-                onChange={handleChangeGender}
+                name="gender"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.gender}
               >
-                <MenuItem value={10}>Male</MenuItem>
-                <MenuItem value={20}>Female Science</MenuItem>
-                <MenuItem value={30}>other</MenuItem>
+                <MenuItem value={"male"}>Male</MenuItem>
+                <MenuItem value={"female"}>Female Science</MenuItem>
+                <MenuItem value={"other"}>other</MenuItem>
               </Select>
+             
             </Box>
 
             <Box sx={{ flex: "0 0 49%" }}>
@@ -138,8 +201,8 @@ const AddUser = () => {
                 sx={{
                   display: "flex",
                   justifyContent: "space-between",
-                  flexWrap : {xxs : 'wrap', sm :'nowrap'},
-                  pr: {sm : '0rem',md : '2rem', lg : '3rem'},
+                  flexWrap: { xxs: "wrap", sm: "nowrap" },
+                  pr: { sm: "0rem", md: "2rem", lg: "3rem" },
                 }}
               >
                 <Typography sx={inputTextStyle}>Upload Image</Typography>
@@ -148,22 +211,24 @@ const AddUser = () => {
                     background: "#FFFFFF 0% 0% no-repeat padding-box",
                     border: "1px solid #D0D5DD",
                     borderRadius: "10px",
-                    height: {sm : '60px',md : '118px',lg :'130px',},
-                    width: {sm : '60px',md : '118px',lg :'130px',},
+                    height: { sm: "60px", md: "118px", lg: "130px" },
+                    width: { sm: "60px", md: "118px", lg: "130px" },
                     mt: "1rem",
                     display: "flex",
-                    // flexWrap : {xxs : 'wrap', md :'nowrap'},
                     justifyContent: "center",
                     alignItems: "center",
-                    display : {xxs : 'none' , sm :'flex'}
+                    display: { xxs: "none", sm: "flex" },
                     // ml : '4rem'
                   }}
                 >
-                  <Box component="img" sx={{
-                    width : {sm : '40px',md : '70px' , lg : '80px'},
-                    height : {sm :'30px', md :'60px'},
-                    
-                  }} src={dummy}></Box>
+                  <Box
+                    component="img"
+                    sx={{
+                      width: { sm: "40px", md: "70px", lg: "80px" },
+                      height: { sm: "30px", md: "60px" },
+                    }}
+                    src={dummy}
+                  ></Box>
                 </Box>
                 <Box
                   sx={{
@@ -181,7 +246,7 @@ const AddUser = () => {
                       },
                     }}
                     variant="contained"
-                    size ='small'
+                    size="small"
                   >
                     <Box
                       sx={{
@@ -207,39 +272,80 @@ const AddUser = () => {
                 <Box
                   component="img"
                   src={cancel}
-                  sx={{ height: "22px", width: "22px", mt: "1rem" ,cursor :'pointer'}}
+                  sx={{
+                    height: "22px",
+                    width: "22px",
+                    mt: "1rem",
+                    cursor: "pointer",
+                  }}
                 ></Box>
               </Box>
 
-              <Typography sx={phoneTextStyle}>Phone No</Typography>
+              <Typography style={{color : errors.phone && touched.phone ? 'red' : '#344054'}} sx={phoneTextStyle}>
+              Phone No
+              {errors.phone && touched.phone ? (
+                <span style={{color : 'red'}}>
+                  &nbsp;*
+                </span>
+              ) : null}
+              </Typography>
               <TextField
-                id="outlined-basic"
                 fullWidth
                 size="small"
                 variant="outlined"
                 placeholder="Enter your phone"
                 autoComplete="off"
+                id="phone"
+                name="phone"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.phone}
               />
+              
 
-              <Typography sx={inputTextStyle}>CNIC</Typography>
+              <Typography style={{color : errors.cnic && touched.cnic ? 'red' : '#344054'}} sx={inputTextStyle}>
+              CNIC
+              {errors.cnic && touched.cnic ? (
+                <span style={{color : 'red'}}>
+                  &nbsp;*
+                </span>
+              ) : null}
+              </Typography>
               <TextField
-                id="outlined-basic"
                 fullWidth
                 size="small"
                 variant="outlined"
                 placeholder="Enter your CNIC"
                 autoComplete="off"
+                id="cnic"
+                name="cnic"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.cnic}
               />
+             
 
-              <Typography sx={inputTextStyle}>Address</Typography>
+              <Typography style={{color : errors.address && touched.address ? 'red' : '#344054'}} sx={inputTextStyle}>
+              Address
+              {errors.address && touched.address ? (
+                <span style={{color : 'red'}}>
+                  &nbsp;*
+                </span>
+              ) : null}
+              </Typography>
               <TextField
-                id="outlined-basic"
                 fullWidth
                 size="small"
                 variant="outlined"
                 placeholder="Enter your address"
                 autoComplete="off"
+                id="address"
+                name="address"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.address}
               />
+            
             </Box>
           </Box>
 
@@ -281,6 +387,7 @@ const AddUser = () => {
               },
             }}
             variant="contained"
+            type="submit"
           >
             Create
           </Button>

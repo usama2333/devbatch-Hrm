@@ -1,9 +1,8 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
 import React, { Fragment, useState } from "react";
-import calander from "../../assests/images/calander.png";
 import Department from "../department/Department";
 import graph from "../../assests/images/graph.png";
-import {calanderMain,dateBox,depart,
+import {calanderMain,depart,
   graphBox,graphFlex,graphStack,nameTypo,recentFlex,recentTypo,recentUserBox,
   recentUserStack,userGeneral,userName,userRecent,welcome} from "./style";
 import User from "../recent/Recent";
@@ -44,7 +43,7 @@ const Dashboard = () => {
         >
           {depart.map((data) => (
             <Box>
-              <Department img={data.img} name={data.name} user={data.user} />
+              <Department key={data.name} img={data.img} name={data.name} user={data.user} />
             </Box>
           ))}
 

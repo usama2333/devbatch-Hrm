@@ -4,10 +4,10 @@ import red from "../../assests/images/blue.png";
 import blue from "../../assests/images/red.png";
 import { departBox, departInnerBox, nameBox, userBox } from "./style";
 
-const Department = ({ img, name, user }) => {
+const Department = ({ key,img, name, user }) => {
   return (
     <Fragment>
-      <Box sx={departBox}>
+      <Box sx={departBox} >
         <Box sx={departInnerBox}>
           <Box
             component="img"
