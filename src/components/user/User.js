@@ -27,36 +27,8 @@ import rightArrow from "../../assests/images/rightArrow.png";
 
 import MenuItem from "@mui/material/MenuItem";
 
-// function createData(
-//   name,
-//   status,
-//   department,
-//   created,
-//   deactive,
-//   actions,
-//   time
-// ) {
-//   return { name, status, department, created, deactive, actions, time };
-// }
 
-const rowHandle = [
-  {
-    value: "1",
-    label: "1 row",
-  },
-  {
-    value: "2",
-    label: "2 row",
-  },
-  {
-    value: "3",
-    label: "3 row",
-  },
-  {
-    value: "4",
-    label: "4 row",
-  },
-];
+
 
 const redBox = (
   <Box
@@ -122,12 +94,68 @@ const rows = [
     actions:"Actions",
     time:"10:10AM"
   },
+  {
+    name : "Hassan Farooq",
+    status:"Activated",
+    department : "Consulting",
+    created:"12-20-2023",
+    deactive:"12-20-2023",
+    actions:"Actions",
+    time:"10:10AM"
+  },
+  {
+
+  
+    name : "Hassan Farooq",
+    status:"Activated",
+    department : "Development",
+    created:"12-20-2023",
+    deactive:"12-20-2023",
+    actions:"Actions",
+    time:"10:10AM"
+  },
+ { 
+
+ 
+  name : "Hassan Farooq",
+  status:"Dectivated",
+  department : "Design",
+  created:"12-20-2023",
+  deactive:"12-20-2023",
+  actions:"Actions",
+  time:"10:10AM"
+  },
   
 ];
 
+const checkLength = rows.length;
+
+const rowHandle = [
+  {
+    value: "1",
+    label: "1 row",
+  },
+  {
+    value: "2",
+    label: "2 row",
+  },
+  {
+    value: "3",
+    label: "3 row",
+  },
+  {
+    value: "4",
+    label: "4 row",
+  },
+  {
+    value: `${checkLength}`,
+    label: "all row",
+  },
+ 
+];
 const User = ({adduser}) => {
   const [activeState, seteactiveState] = useState(0);
-  const [roww, setRoww] = useState(4);
+  const [roww, setRoww] = useState(rows.length);
   const filteredRows = rows.slice(0,roww);
  
 
@@ -194,7 +222,7 @@ const User = ({adduser}) => {
             mt: "2rem",
           }}
         >
-          <TableContainer sx={{ overflowX: "auto" }} component={Paper}>
+          <TableContainer  sx={{ overflowX: "auto", maxHeight: 282 }} component={Paper}>
             <Table aria-label="simple table">
               <TableHead>
                 <TableRow
