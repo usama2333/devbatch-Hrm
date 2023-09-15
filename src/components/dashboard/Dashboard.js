@@ -22,8 +22,11 @@ import User from "../recent/Recent";
 import AddNew from "../newsuer/AddNew";
 import DatePick from "../datepicker/DatePick";
 import RecentTable from "../recent/RecentTable";
+import { useDispatch, useSelector } from "react-redux";
 
 const Dashboard = () => {
+  const dispatch = useDispatch();
+  const check = useSelector((state) => state.table.check);
   return (
     <Fragment>
       <Box>
@@ -79,6 +82,7 @@ const Dashboard = () => {
           <Box
             sx={{
               flex: "0 0 46.5%",
+              boxSizing : 'border-box'
               
             }}
           >
@@ -100,7 +104,11 @@ const Dashboard = () => {
       >
         <Box sx={graphFlex}>
           <Typography sx={userGeneral}>Users (General)</Typography>
-          <Box component="img" src={graph} sx={graphBox}></Box>
+          <Box component="img" src={graph} sx={{
+            width: { lg: check == true ? '54.5rem' : '49.5rem' , xs: "100%",xxs: "100%" },
+            height: "25rem",
+            transition: 'all 0.3s ease-in-out',
+          }}></Box>
         </Box>
 
         <Box sx={recentFlex}>

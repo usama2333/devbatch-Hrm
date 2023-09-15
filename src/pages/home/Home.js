@@ -18,16 +18,18 @@ import WidgetsIcon from '@mui/icons-material/Widgets';
 const Home = () => {
   const dispatch = useDispatch();
   const show = useSelector((state) => state.table.show);
+  const check = useSelector((state) => state.table.check);
   
   const [firstH, setFirstH] = useState("20%");
   const [secondH, setSecondH] = useState("80%");
-  const [check, setCheck] = useState(false);
+  // const [check, setCheck] = useState(false);
   const [displayText, setDisplayText] = useState("grid");
  
   const heightHandler = () => {
     setFirstH((pre) => (pre == "20%" ? "10%" : "20%"));
     setSecondH((pre) => (pre == "80%" ? "90%" : "80%"));
-    setCheck((pre) => (pre == false ? true : false));
+    // setCheck((pre) => (pre == false ? true : false));
+    dispatch(tableActions.setCheck());
     setDisplayText((pre) => (pre == "grid" ? "none" : "grid"));
   
     console.log("click");

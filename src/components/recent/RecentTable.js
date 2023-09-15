@@ -30,6 +30,7 @@ const RecentTable = () => {
             width: "100%",
             // margin: "0px auto",
             // mt: "2rem",
+            
           }}
         >
         

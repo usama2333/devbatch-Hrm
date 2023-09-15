@@ -92,16 +92,13 @@ export const userGeneral= {
     color: "#3A3A3A",
     mb: "1rem",
 }
-export const graphBox= {
-    width: { lg: "49.5rem", xs: "100%",xxs: "100%" },
-              height: "25rem",
-}
 
 export const recentFlex = {
     flex: {
         lg: "0 0 50%",
         xxs: "0 0 95%",
       },
+      
 }
 
 export const recentTypo= {
