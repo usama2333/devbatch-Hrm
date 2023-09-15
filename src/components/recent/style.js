@@ -11,7 +11,7 @@ export const userName = {
     letterSpacing: '0px',
     color: '#2D2D2D',
     opacity: 1,
-    ml : {xxs : '0px' ,xs : '-20px' , sm : '-60px'}
+    
 }
 
 export const stackSx = {

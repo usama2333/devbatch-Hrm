@@ -81,10 +81,7 @@ export const graphStack= {
 export const graphFlex = {
     flex: {
         lg: "0 0 50%",
-        md: "0 0 80%",
-        sm: "0 0 90%",
-        xs: "0 0 90%",
-        xxs: "0 0 90%",
+        xxs: "0 0 95%",
       },
       mt: { xxs: "2rem",xs: "2rem", lg: "0rem" },
     
@@ -103,10 +100,7 @@ export const graphBox= {
 export const recentFlex = {
     flex: {
         lg: "0 0 50%",
-        md: "0 0 80%",
-        sm: "0 0 90%",
-        xs: "0 0 90%",
-        xxs: "0 0 90%",
+        xxs: "0 0 95%",
       },
 }
 

@@ -21,6 +21,7 @@ import {
 import User from "../recent/Recent";
 import AddNew from "../newsuer/AddNew";
 import DatePick from "../datepicker/DatePick";
+import RecentTable from "../recent/RecentTable";
 
 const Dashboard = () => {
   return (
@@ -93,8 +94,8 @@ const Dashboard = () => {
       <Stack
         direction="row"
         flexWrap="wrap-reverse"
-        justifyContent="center"
-        alignItems="center"
+        // justifyContent="center"
+        // alignItems="center"
         sx={graphStack}
       >
         <Box sx={graphFlex}>
@@ -105,7 +106,7 @@ const Dashboard = () => {
         <Box sx={recentFlex}>
           <Typography sx={recentTypo}>Recent Users</Typography>
           <Box sx={recentUserBox}>
-            <Stack
+           {/* <Stack
               direction="row"
               justifyContent="space-evenly"
               alignItems="center"
@@ -114,9 +115,10 @@ const Dashboard = () => {
               <Typography sx={userName}>User name</Typography>
               <Typography sx={userRecent}>Department</Typography>
               <Typography sx={userRecent}>Timing/Date</Typography>
-            </Stack>
-
-            <User />
+            </Stack> */}
+          
+            {/* <User />  */}
+            <RecentTable/>
           </Box>
         </Box>
       </Stack>
