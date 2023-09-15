@@ -2,9 +2,22 @@ import { Box, Container, Stack, Typography } from "@mui/material";
 import React, { Fragment, useState } from "react";
 import Department from "../department/Department";
 import graph from "../../assests/images/graph.png";
-import {calanderMain,depart,
-  graphBox,graphFlex,graphStack,nameTypo,recentFlex,recentTypo,recentUserBox,
-  recentUserStack,userGeneral,userName,userRecent,welcome} from "./style";
+import {
+  calanderMain,
+  depart,
+  graphBox,
+  graphFlex,
+  graphStack,
+  nameTypo,
+  recentFlex,
+  recentTypo,
+  recentUserBox,
+  recentUserStack,
+  userGeneral,
+  userName,
+  userRecent,
+  welcome,
+} from "./style";
 import User from "../recent/Recent";
 import AddNew from "../newsuer/AddNew";
 import DatePick from "../datepicker/DatePick";
@@ -26,7 +39,7 @@ const Dashboard = () => {
           <Box sx={calanderMain}>
             <Stack direction="row">
               {/* <Box component="img" src={calander}></Box> */}
-              <DatePick/>
+              <DatePick />
               {/* <Typography sx={dateBox}>Jul, 28 2022 - Jul, 28 2022</Typography> */}
             </Stack>
           </Box>
@@ -35,22 +48,42 @@ const Dashboard = () => {
 
       {/* start depart section here */}
 
-      <Box sx={{mt: "2rem"}}>
-        <Stack
-          direction="row"
-          justifyContent="space-evenly"
-          flexWrap="wrap-reverse"
+      <Box sx={{ mt: "2rem" }}>
+        <Box
+        sx={{
+          display : 'flex',
+          flexDirection : {xxs : 'column-reverse' , md : 'row'},
+         
+        }}
+         
         >
-          {depart.map((data) => (
-            <Box>
-              <Department key={data.name} img={data.img} name={data.name} user={data.user} />
-            </Box>
-          ))}
+          <Box
+            sx={{
+              display :'flex',
+              flex: "0 0 50%",
+              flexDirection : 'row',
+              
+            }}
+          >
+            {depart.map((data) => (
+              <Department
+                key={data.name}
+                img={data.img}
+                name={data.name}
+                user={data.user}
+              />
+            ))}
+          </Box>
 
-         <AddNew/>
-
-
-        </Stack>
+          <Box
+            sx={{
+              flex: "0 0 46.5%",
+              
+            }}
+          >
+            <AddNew />
+          </Box>
+        </Box>
       </Box>
 
       {/* end department section here */}

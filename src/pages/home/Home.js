@@ -12,7 +12,8 @@ import { dashboardSx, relBox, transitionBox, userSx } from "./style";
 import AddUser from "../../components/addUser/AddUser";
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
-
+import PersonIcon from '@mui/icons-material/Person';
+import WidgetsIcon from '@mui/icons-material/Widgets';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -94,6 +95,7 @@ const Home = () => {
               <Stack
                 onClick={dashboardHandler}
                 direction="row"
+                alignItems='center'
                 sx={{
                   
                   mt: "4.4rem",
@@ -105,13 +107,15 @@ const Home = () => {
                     
                 }}
               >
-                <Box sx={{ml: { xxs: "1rem",xs: "1rem", sm: "2rem" }}} component="img" src={dashboard}></Box>
+                <Box sx={{ml: { xxs: "1rem",xs: "1rem", sm: "2rem" }}}>
+                  <WidgetsIcon sx={{fontSize : '20px', color : show === 'dashboard' ? '#FFFFFF' : '#F6C2B5'}}/>
+                </Box>
 
                 <Typography
                   sx={{
                     font: "normal normal normal 15px/18px Product Sans",
                     letterSpacing: "0px",
-                    color: "#FFFFFF",
+                    color: show === 'dashboard' ? '#FFFFFF' : '#F6C2B5',
                     ml: "1.3rem",
                     opacity: 1,
                     display: displayText,
@@ -124,22 +128,27 @@ const Home = () => {
               <Stack
                 onClick={userHandler}
                 direction="row"
+                alignItems='center'
                 sx={{
                   mt: "1rem",
                   width: "100%",
                   padding: "1rem 0",
                   boxSizing: "border-box",
                   cursor: "pointer",
-                  background: show == 'user' && "transparent linear-gradient(90deg, #FFFFFF26 0%, #4A90E200 100%) 0% 0% no-repeat padding-box" 
+                  background: show === 'user' && "transparent linear-gradient(90deg, #FFFFFF26 0%, #4A90E200 100%) 0% 0% no-repeat padding-box" 
                 }}
               >
-                <Box sx={{ml: { xxs: "1rem",xs: "1rem", sm: "2rem" }}} component="img" src={user}></Box>
+                
+                <Box sx={{ml: { xxs: "1rem",xs: "1rem", sm: "2rem"}}}>
+                <PersonIcon sx={{fontSize : '20px', color : show === 'user' ? '#FFFFFF' : '#F6C2B5'}}/>
+                </Box>
+                {/* <Box sx={{ml: { xxs: "1rem",xs: "1rem", sm: "2rem", color : 'red' }}} component="img" src={user}></Box> */}
 
                 <Typography
                   sx={{
                     font: "normal normal normal 15px/18px Product Sans",
                     letterSpacing: "0px",
-                    color: "#FFFFFF",
+                    color: show === 'user' ? '#FFFFFF' : '#F6C2B5',
                     ml: "1.3rem",
                     opacity: 1,
                     display: displayText,

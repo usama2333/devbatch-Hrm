@@ -1,5 +1,5 @@
 export const departBox= {
-    width: {xxs : '10rem',xs : '14rem',sm : '20rem',md : '16rem',lg : '23rem'},
+    // width: {xxs : '10rem',xs : '14rem',sm : '20rem',md : '16rem',lg : '23rem'},
     //   height: "111px",
       background: "#FCFCFC 0% 0% no-repeat padding-box",
       borderRadius: "10px",
@@ -7,6 +7,8 @@ export const departBox= {
       opacity: 1,
       pb : '3.5rem',
       mt : {xxs :'2rem',xs :'2rem',md :'0rem'},
+      width : {xxs : '44%', sm : '42%'},
+      ml : {xxs : '1rem', sm : '3rem'}
 }
 
 export const departInnerBox = {

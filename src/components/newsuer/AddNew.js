@@ -57,6 +57,7 @@ const AddNew = () => {
               sx={{
                 display: "flex",
                 flex: "0 0 30%",
+                justifyContent : 'space-evenly',
                 mt: "0.7rem",
                 mr: "2rem",
               }}
@@ -69,17 +70,17 @@ const AddNew = () => {
                   "&:hover": {
                     backgroundColor: "#e0cc9f", // Define the hover effect style
                   },
-                  padding: "0.75rem 2rem",
+                  padding: "0.75rem 3rem",
                   font: "normal normal normal 13px/15px Product Sans",
                   letterSpacing: "0px",
                   color: "#707787",
                 }}
                 variant="contained"
               >
-              <Box sx={{display : 'flex', alignItems : 'center'}}>
+              <Box sx={{display : 'flex', alignItems : 'center' }}>
               
-              <Typography sx={{mr : '2rem',display : {xxs : 'none', sm : 'flex'}}}>Send Link</Typography>
-              <Box component="img" src={icon}></Box>
+              <Typography sx={{display : {xxs : 'none', sm : 'flex',}}}>Send Link</Typography>
+              <Box component="img" sx={{ml : '2rem'}} src={icon}></Box>
               </Box>
               
               </Button>

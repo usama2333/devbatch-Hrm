@@ -2,12 +2,14 @@ export const adduserBox={
     background: "#FE8062 0% 0% no-repeat padding-box",
     borderRadius: "10px",
     opacity: 1,
-    width: { md: "50rem", sm: "45rem", xs: "28rem",xxs: "22rem"  },
+    // width: { md: "50rem", sm: "45rem", xs: "28rem",xxs: "22rem"  },
     pb: "1rem",
+    margin : {xxs : '0 2rem' , md : '0 0'}
+    
     
 }
 export const adduserInner ={
-    mt: "1.3rem",
+    pt: "1.3rem",
     ml: {xxs : '0.8rem' , xs : '1.7rem'},
 }
 export const adduser ={
