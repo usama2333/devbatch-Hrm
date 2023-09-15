@@ -4,6 +4,7 @@ export const conSx = {
   /* UI Properties */
   background: "#FADCD5 0% 0% no-repeat padding-box",
   opacity: 1,
+  
 };
 
 export const firstBox = {
@@ -12,7 +13,7 @@ export const firstBox = {
 };
 
 export const absoluteBox = {
-  mt: "6.5rem",
+  mt: "5.8rem",
   // mb : '2rem',
   width: { xxs: "270px",xs: "370px", sm: "551px" },
   // height: "500px",
@@ -27,7 +28,7 @@ export const absoluteBox = {
 
 export const loginTypo = {
   textAlign: "center",
-  paddingTop: "6rem",
+  paddingTop: "5rem",
   font: "normal normal bold 35px/43px Product Sans",
   letterSpacing: "0px",
   color: "#3A3A3A",
@@ -42,6 +43,7 @@ export const detailTypo = {
   letterSpacing: "0px",
   color: "#667085",
   opacity: 1,
+  
 };
 
 export const formBox = {
@@ -50,7 +52,7 @@ export const formBox = {
 };
 
 export const emailBox = {
-  mt: "2rem",
+  mt: "3rem",
   mb: "0.6rem",
   font: "normal normal normal 1.6rem Product Sans",
   letterSpacing: "0px",
@@ -59,8 +61,8 @@ export const emailBox = {
 };
 
 export const passwordBox = {
-  mt: "1rem",
-  mb: "0.6rem",
+  mt: "2rem",
+  mb: "1rem",
   font: "normal normal normal 1.6rem Product Sans",
   letterSpacing: "0px",
   color: "#344054",
@@ -81,7 +83,7 @@ export const remTypo = {
 };
 
 export const forgotBox = {
-  mr: "8rem",
+  mr: {xxs : '0rem', sm :'8rem'},
   color: "#FE8062",
 };
 
@@ -121,6 +123,7 @@ export const devBox = {
   color: "#667085",
   opacity: 1,
   pb: "2rem",
+  // mt : '1rem'
 };
 
 export const secondBox = {

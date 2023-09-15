@@ -12,7 +12,7 @@ export const firstBox = {
 };
 
 export const absBox = {
-  mt: "7rem",
+  mt: "5rem",
   // mb : '2rem',
   width: { xxs: "270px",xs: "370px", sm: "551px" },
   // height: "500px",
@@ -29,7 +29,7 @@ export const absBox = {
 
 export const signUpTypo = {
   textAlign: "center",
-  paddingTop: "5rem",
+  paddingTop: "4rem",
   font: "normal normal bold 35px/43px Product Sans",
   letterSpacing: "0px",
   color: "#3A3A3A",

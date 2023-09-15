@@ -79,7 +79,7 @@ const Login = () => {
                       <TextField
                         sx={{ maxWidth: "376px" }}
                         variant="outlined"
-                        size="small"
+                        // size="small"
                         id="email"
                         name="email"
                         onChange={handleChange}
@@ -103,7 +103,7 @@ const Login = () => {
                         sx={{ maxWidth: "376px" }}
                         variant="outlined"
                         type="password"
-                        size="small"
+                        // size="small"
                         id="password"
                         name="password"
                         onChange={handleChange}

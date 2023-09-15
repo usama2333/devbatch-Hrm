@@ -58,82 +58,91 @@ const Signup = () => {
                 <Box sx={emailBox}>
                   <form onSubmit={handleSubmit}>
                     <Stack>
-                      <Typography sx={emailTypo}>Email</Typography>
+                      <Typography style={{
+                          color:
+                            errors.email && touched.email ? "red" : "#344054",
+                        }} sx={emailTypo}>
+                      Email
+                      {errors.email && touched.email ? (
+                          <span style={{ color: "red" }}>&nbsp;*</span>
+                        ) : null}
+                      
+                      </Typography>
 
                       <TextField
                         sx={{ maxWidth: "376px" }}
                         variant="outlined"
-                        size="small"
+                        // size="small"
                         id="email"
                         name="email"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.email}
                       />
-                      {errors.email && touched.email ? (
-                        <Typography
-                          variant="p"
-                          color="red"
-                          sx={{ fontSize: "14px",  }}
-                        >
-                          {errors.email}
-                        </Typography>
-                      ) : null}
+                     
                     </Stack>
 
                     <Stack>
-                      <Typography sx={emailTypo}>Name</Typography>
+                      <Typography style={{
+                          color:
+                            errors.name && touched.name ? "red" : "#344054",
+                        }} sx={emailTypo}>
+                        Name
+                        {errors.name && touched.name ? (
+                          <span style={{ color: "red" }}>&nbsp;*</span>
+                        ) : null}
+                        </Typography>
                       <TextField
                         sx={{ maxWidth: "376px" }}
                         variant="outlined"
                         id="name"
-                        size="small"
+                        // size="small"
                         name="name"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.name}
                       />
-                      {errors.name && touched.name ? (
-                        <Typography
-                          variant="p"
-                          color="red"
-                          sx={{ fontSize: "14px" }}
-                        >
-                          {errors.name}
-                        </Typography>
-                      ) : null}
+                      
                     </Stack>
 
                     <Stack>
-                      <Typography sx={emailTypo}>Password</Typography>
+                      <Typography style={{
+                          color:
+                            errors.password && touched.password ? "red" : "#344054",
+                        }} sx={emailTypo}>
+                        Password
+                        {errors.password && touched.password ? (
+                          <span style={{ color: "red" }}>&nbsp;*</span>
+                        ) : null}
+                        </Typography>
                       <TextField
                         sx={{ maxWidth: "376px" }}
                         variant="outlined"
                         type="password"
-                        size="small"
+                        // size="small"
                         id="password"
                         name="password"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.password}
                       />
-                      {errors.password && touched.password ? (
-                        <Typography
-                          variant="p"
-                          color="red"
-                          sx={{ fontSize: "14px" }}
-                        >
-                          {errors.password}
-                        </Typography>
-                      ) : null}
+                     
                     </Stack>
 
                     <Stack>
-                      <Typography sx={emailTypo}>Confirm Password</Typography>
+                      <Typography  style={{
+                          color:
+                            errors.confirmpassword && touched.confirmpassword ? "red" : "#344054",
+                        }} sx={emailTypo}>
+                        Confirm Password
+                        {errors.confirmpassword && touched.confirmpassword ? (
+                          <span style={{ color: "red" }}>&nbsp;*</span>
+                        ) : null}
+                        </Typography>
                       <TextField
                         sx={{ maxWidth: "376px" }}
                         variant="outlined"
-                        size="small"
+                        // size="small"
                         type="password"
                         id="confirmpassword"
                         name="confirmpassword"
@@ -141,15 +150,7 @@ const Signup = () => {
                         onBlur={handleBlur}
                         value={values.confirmpassword}
                       />
-                      {errors.confirmpassword && touched.confirmpassword ? (
-                        <Typography
-                          variant="p"
-                          color="red"
-                          sx={{ fontSize: "14px" }}
-                        >
-                          {errors.confirmpassword}
-                        </Typography>
-                      ) : null}
+                     
                     </Stack>
                     <Button
                       type="submit"
