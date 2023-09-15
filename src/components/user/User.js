@@ -27,33 +27,33 @@ import rightArrow from "../../assests/images/rightArrow.png";
 
 import MenuItem from "@mui/material/MenuItem";
 
-function createData(
-  name,
-  status,
-  department,
-  created,
-  deactive,
-  actions,
-  time
-) {
-  return { name, status, department, created, deactive, actions, time };
-}
+// function createData(
+//   name,
+//   status,
+//   department,
+//   created,
+//   deactive,
+//   actions,
+//   time
+// ) {
+//   return { name, status, department, created, deactive, actions, time };
+// }
 
-const currencies = [
+const rowHandle = [
   {
-    value: "USD",
+    value: "1",
     label: "1 row",
   },
   {
-    value: "EUR",
+    value: "2",
     label: "2 row",
   },
   {
-    value: "BTC",
+    value: "3",
     label: "3 row",
   },
   {
-    value: "JPY",
+    value: "4",
     label: "4 row",
   },
 ];
@@ -81,46 +81,57 @@ const yellowBox = (
 );
 
 const rows = [
-  createData(
-    "Hassan Farooq",
-    "Activated",
-    "Development",
-    "12-20-2023",
-    "12-20-2023",
-    "Actions",
-    "10:10AM"
-  ),
-  createData(
-    "Hassan Farooq",
-    "Deactivated",
-    "Design",
-    "12-20-2023",
-    "12-20-2023",
-    "Actions",
-    "10:10AM"
-  ),
-  createData(
-    "Hassan Farooq",
-    "Activated",
-    "IT Network",
-    "12-20-2023",
-    "12-20-2023",
-    "Actions",
-    "10:10AM"
-  ),
-  createData(
-    "Hassan Farooq",
-    "Activated",
-    "Consulting",
-    "12-20-2023",
-    "12-20-2023",
-    "Actions",
-    "10:10AM"
-  ),
+  {
+
+  
+    name : "Hassan Farooq",
+    status:"Activated",
+    department : "Development",
+    created:"12-20-2023",
+    deactive:"12-20-2023",
+    actions:"Actions",
+    time:"10:10AM"
+  },
+ { 
+
+ 
+  name : "Hassan Farooq",
+  status:"Dectivated",
+  department : "Design",
+  created:"12-20-2023",
+  deactive:"12-20-2023",
+  actions:"Actions",
+  time:"10:10AM"
+  },
+  {
+
+    name : "Hassan Farooq",
+    status:"Activated",
+    department : "IT Network",
+    created:"12-20-2023",
+    deactive:"12-20-2023",
+    actions:"Actions",
+    time:"10:10AM"
+  },
+  {
+    name : "Hassan Farooq",
+    status:"Activated",
+    department : "Consulting",
+    created:"12-20-2023",
+    deactive:"12-20-2023",
+    actions:"Actions",
+    time:"10:10AM"
+  },
+  
 ];
 
 const User = ({adduser}) => {
   const [activeState, seteactiveState] = useState(0);
+  const [roww, setRoww] = useState(4);
+  const filteredRows = rows.slice(0,roww);
+ 
+
+  console.log(roww,'count rows')
   return (
     <Fragment>
       <Box
@@ -149,6 +160,7 @@ const User = ({adduser}) => {
             placeholder="search"
             size="small"
             text="search"
+            type="search"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -207,7 +219,7 @@ const User = ({adduser}) => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {rows.map((row) => (
+                {filteredRows.map((row) => (
                   <TableRow
                     key={row.name}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -291,11 +303,12 @@ const User = ({adduser}) => {
             <TextField
               id="outlined-select-currency"
               select
-              defaultValue="JPY"
+              defaultValue="4"
               size="small"
+              
             >
-              {currencies.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
+              {rowHandle.map((option) => (
+                <MenuItem onClick={() => setRoww(option.value)} key={option.value} value={option.value}>
                   {option.label}
                 </MenuItem>
               ))}
