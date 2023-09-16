@@ -8,19 +8,56 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { stackSx, userName, userRecent } from "./style";
-function createData(name, department, time, date) {
-  return { name, department, time, date };
-}
+import { useDispatch, useSelector } from "react-redux";
 
 const rows = [
-  createData("Hassan Farooq", "Design", "01:30 PM", "12/07/2023"),
-  createData("Hassan Farooq", "Design", "01:30 PM", "12/07/2023"),
-  createData("Hassan Farooq", "Design", "01:30 PM", "12/07/2023"),
-  createData("Hassan Farooq", "IT Network", "01:30 PM", "12/07/2023"),
-  createData("Hassan Farooq", "Consulting", "01:30 PM", "12/07/2023"),
-  createData("Hassan Farooq", "Development", "01:30 PM", "12/07/2023"),
+  {
+    name : 'Hassan Farooq',
+    department : 'Design',
+    time : '01:30 PM',
+    date : '12/07/2023'
+
+  },
+  {
+    name : 'Hassan Farooq',
+    department : 'Design',
+    time : '01:30 PM',
+    date : '12/07/2023'
+
+  },
+  {
+    name : 'Hassan Farooq',
+    department : 'Design',
+    time : '01:30 PM',
+    date : '12/07/2023'
+
+  },
+  {
+    name : 'Hassan Farooq',
+    department : 'IT Network',
+    time : '01:30 PM',
+    date : '12/07/2023'
+
+  },
+  {
+    name : 'Hassan Farooq',
+    department : 'Consulting',
+    time : '01:30 PM',
+    date : '12/07/2023'
+
+  },
+  {
+    name : 'Hassan Farooq',
+    department : 'Development',
+    time : '01:30 PM',
+    date : '12/07/2023'
+
+  },
+ 
 ];
 const RecentTable = () => {
+  const data = useSelector((state) => state.table.data);
+  console.log(data,'tabbbbbbbbbbbbb')
   return (
     <Fragment>
       <Box>
@@ -46,7 +83,7 @@ const RecentTable = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {rows.map((row) => (
+                {data.map((row) => (
                   <TableRow
                     key={row.name}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -57,7 +94,7 @@ const RecentTable = () => {
                     <TableCell sx={userRecent} align="left">{row.department}</TableCell>
                     <TableCell align="left">
                       
-                      <Box sx={userRecent}>`${row.time} ${row.date}`</Box>
+                      <Box sx={userRecent}>{`${row.time} ${row.date}`}</Box>
                     </TableCell>
                    
                     

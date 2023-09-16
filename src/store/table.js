@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     show : 'dashboard',
-    check : false
+    check : false,
+    data : []
     
 }
 
@@ -16,6 +17,9 @@ const tableSlice = createSlice ({
         },
         setCheck(state ,action) {
             state.check = !state.check;
+          },
+          setData(state ,action) {
+            state.data = action.payload;
           },
     
     }

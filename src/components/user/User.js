@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState,useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import { EnergySavingsLeafSharp, Search } from "@mui/icons-material";
@@ -26,6 +26,8 @@ import leftArrow from "../../assests/images/leftArrow.png";
 import rightArrow from "../../assests/images/rightArrow.png";
 
 import MenuItem from "@mui/material/MenuItem";
+import { useDispatch, useSelector } from "react-redux";
+import { tableActions } from "../../store/table";
 
 
 
@@ -55,7 +57,7 @@ const yellowBox = (
 const rows = [
   {
 
-  
+    id : 1,
     name : "Hassan Farooq",
     status:"Activated",
     department : "Development",
@@ -66,7 +68,7 @@ const rows = [
   },
  { 
 
- 
+  id : 2,
   name : "Hassan Farooq",
   status:"Dectivated",
   department : "Design",
@@ -76,7 +78,7 @@ const rows = [
   time:"10:10AM"
   },
   {
-
+    id : 3,
     name : "Hassan Farooq",
     status:"Activated",
     department : "IT Network",
@@ -86,6 +88,7 @@ const rows = [
     time:"10:10AM"
   },
   {
+    id : 4,
     name : "Hassan Farooq",
     status:"Activated",
     department : "Consulting",
@@ -95,6 +98,7 @@ const rows = [
     time:"10:10AM"
   },
   {
+    id : 5,
     name : "Hassan Farooq",
     status:"Activated",
     department : "Consulting",
@@ -105,7 +109,7 @@ const rows = [
   },
   {
 
-  
+    id : 6,
     name : "Hassan Farooq",
     status:"Activated",
     department : "Development",
@@ -116,7 +120,7 @@ const rows = [
   },
  { 
 
- 
+  id : 7,
   name : "Hassan Farooq",
   status:"Dectivated",
   department : "Design",
@@ -154,9 +158,29 @@ const rowHandle = [
  
 ];
 const User = ({adduser}) => {
+  const dispatch = useDispatch();
+ 
   const [activeState, seteactiveState] = useState(0);
   const [roww, setRoww] = useState(rows.length);
+  
   const filteredRows = rows.slice(0,roww);
+  dispatch(tableActions.setData(rows));
+  // const data = useSelector((state) => state.table.data);
+ 
+  
+
+  const viewHandler = (id) => {
+     console.log(id,'........view.........')
+     dispatch(tableActions.setShow('userdetailview'));
+    
+  }
+
+  const editHandler = (id) => {
+    console.log(id,'........edit.........')
+ }
+ const deleteHandler = (id) => {
+  console.log(id,'........delete.........')
+}
  
 
   console.log(roww,'count rows')
@@ -249,7 +273,7 @@ const User = ({adduser}) => {
               <TableBody>
                 {filteredRows.map((row) => (
                   <TableRow
-                    key={row.name}
+                    key={row.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell
@@ -284,16 +308,19 @@ const User = ({adduser}) => {
                         component="img"
                         src={eyes}
                         sx={{ mr: "0.7rem", cursor: "pointer" }}
+                        onClick={() => viewHandler(row.id)}
                       ></Box>
                       <Box
                         component="img"
                         src={edit}
                         sx={{ mr: "0.7rem", cursor: "pointer" }}
+                        onClick={() => editHandler(row.id)}
                       ></Box>
                       <Box
                         component="img"
                         src={bin}
                         sx={{ cursor: "pointer" }}
+                        onClick={() => deleteHandler(row.id)}
                       ></Box>
                     </TableCell>
                   </TableRow>

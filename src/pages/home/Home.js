@@ -1,5 +1,5 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState,useEffect } from "react";
 import logo from "../../assests/images/logo.png";
 import dashboard from "../../assests/images/dashboard.png";
 import user from "../../assests/images/user.png";
@@ -8,12 +8,13 @@ import Navbar from "../../components/navbar/Navbar";
 import flower from "../../assests/images/flower.png";
 import Dashboard from "../../components/dashboard/Dashboard";
 import User from "../../components/user/User";
-import { dashboardSx, relBox, transitionBox, userSx } from "./style";
+import { dashboardSx, relBox, tableDummy, transitionBox, userSx } from "./style";
 import AddUser from "../../components/addUser/AddUser";
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
 import PersonIcon from '@mui/icons-material/Person';
 import WidgetsIcon from '@mui/icons-material/Widgets';
+import UserDetail from "../../components/userdetail/UserDetail";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,13 @@ const Home = () => {
   const [secondH, setSecondH] = useState("80%");
   // const [check, setCheck] = useState(false);
   const [displayText, setDisplayText] = useState("grid");
- 
+
+
+ useEffect(() => {
+  // Code to run on component mount
+
+  dispatch(tableActions.setData(tableDummy));
+}, []);
   const heightHandler = () => {
     setFirstH((pre) => (pre == "20%" ? "10%" : "20%"));
     setSecondH((pre) => (pre == "80%" ? "90%" : "80%"));
@@ -172,10 +179,12 @@ const Home = () => {
             </Box>
 
             <Box>
-              {show === "dashboard" && <Dashboard />}
+              {/* {show === "dashboard" && <Dashboard />}
               {show === "user" && <User adduser={addUserHandler} />}
               {show === "adduser" && <AddUser/>}
               
+              {show === "userdetailview" && <UserDetail/>} */}
+              <UserDetail/>
             </Box>
           </Box>
         </Stack>

@@ -42,3 +42,82 @@ export const transitionBox = {
     placeContent: "center",
 }
 
+
+
+export const tableDummy = [
+    {
+  
+      id : 1,
+      name : "Hassan Farooq",
+      status:"Activated",
+      department : "Development",
+      created:"12-20-2023",
+      deactive:"12-20-2023",
+      actions:"Actions",
+      time:"10:10AM"
+    },
+   { 
+  
+    id : 2,
+    name : "Hassan Farooq",
+    status:"Dectivated",
+    department : "Design",
+    created:"12-20-2023",
+    deactive:"12-20-2023",
+    actions:"Actions",
+    time:"10:10AM"
+    },
+    {
+      id : 3,
+      name : "Hassan Farooq",
+      status:"Activated",
+      department : "IT Network",
+      created:"12-20-2023",
+      deactive:"12-20-2023",
+      actions:"Actions",
+      time:"10:10AM"
+    },
+    {
+      id : 4,
+      name : "Hassan Farooq",
+      status:"Activated",
+      department : "Consulting",
+      created:"12-20-2023",
+      deactive:"12-20-2023",
+      actions:"Actions",
+      time:"10:10AM"
+    },
+    {
+      id : 5,
+      name : "Hassan Farooq",
+      status:"Activated",
+      department : "Consulting",
+      created:"12-20-2023",
+      deactive:"12-20-2023",
+      actions:"Actions",
+      time:"10:10AM"
+    },
+    {
+  
+      id : 6,
+      name : "Hassan Farooq",
+      status:"Activated",
+      department : "Development",
+      created:"12-20-2023",
+      deactive:"12-20-2023",
+      actions:"Actions",
+      time:"10:10AM"
+    },
+   { 
+  
+    id : 7,
+    name : "Hassan Farooq",
+    status:"Dectivated",
+    department : "Design",
+    created:"12-20-2023",
+    deactive:"12-20-2023",
+    actions:"Actions",
+    time:"10:10AM"
+    },
+    
+  ];
