@@ -17,6 +17,7 @@ import Badge from '@mui/material/Badge';
 import MailIcon from '@mui/icons-material/Mail';
 
 const Navbarr = () => {
+  const show = useSelector((state) => state.table.show);
   const dispatch = useDispatch();
   const [auth, setAuth] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -66,7 +67,10 @@ const Navbarr = () => {
         >
           <Toolbar>
             <Typography variant="h6" component="div" sx={dashboardBox}>
-              Dashboard
+              {show === 'dashboard' && 'Dashboard'}
+              {show === 'user' && 'User'}
+              {show === 'adduser' && 'Add Users'}
+              {show === 'userdetailview' && 'User Detail'}
             </Typography>
 
             <Box component="img" sx={bellIconBox} src={bell}></Box>

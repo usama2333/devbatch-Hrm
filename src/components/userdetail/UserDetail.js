@@ -30,7 +30,7 @@ const UserDetail = () => {
         <Box
           sx={{
             // height: "100%",
-            width: "99%",
+            width: {md : '98%',sm : '90%',xs : '90%', xxs : '89%'},
             display: "flex",
             flexDirection: "row",
             boxSizing: "border-box",
@@ -41,7 +41,8 @@ const UserDetail = () => {
           <Box
             sx={{
               flex: "0 0 20%",
-              padding :  {xxs : '0.5rem 0 0 0.5rem'}
+              padding :  {xxs : '0.5rem 0 0 0.5rem'},
+              boxSizing: "border-box",
             }}
           >
             <Box
@@ -128,7 +129,7 @@ const UserDetail = () => {
                   display: "flex",
                   flexDirection: "row",
                   alignItems: "center",
-                  mt: { xxs: "0.5rem", xs: "1rem", lg: "0rem" },
+                  mt: { xxs: "0.9rem", xs: "1rem", lg: "0rem" },
                   ml: { lg: "-6rem", xl: " 0rem" },
                 }}
               >
@@ -161,7 +162,7 @@ const UserDetail = () => {
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  mt: { xxs: "0.5rem", xs: "1rem", lg: "0rem" },
+                  mt: { xxs: "0.9rem", xs: "1rem", lg: "0rem" },
                 }}
               >
                 <Button
@@ -247,7 +248,8 @@ const UserDetail = () => {
                 background: "#FE8062 0% 0% no-repeat padding-box",
                 opacity: 0.09,
                 height: "2px",
-                mt: "1.8rem",
+                mt: {xxs : '0.5rem', sm : '1.8rem'},
+                width : {xxs : '85%',xs : '90%', sm : '99%'}
               }}
             ></Box>
 
@@ -259,8 +261,8 @@ const UserDetail = () => {
                 },
                 letterSpacing: "1.8px",
                 color: "#FE8062",
-                mt: "2rem",
-                mb: "2rem",
+                mt: {xxs : '1rem',sm : '2rem'},
+                mb: {xxs : '1rem',sm : '2rem'},
               }}
             >
               General Info
