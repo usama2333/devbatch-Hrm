@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import React, { Fragment, useState,useEffect } from "react";
+import React, { Fragment, useState,useEffect, useLayoutEffect } from "react";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import { EnergySavingsLeafSharp, Search } from "@mui/icons-material";
@@ -132,41 +132,44 @@ const rows = [
   
 ];
 
-const checkLength = rows.length;
 
-const rowHandle = [
-  {
-    value: "1",
-    label: "1 row",
-  },
-  {
-    value: "2",
-    label: "2 row",
-  },
-  {
-    value: "3",
-    label: "3 row",
-  },
-  {
-    value: "4",
-    label: "4 row",
-  },
-  {
-    value: `${checkLength}`,
-    label: "all row",
-  },
- 
-];
+
 const User = ({adduser}) => {
   const dispatch = useDispatch();
- 
+  const data = useSelector((state) => state.table.data);
+  const checkLength = data?.length;
+  const [rowHandle,setrow] = useState([
+    {
+      value: "1",
+      label: "1 row",
+    },
+    {
+      value: "2",
+      label: "2 row",
+    },
+    {
+      value: "3",
+      label: "3 row",
+    },
+    {
+      value: "4",
+      label: "4 row",
+    },
+    {
+      value:data?.length,
+      label: "all row",
+    },
+   
+  ])
   const [activeState, seteactiveState] = useState(0);
   const [roww, setRoww] = useState(rows.length);
   
   const filteredRows = rows.slice(0,roww);
-  dispatch(tableActions.setData(rows));
-  // const data = useSelector((state) => state.table.data);
+  const [howManyRow, sethowManyRow] = useState(data?.length);
  
+  useLayoutEffect(()=>{
+    dispatch(tableActions.setData(rows));
+  },[])
   
 
   const viewHandler = (id) => {
@@ -176,9 +179,14 @@ const User = ({adduser}) => {
   }
 
   const editHandler = (id) => {
+    dispatch(tableActions.setShow('adduser'));
     console.log(id,'........edit.........')
  }
  const deleteHandler = (id) => {
+  console.log({id})
+  const updatedData = data.filter(item => item.id != id);
+  dispatch(tableActions.setData(updatedData));
+  console.log(updatedData,'.....test ')
   console.log(id,'........delete.........')
 }
  
@@ -271,7 +279,8 @@ const User = ({adduser}) => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {filteredRows.map((row) => (
+                {data.map((row,index) =>{ 
+                  if(index < howManyRow) return(
                   <TableRow
                     key={row.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -324,7 +333,7 @@ const User = ({adduser}) => {
                       ></Box>
                     </TableCell>
                   </TableRow>
-                ))}
+                )})}
               </TableBody>
             </Table>
           </TableContainer>
@@ -358,12 +367,12 @@ const User = ({adduser}) => {
             <TextField
               id="outlined-select-currency"
               select
-              defaultValue="4"
+              defaultValue={data?.length}
               size="small"
               
             >
               {rowHandle.map((option) => (
-                <MenuItem onClick={() => setRoww(option.value)} key={option.value} value={option.value}>
+                <MenuItem onClick={() => sethowManyRow(option.value)} key={option.value} value={option.value}>
                   {option.label}
                 </MenuItem>
               ))}

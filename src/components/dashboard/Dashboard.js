@@ -23,6 +23,7 @@ import AddNew from "../newsuer/AddNew";
 import DatePick from "../datepicker/DatePick";
 import RecentTable from "../recent/RecentTable";
 import { useDispatch, useSelector } from "react-redux";
+import { ChartComponent } from "./components/Chart";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -104,13 +105,14 @@ const Dashboard = () => {
       >
         <Box sx={graphFlex}>
           <Typography sx={userGeneral}>Users (General)</Typography>
-          <Box component="img" src={graph} sx={{
+          <Box sx={{
             width: { lg: check == true ? '54.5rem' : '49.5rem' , xs: "100%",xxs: "100%" },
             height: "25rem",
             transition: 'all 0.3s ease-in-out',
-          }}></Box>
+          }}>
+        <ChartComponent/>
         </Box>
-
+</Box>
         <Box sx={recentFlex}>
           <Typography sx={recentTypo}>Recent Users</Typography>
           <Box sx={recentUserBox}>
