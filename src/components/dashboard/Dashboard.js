@@ -1,5 +1,5 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState,useLayoutEffect  } from "react";
 import Department from "../department/Department";
 import graph from "../../assests/images/graph.png";
 import {
@@ -23,12 +23,20 @@ import AddNew from "../newsuer/AddNew";
 import DatePick from "../datepicker/DatePick";
 import RecentTable from "../recent/RecentTable";
 import { useDispatch, useSelector } from "react-redux";
+import { tableActions } from "../../store/table";
 import { ChartComponent } from "./components/Chart";
+import NewCalander from "../datepicker/NewCalander";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const check = useSelector((state) => state.table.check);
+  const data = useSelector((state) => state.table.data);
+
+  useLayoutEffect(()=>{
+    // dispatch(tableActions.setData(data));
+  },[])
   return (
+
     <Fragment>
       <Box>
         <Stack
@@ -45,6 +53,7 @@ const Dashboard = () => {
             <Stack direction="row">
               {/* <Box component="img" src={calander}></Box> */}
               <DatePick />
+            {/* <NewCalander/> */}
               {/* <Typography sx={dateBox}>Jul, 28 2022 - Jul, 28 2022</Typography> */}
             </Stack>
           </Box>
@@ -87,7 +96,7 @@ const Dashboard = () => {
               
             }}
           >
-            <AddNew />
+            <AddNew  />
           </Box>
         </Box>
       </Box>
@@ -128,7 +137,7 @@ const Dashboard = () => {
             </Stack> */}
           
             {/* <User />  */}
-            <RecentTable/>
+            <RecentTable data={data}/>
           </Box>
         </Box>
       </Stack>

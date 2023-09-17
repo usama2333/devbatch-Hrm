@@ -12,6 +12,11 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { useFormik } from "formik";
 import { userSchema } from "../../schema/user";
+import { useDispatch, useSelector } from "react-redux";
+import { tableActions } from "../../store/table";
+import userProfile from "../../assests/images/viewProfile.png";
+
+
 
 const initialValues = {
   name: "",
@@ -26,6 +31,21 @@ const initialValues = {
 };
 
 const AddUser = () => {
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.table.data);
+  const [checkid, setCheckid] = useState(data.length + 1)
+  // const check = useSelector((state) => state.table.check);
+  // dispatch(tableActions.setData(tableDummy));
+
+  const test = {
+    id: checkid,
+    status: "Activated",
+    created: "12-20-2023",
+    deactive: "13-20-2023",
+    image: userProfile,
+    time:"12:20AM"
+  };
+
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
@@ -33,7 +53,13 @@ const AddUser = () => {
       onSubmit: (values, action) => {
         console.log("data submited");
         console.log(values, "new user data");
-        // AddInputData(values, history, notify);
+
+        const newData = [{...values,...test}];
+        const allData = [...data,...newData];
+        console.log(allData, 'all dat disd')
+       
+        dispatch(tableActions.setData(allData))
+        dispatch(tableActions.setShow("user"));
       },
     });
   return (
@@ -81,13 +107,16 @@ const AddUser = () => {
             }}
           >
             <Box sx={{ flex: "0 0 49%", pr: "2rem" }}>
-              <Typography style={{color : errors.name && touched.name ? 'red' : '#344054'}} sx={inputTextStyle}>
-              Name 
-              {errors.name && touched.name ? (
-                <span style={{color : 'red'}}>
-                  &nbsp;*
-                </span>
-              ) : null}
+              <Typography
+                style={{
+                  color: errors.name && touched.name ? "red" : "#344054",
+                }}
+                sx={inputTextStyle}
+              >
+                Name
+                {errors.name && touched.name ? (
+                  <span style={{ color: "red" }}>&nbsp;*</span>
+                ) : null}
               </Typography>
               <TextField
                 fullWidth
@@ -101,15 +130,17 @@ const AddUser = () => {
                 onBlur={handleBlur}
                 value={values.name}
               />
-             
 
-              <Typography style={{color : errors.email && touched.email ? 'red' : '#344054'}} sx={inputTextStyle}>
-              Email
-              {errors.email && touched.email ? (
-                <span style={{color : 'red'}}>
-                  &nbsp;*
-                </span>
-              ) : null}
+              <Typography
+                style={{
+                  color: errors.email && touched.email ? "red" : "#344054",
+                }}
+                sx={inputTextStyle}
+              >
+                Email
+                {errors.email && touched.email ? (
+                  <span style={{ color: "red" }}>&nbsp;*</span>
+                ) : null}
               </Typography>
               <TextField
                 fullWidth
@@ -123,15 +154,20 @@ const AddUser = () => {
                 onBlur={handleBlur}
                 value={values.email}
               />
-             
 
-              <Typography style={{color : errors.designation && touched.designation ? 'red' : '#344054'}} sx={inputTextStyle}>
-              Designation
-              {errors.designation && touched.designation ? (
-                <span style={{color : 'red'}}>
-                  &nbsp;*
-                </span>
-              ) : null}
+              <Typography
+                style={{
+                  color:
+                    errors.designation && touched.designation
+                      ? "red"
+                      : "#344054",
+                }}
+                sx={inputTextStyle}
+              >
+                Designation
+                {errors.designation && touched.designation ? (
+                  <span style={{ color: "red" }}>&nbsp;*</span>
+                ) : null}
               </Typography>
               <TextField
                 fullWidth
@@ -145,15 +181,19 @@ const AddUser = () => {
                 onBlur={handleBlur}
                 value={values.designation}
               />
-             
 
-              <InputLabel style={{color : errors.department && touched.department ? 'red' : '#344054'}} sx={inputTextStyle} id="department">
+              <InputLabel
+                style={{
+                  color:
+                    errors.department && touched.department ? "red" : "#344054",
+                }}
+                sx={inputTextStyle}
+                id="department"
+              >
                 Department
                 {errors.department && touched.department ? (
-                <span style={{color : 'red'}}>
-                  &nbsp;*
-                </span>
-              ) : null}
+                  <span style={{ color: "red" }}>&nbsp;*</span>
+                ) : null}
               </InputLabel>
               <Select
                 labelId="department"
@@ -169,15 +209,18 @@ const AddUser = () => {
                 <MenuItem value={"Computer Science"}>Computer Science</MenuItem>
                 <MenuItem value={"Engeeniring"}>Engeeniring</MenuItem>
               </Select>
-             
 
-              <InputLabel style={{color : errors.gender && touched.gender ? 'red' : '#344054'}} sx={inputTextStyle} id="gender">
+              <InputLabel
+                style={{
+                  color: errors.gender && touched.gender ? "red" : "#344054",
+                }}
+                sx={inputTextStyle}
+                id="gender"
+              >
                 Gender
                 {errors.gender && touched.gender ? (
-                <span style={{color : 'red'}}>
-                  &nbsp;*
-                </span>
-              ) : null}
+                  <span style={{ color: "red" }}>&nbsp;*</span>
+                ) : null}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-label"
@@ -193,7 +236,6 @@ const AddUser = () => {
                 <MenuItem value={"female"}>Female Science</MenuItem>
                 <MenuItem value={"other"}>other</MenuItem>
               </Select>
-             
             </Box>
 
             <Box sx={{ flex: "0 0 49%" }}>
@@ -281,13 +323,16 @@ const AddUser = () => {
                 ></Box>
               </Box>
 
-              <Typography style={{color : errors.phone && touched.phone ? 'red' : '#344054'}} sx={phoneTextStyle}>
-              Phone No
-              {errors.phone && touched.phone ? (
-                <span style={{color : 'red'}}>
-                  &nbsp;*
-                </span>
-              ) : null}
+              <Typography
+                style={{
+                  color: errors.phone && touched.phone ? "red" : "#344054",
+                }}
+                sx={phoneTextStyle}
+              >
+                Phone No
+                {errors.phone && touched.phone ? (
+                  <span style={{ color: "red" }}>&nbsp;*</span>
+                ) : null}
               </Typography>
               <TextField
                 fullWidth
@@ -301,15 +346,17 @@ const AddUser = () => {
                 onBlur={handleBlur}
                 value={values.phone}
               />
-              
 
-              <Typography style={{color : errors.cnic && touched.cnic ? 'red' : '#344054'}} sx={inputTextStyle}>
-              CNIC
-              {errors.cnic && touched.cnic ? (
-                <span style={{color : 'red'}}>
-                  &nbsp;*
-                </span>
-              ) : null}
+              <Typography
+                style={{
+                  color: errors.cnic && touched.cnic ? "red" : "#344054",
+                }}
+                sx={inputTextStyle}
+              >
+                CNIC
+                {errors.cnic && touched.cnic ? (
+                  <span style={{ color: "red" }}>&nbsp;*</span>
+                ) : null}
               </Typography>
               <TextField
                 fullWidth
@@ -323,15 +370,17 @@ const AddUser = () => {
                 onBlur={handleBlur}
                 value={values.cnic}
               />
-             
 
-              <Typography style={{color : errors.address && touched.address ? 'red' : '#344054'}} sx={inputTextStyle}>
-              Address
-              {errors.address && touched.address ? (
-                <span style={{color : 'red'}}>
-                  &nbsp;*
-                </span>
-              ) : null}
+              <Typography
+                style={{
+                  color: errors.address && touched.address ? "red" : "#344054",
+                }}
+                sx={inputTextStyle}
+              >
+                Address
+                {errors.address && touched.address ? (
+                  <span style={{ color: "red" }}>&nbsp;*</span>
+                ) : null}
               </Typography>
               <TextField
                 fullWidth
@@ -345,7 +394,6 @@ const AddUser = () => {
                 onBlur={handleBlur}
                 value={values.address}
               />
-            
             </Box>
           </Box>
 

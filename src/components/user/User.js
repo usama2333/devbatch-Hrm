@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
-import React, { Fragment, useState,useEffect, useLayoutEffect } from "react";
+import React, { Fragment, useState, useLayoutEffect } from "react";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
-import { EnergySavingsLeafSharp, Search } from "@mui/icons-material";
+import {  Search } from "@mui/icons-material";
 import Button from "@mui/material/Button";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -18,6 +18,9 @@ import {
   backText,
   normalColor,
   normalText,
+  redBox,
+  yellowBox,
+  rows,
 } from "./style";
 import eyes from "../../assests/images/eye.png";
 import bin from "../../assests/images/bin.png";
@@ -28,109 +31,6 @@ import rightArrow from "../../assests/images/rightArrow.png";
 import MenuItem from "@mui/material/MenuItem";
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
-
-
-
-
-const redBox = (
-  <Box
-    sx={{
-      background: "#F45744 0% 0% no-repeat padding-box",
-      width: "10px",
-      height: "10px",
-      borderRadius: "100%",
-    }}
-  ></Box>
-);
-
-const yellowBox = (
-  <Box
-    sx={{
-      background: "#a8fe62 0% 0% no-repeat padding-box",
-      width: "10px",
-      height: "10px",
-      borderRadius: "100%",
-    }}
-  ></Box>
-);
-
-const rows = [
-  {
-
-    id : 1,
-    name : "Hassan Farooq",
-    status:"Activated",
-    department : "Development",
-    created:"12-20-2023",
-    deactive:"12-20-2023",
-    actions:"Actions",
-    time:"10:10AM"
-  },
- { 
-
-  id : 2,
-  name : "Hassan Farooq",
-  status:"Dectivated",
-  department : "Design",
-  created:"12-20-2023",
-  deactive:"12-20-2023",
-  actions:"Actions",
-  time:"10:10AM"
-  },
-  {
-    id : 3,
-    name : "Hassan Farooq",
-    status:"Activated",
-    department : "IT Network",
-    created:"12-20-2023",
-    deactive:"12-20-2023",
-    actions:"Actions",
-    time:"10:10AM"
-  },
-  {
-    id : 4,
-    name : "Hassan Farooq",
-    status:"Activated",
-    department : "Consulting",
-    created:"12-20-2023",
-    deactive:"12-20-2023",
-    actions:"Actions",
-    time:"10:10AM"
-  },
-  {
-    id : 5,
-    name : "Hassan Farooq",
-    status:"Activated",
-    department : "Consulting",
-    created:"12-20-2023",
-    deactive:"12-20-2023",
-    actions:"Actions",
-    time:"10:10AM"
-  },
-  {
-
-    id : 6,
-    name : "Hassan Farooq",
-    status:"Activated",
-    department : "Development",
-    created:"12-20-2023",
-    deactive:"12-20-2023",
-    actions:"Actions",
-    time:"10:10AM"
-  },
- { 
-
-  id : 7,
-  name : "Hassan Farooq",
-  status:"Dectivated",
-  department : "Design",
-  created:"12-20-2023",
-  deactive:"12-20-2023",
-  actions:"Actions",
-  time:"10:10AM"
-  },
-  
-];
 
 
 
@@ -162,20 +62,20 @@ const User = ({adduser}) => {
    
   ])
   const [activeState, seteactiveState] = useState(0);
-  const [roww, setRoww] = useState(rows.length);
-  
-  const filteredRows = rows.slice(0,roww);
+  const [roww, setRoww] = useState(data.length);
+
   const [howManyRow, sethowManyRow] = useState(data?.length);
  
   useLayoutEffect(()=>{
-    dispatch(tableActions.setData(rows));
+    
   },[])
   
-
   const viewHandler = (id) => {
      console.log(id,'........view.........')
      dispatch(tableActions.setShow('userdetailview'));
-    
+     const viewData = data.filter(item => item.id == id);
+     console.log(viewData,'view.......')
+     dispatch(tableActions.setView(viewData));
   }
 
   const editHandler = (id) => {

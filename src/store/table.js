@@ -4,7 +4,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     show : 'dashboard',
     check : false,
-    data : []
+    data : [],
+    view : []
     
 }
 
@@ -20,6 +21,9 @@ const tableSlice = createSlice ({
           },
           setData(state ,action) {
             state.data = action.payload;
+          },
+          setView(state ,action) {
+            state.view = action.payload;
           },
     
     }

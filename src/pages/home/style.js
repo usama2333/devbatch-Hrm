@@ -1,7 +1,8 @@
 
 import red from "../../assests/images/blue.png";
 import blue from "../../assests/images/red.png";
-
+import usamaPic from '../../assests/images/usamaPic.jpg';
+import viewProfile from '../../assests/images/viewProfile.png';
 export const userRecent = {
     font: 'normal normal medium 14px/21px Poppins',
     letterSpacing: '0px',
@@ -45,79 +46,128 @@ export const transitionBox = {
 
 
 export const tableDummy = [
-    {
-  
-      id : 1,
-      name : "Hassan Farooq",
-      status:"Activated",
-      department : "Development",
-      created:"12-20-2023",
-      deactive:"12-20-2023",
-      actions:"Actions",
-      time:"10:10AM"
-    },
-   { 
-  
-    id : 2,
+  {
+
+    id : 1,
     name : "Hassan Farooq",
-    status:"Dectivated",
-    department : "Design",
+    email : 'hassan@gamil.com',
+    desgination : 'Web Developer',
+    status:"Activated",
+    department : "Development",
+    gender : 'male',
+    image : viewProfile,
+    phone : '3000000000',
+    cnic : '3333333333333',
+    address : 'Lahore garden town',
     created:"12-20-2023",
-    deactive:"12-20-2023",
+    deactive:"13-20-2023",
     actions:"Actions",
     time:"10:10AM"
-    },
-    {
-      id : 3,
-      name : "Hassan Farooq",
-      status:"Activated",
-      department : "IT Network",
-      created:"12-20-2023",
-      deactive:"12-20-2023",
-      actions:"Actions",
-      time:"10:10AM"
-    },
-    {
-      id : 4,
-      name : "Hassan Farooq",
-      status:"Activated",
-      department : "Consulting",
-      created:"12-20-2023",
-      deactive:"12-20-2023",
-      actions:"Actions",
-      time:"10:10AM"
-    },
-    {
-      id : 5,
-      name : "Hassan Farooq",
-      status:"Activated",
-      department : "Consulting",
-      created:"12-20-2023",
-      deactive:"12-20-2023",
-      actions:"Actions",
-      time:"10:10AM"
-    },
-    {
-  
-      id : 6,
-      name : "Hassan Farooq",
-      status:"Activated",
-      department : "Development",
-      created:"12-20-2023",
-      deactive:"12-20-2023",
-      actions:"Actions",
-      time:"10:10AM"
-    },
-   { 
-  
-    id : 7,
-    name : "Hassan Farooq",
-    status:"Dectivated",
-    department : "Design",
+  },
+ { 
+
+  id : 2,
+    name : "Usama Ahmed",
+    email : 'usama@gamil.com',
+    desgination : 'Software Engineer',
+    status:"Activated",
+    department : "Engineering",
+    gender : 'male',
+    image : usamaPic,
+    phone : '3000764339',
+    cnic : '3333333333333',
+    address : 'Lahore , Johar Town',
     created:"12-20-2023",
-    deactive:"12-20-2023",
+    deactive:"13-20-2023",
     actions:"Actions",
-    time:"10:10AM"
-    },
-    
-  ];
+    time:"09:50AM"
+  },
+  {
+    id : 3,
+    name : "Haseeb Ahmed",
+    email : 'haseeb@gamil.com',
+    desgination : 'Doctor',
+    status:"Activated",
+    department : "Medical",
+    gender : 'male',
+    image : viewProfile,
+    phone : '3000764338',
+    cnic : '3333333322222',
+    address : 'Bahria Town , Lahore',
+    created:"12-20-2023",
+    deactive:"13-20-2023",
+    actions:"Actions",
+    time:"12:00AM"
+  },
+  {
+    id : 4,
+    name : "Shama ul haq",
+    email : 'shamas@gamil.com',
+    desgination : 'Backend Developer',
+    status:"Deactivated",
+    department : "Computer Science",
+    gender : 'male',
+    image : viewProfile,
+    phone : '3070000000',
+    cnic : '33333311111111',
+    address : 'Gulberg II ,Lahore ',
+    created:"12-20-2023",
+    deactive:"13-20-2023",
+    actions:"Actions",
+    time:"09:10AM"
+  },
+  {
+    id : 5,
+    name : "Maria Ali",
+    email : 'maria@gamil.com',
+    desgination : 'SQA',
+    status:"Activated",
+    department : "Testing",
+    gender : 'female',
+    image : viewProfile,
+    phone : '3000111111',
+    cnic : '3333333335566',
+    address : 'Model town , Lahore',
+    created:"12-20-2023",
+    deactive:"13-20-2023",
+    actions:"Actions",
+    time:"12:20AM"
+  },
+  {
+
+    id : 6,
+    name : "Samama Zargham",
+    email : 'Sam@gamil.com',
+    desgination : 'React Native',
+    status:"Deactivated",
+    department : "Development",
+    gender : 'male',
+    image : viewProfile,
+    phone : '3012345678',
+    cnic : '3333333333399',
+    address : 'G1 , Lahore',
+    created:"12-20-2023",
+    deactive:"13-20-2023",
+    actions:"Actions",
+    time:"09:40AM"
+  },
+ { 
+
+  id : 7,
+    name : "Ayesha",
+    email : 'Ayesha@gamil.com',
+    desgination : 'Frontend Developer',
+    status:"Activated",
+    department : "Development",
+    gender : 'Female',
+    image : viewProfile,
+    phone : '3000345678',
+    cnic : '3333333987654',
+    address : 'Lahore',
+    created:"12-20-2023",
+    deactive:"13-20-2023",
+    actions:"Actions",
+    time:"10:30AM"
+  },
+  
+];

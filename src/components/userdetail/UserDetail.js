@@ -5,7 +5,17 @@ import EditCalendarIcon from "@mui/icons-material/EditCalendar";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import GeneralTable from "../generalinfo/GeneralTable";
+import { useDispatch, useSelector } from "react-redux";
+import { tableActions } from "../../store/table";
+import { redBox, yellowBox } from "../user/style";
+
 const UserDetail = () => {
+  const dispatch = useDispatch();
+  const view = useSelector((state) => state.table.view);
+  console.log(view,'test view data ............')
+
+
+ 
   return (
     <Fragment>
     
@@ -64,8 +74,9 @@ const UserDetail = () => {
                   lg: "200px",
                   xl: "248px",
                 },
+                borderRadius : '10px'
               }}
-              src={viewProfile}
+              src={view[0].image}
             ></Box>
           </Box>
 
@@ -100,7 +111,7 @@ const UserDetail = () => {
                     opacity: 1,
                   }}
                 >
-                  Hassan Farooq
+                  {view[0].name}
                 </Typography>
                 <Typography
                   sx={{
@@ -116,7 +127,7 @@ const UserDetail = () => {
                     opacity: 1,
                   }}
                 >
-                  UI/UX Designer
+                  {view[0].desgination}
                 </Typography>
               </Box>
 
@@ -134,13 +145,10 @@ const UserDetail = () => {
                 }}
               >
                 <Box
-                  sx={{
-                    background: "#a8fe62 0% 0% no-repeat padding-box",
-                    width: { xxs: "8px", lg: "10px" },
-                    height: { xxs: "8px", lg: "10px" },
-                    borderRadius: "100%",
-                  }}
-                ></Box>
+                 
+                >
+                   {view[0].status === "Activated" ? yellowBox : redBox}
+                </Box>
                 <Typography
                   sx={{
                     font: {
@@ -154,7 +162,7 @@ const UserDetail = () => {
                     ml: "0.7rem",
                   }}
                 >
-                  Activated
+                  {view[0].status}
                 </Typography>
               </Box>
 
@@ -191,6 +199,7 @@ const UserDetail = () => {
                   &nbsp; Download
                 </Button>
                 <Button
+                onClick={() =>  dispatch(tableActions.setShow('adduser')) }
                   sx={{
                     background: "#FE8062 0% 0% no-repeat padding-box",
                     font: {
@@ -239,7 +248,7 @@ const UserDetail = () => {
                   ml: "0.6rem",
                 }}
               >
-                House No 21, St No 303
+                {view[0].address}
               </Typography>
             </Box>
 
@@ -321,7 +330,7 @@ const UserDetail = () => {
                      
                     }}
                   >
-                    IT Consultant
+                    {view[0].department}
                   </Typography>
                  
                   <Typography
@@ -332,7 +341,7 @@ const UserDetail = () => {
                       margin : '0.5rem 0'
                     }}
                   >
-                    33333-3333333-33
+                     {view[0].cnic}
                   </Typography>
                   <Typography
                     sx={{
@@ -341,7 +350,7 @@ const UserDetail = () => {
                       color: "#344054",
                     }}
                   >
-                    Nov 9, 2023
+                     {view[0].created}
                   </Typography>
                 </Box>
 
@@ -394,7 +403,7 @@ const UserDetail = () => {
                      
                     }}
                   >
-                    hassan@gmail.com
+                    {view[0].email}
                   </Typography>
                  
                   <Typography
@@ -405,7 +414,7 @@ const UserDetail = () => {
                       margin : '0.5rem 0'
                     }}
                   >
-                    +92 859 43403
+                     {view[0].phone}
                   </Typography>
                   <Typography
                     sx={{
@@ -414,7 +423,7 @@ const UserDetail = () => {
                       color: "#344054",
                     }}
                   >
-                    Male
+                     {view[0].gender}
                   </Typography>
                 </Box>
 

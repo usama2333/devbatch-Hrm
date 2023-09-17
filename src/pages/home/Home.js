@@ -1,5 +1,5 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useLayoutEffect,useEffect } from "react";
 import logo from "../../assests/images/logo.png";
 import dashboard from "../../assests/images/dashboard.png";
 import user from "../../assests/images/user.png";
@@ -11,6 +11,7 @@ import User from "../../components/user/User";
 import {
   dashboardSx,
   relBox,
+  rows,
   tableDummy,
   transitionBox,
   userSx,
@@ -32,7 +33,7 @@ const Home = () => {
   // const [check, setCheck] = useState(false);
   const [displayText, setDisplayText] = useState("grid");
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // Code to run on component mount
 
     dispatch(tableActions.setData(tableDummy));

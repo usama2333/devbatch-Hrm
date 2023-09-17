@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment,useLayoutEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -8,56 +8,17 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { stackSx, userName, userRecent } from "./style";
-import { useDispatch, useSelector } from "react-redux";
+ import { useDispatch, useSelector } from "react-redux";
+import { tableActions } from "../../store/table";
 
-const rows = [
-  {
-    name : 'Hassan Farooq',
-    department : 'Design',
-    time : '01:30 PM',
-    date : '12/07/2023'
 
-  },
-  {
-    name : 'Hassan Farooq',
-    department : 'Design',
-    time : '01:30 PM',
-    date : '12/07/2023'
-
-  },
-  {
-    name : 'Hassan Farooq',
-    department : 'Design',
-    time : '01:30 PM',
-    date : '12/07/2023'
-
-  },
-  {
-    name : 'Hassan Farooq',
-    department : 'IT Network',
-    time : '01:30 PM',
-    date : '12/07/2023'
-
-  },
-  {
-    name : 'Hassan Farooq',
-    department : 'Consulting',
-    time : '01:30 PM',
-    date : '12/07/2023'
-
-  },
-  {
-    name : 'Hassan Farooq',
-    department : 'Development',
-    time : '01:30 PM',
-    date : '12/07/2023'
-
-  },
- 
-];
-const RecentTable = () => {
-  const data = useSelector((state) => state.table.data);
+const RecentTable = ({data}) => {
+  const dispatch = useDispatch();
+  // const data = useSelector((state) => state.table.data);
   console.log(data,'tabbbbbbbbbbbbb')
+  useLayoutEffect(()=>{
+    
+  },[])
   return (
     <Fragment>
       <Box>

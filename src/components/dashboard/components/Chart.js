@@ -13,7 +13,7 @@ export const options = {
   title: "",
   hAxis: { title: "", titleTextStyle: { color: "#333" } },
   vAxis: { minValue: 0 },
-  chartArea: { width: "70%", height: "65%" , },
+  chartArea: { width: "80%", height: "65%" , },
 };
 
 export function ChartComponent() {

@@ -22,35 +22,3 @@ export const stackSx = {
     mt : '0.6rem'
 }
 
-export const userData = [
-    {
-        name : 'Hassan Farooq',
-        depart : 'Design',
-        date : '01:30 PM, 12/07/2023'
-    },
-    {
-        name : 'Hassan Farooq',
-        depart : 'Design',
-        date : '01:30 PM, 12/07/2023'
-    },
-    {
-        name : 'Hassan Farooq',
-        depart : 'Design',
-        date : '01:30 PM, 12/07/2023'
-    },
-    {
-        name : 'Hassan Farooq',
-        depart : 'It Network',
-        date : '01:30 PM, 12/07/2023'
-    },
-    {
-        name : 'Hassan Farooq',
-        depart : 'Consultant',
-        date : '01:30 PM, 12/07/2023'
-    },
-    {
-        name : 'Hassan Farooq',
-        depart : 'Development',
-        date : '01:30 PM, 12/07/2023'
-    },
-]
