@@ -27,6 +27,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const show = useSelector((state) => state.table.show);
   const check = useSelector((state) => state.table.check);
+  
 
   const [firstH, setFirstH] = useState("20%");
   const [secondH, setSecondH] = useState("80%");

@@ -1,4 +1,4 @@
-import React, { Fragment,useState } from "react";
+import React, { Fragment,useState ,useEffect} from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -18,6 +18,10 @@ import MailIcon from '@mui/icons-material/Mail';
 
 const Navbarr = () => {
   const show = useSelector((state) => state.table.show);
+  const data = useSelector((state) => state.table.data);
+  const name = useSelector((state) => state.table.name);
+  const [lastdata,setLastdata] = useState([]);
+
   const dispatch = useDispatch();
   const [auth, setAuth] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -57,6 +61,11 @@ const Navbarr = () => {
     console.log('log..............')
   };
 
+  useEffect(()=> {
+    setLastdata(data[data.length - 1]);
+     dispatch(tableActions.setName(lastdata));
+  },[data])
+
 
   return (
     <Fragment>
@@ -77,10 +86,10 @@ const Navbarr = () => {
            
 
             <Stack sx={navStack}>
-              <Typography sx={navTypo}>AnnaBell James</Typography>
+              <Typography sx={navTypo}>{lastdata.name}</Typography>
 
               <Typography sx={navEmail}>
-                annabelljames123@devbatch.com
+                {lastdata.email}
               </Typography>
             </Stack>
             {auth && (
@@ -94,7 +103,7 @@ const Navbarr = () => {
                 color="inherit"
               >
                 {/* <AccountCircle /> */}
-                <Box component="img" sx={pieIcon} src={pie}></Box>
+                <Box component="img" sx={pieIcon} src={lastdata.image}></Box>
               </IconButton>
               <Menu
                 id="menu-appbar"

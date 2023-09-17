@@ -169,5 +169,22 @@ export const tableDummy = [
     actions:"Actions",
     time:"10:30AM"
   },
+  { 
+    id : 8,
+      name : "Usama Ahmed",
+      email : 'usama@gamil.com',
+      desgination : 'Software Engineer',
+      status:"Activated",
+      department : "Engineering",
+      gender : 'male',
+      image : usamaPic,
+      phone : '3000764339',
+      cnic : '3333333333333',
+      address : 'Lahore , Johar Town',
+      created:"12-20-2023",
+      deactive:"13-20-2023",
+      actions:"Actions",
+      time:"09:50AM"
+    },
   
 ];

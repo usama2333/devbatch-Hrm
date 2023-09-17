@@ -1,5 +1,5 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
-import React, { Fragment, useState,useLayoutEffect  } from "react";
+import React, { Fragment, useState,useLayoutEffect, useEffect  } from "react";
 import Department from "../department/Department";
 import graph from "../../assests/images/graph.png";
 import {
@@ -31,8 +31,18 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const check = useSelector((state) => state.table.check);
   const data = useSelector((state) => state.table.data);
+  const [lastdata,setLastdata] = useState([]);
+
+  
+  console.log(lastdata,'last data')
+
+  useEffect(()=> {
+    setLastdata(data[data.length - 1]);
+    //  dispatch(tableActions.setName(lastdata));
+  },[data])
 
   useLayoutEffect(()=>{
+    
     // dispatch(tableActions.setData(data));
   },[])
   return (
@@ -46,7 +56,7 @@ const Dashboard = () => {
         >
           <Box sx={{ mt: "4rem" }}>
             <Typography sx={welcome}>Welcome</Typography>
-            <Typography sx={nameTypo}>Hassan Farooq!</Typography>
+            <Typography sx={nameTypo}>{lastdata.name}</Typography>
           </Box>
 
           <Box sx={calanderMain}>

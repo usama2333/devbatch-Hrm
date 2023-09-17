@@ -5,7 +5,8 @@ const initialState = {
     show : 'dashboard',
     check : false,
     data : [],
-    view : []
+    view : [],
+    name : []
     
 }
 
@@ -24,6 +25,9 @@ const tableSlice = createSlice ({
           },
           setView(state ,action) {
             state.view = action.payload;
+          },
+          setName(state ,action) {
+            state.name = action.payload;
           },
     
     }

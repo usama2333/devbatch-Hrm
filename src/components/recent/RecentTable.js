@@ -55,7 +55,7 @@ const RecentTable = ({data}) => {
                     <TableCell sx={userRecent} align="left">{row.department}</TableCell>
                     <TableCell align="left">
                       
-                      <Box sx={userRecent}>{`${row.time} ${row.date}`}</Box>
+                      <Box sx={userRecent}>{`${row.time} ${row.created}`}</Box>
                     </TableCell>
                    
                     

@@ -39,8 +39,10 @@ export const navEmail = {
 }
 
 export const pieIcon = {
-    width : {xxs : '2.5rem',xs : '2.5rem',sm : '3rem',md : '3.5rem' , lg : 'auto'},
-              height : {xxs : '2.5rem',xs : '2.5rem',sm : '3rem',md : '3.5rem' , lg : 'auto'},
-              cursor : 'pointer'
+    width : {xxs : '2.5rem',xs : '2.5rem',sm : '3rem',md : '3.5rem',lg : '4rem' },
+              height : {xxs : '2.5rem',xs : '2.5rem',sm : '3rem',md : '3.5rem',lg : '4rem'},
+              cursor : 'pointer',
+              borderRadius : '100px'
+
             //   display : {xxs : 'none' ,xs : 'none' , sm : 'flex'}
 }
