@@ -61,37 +61,45 @@ const User = ({adduser}) => {
     },
    
   ])
+  const [searchData, setesearchData] = useState([]);
+
   const [activeState, seteactiveState] = useState(0);
   const [roww, setRoww] = useState(data.length);
-
   const [howManyRow, sethowManyRow] = useState(data?.length);
- 
+ const [inputValue,setInputValue]=useState(null);
+
   useLayoutEffect(()=>{
     
   },[])
   
   const viewHandler = (id) => {
-     console.log(id,'........view.........')
      dispatch(tableActions.setShow('userdetailview'));
      const viewData = data.filter(item => item.id == id);
-     console.log(viewData,'view.......')
      dispatch(tableActions.setView(viewData));
   }
 
   const editHandler = (id) => {
     dispatch(tableActions.setShow('adduser'));
-    console.log(id,'........edit.........')
+    
  }
  const deleteHandler = (id) => {
   console.log({id})
   const updatedData = data.filter(item => item.id != id);
   dispatch(tableActions.setData(updatedData));
-  console.log(updatedData,'.....test ')
-  console.log(id,'........delete.........')
 }
- 
 
-  console.log(roww,'count rows')
+const handleInputChange = (event) => {
+  const newValue = event.target.value;
+  setInputValue(newValue);
+  console.log(inputValue,'search..................')
+  const filteredData = data.filter((item) =>
+    item.name.toLowerCase().includes(newValue)
+  );
+  console.log(filteredData,'test filter data ')
+  setesearchData(filteredData)
+  // You can do additional processing here if needed.
+};
+ 
   return (
     <Fragment>
       <Box
@@ -128,6 +136,7 @@ const User = ({adduser}) => {
                 </InputAdornment>
               ),
             }}
+            onChange={handleInputChange}
           />
 
           <Button
@@ -179,7 +188,7 @@ const User = ({adduser}) => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {data.map((row,index) =>{ 
+                {(searchData?.length ? searchData : data).map((row,index) =>{ 
                   if(index < howManyRow) return(
                   <TableRow
                     key={row.id}
