@@ -33,7 +33,9 @@ const initialValues = {
 const AddUser = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.table.data);
-  const [checkid, setCheckid] = useState(data.length + 1)
+  const [checkid, setCheckid] = useState(data.length + 1);
+  const edit = useSelector((state) => state.table.edit);
+  console.log('this is ..............................',edit)
   // const check = useSelector((state) => state.table.check);
   // dispatch(tableActions.setData(tableDummy));
 
@@ -128,7 +130,8 @@ const AddUser = () => {
                 name="name"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.name}
+                value={(values.name.length ?  values.name : edit[0]?.name)}
+              
               />
 
               <Typography
@@ -152,7 +155,8 @@ const AddUser = () => {
                 name="email"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.email}
+                value={(values.email.length ?  values.email : edit[0]?.email)}
+               
               />
 
               <Typography
@@ -179,7 +183,8 @@ const AddUser = () => {
                 name="designation"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.designation}
+                value={(values.designation.length ?  values.designation : edit[0]?.designation)}
+               
               />
 
               <InputLabel
@@ -203,11 +208,13 @@ const AddUser = () => {
                 name="department"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.department}
+                value={(values.department.length ?  values.department : edit[0]?.department)}
+                
               >
                 <MenuItem value={"IT"}>IT</MenuItem>
                 <MenuItem value={"Computer Science"}>Computer Science</MenuItem>
-                <MenuItem value={"Engeeniring"}>Engeeniring</MenuItem>
+                <MenuItem value={"Engineering"}>Engeeniring</MenuItem>
+                <MenuItem value={"Medical"}>Medical</MenuItem>
               </Select>
 
               <InputLabel
@@ -230,7 +237,7 @@ const AddUser = () => {
                 name="gender"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.gender}
+                value={(values.gender.length ?  values.gender : edit[0]?.gender)}
               >
                 <MenuItem value={"male"}>Male</MenuItem>
                 <MenuItem value={"female"}>Female Science</MenuItem>
@@ -344,7 +351,8 @@ const AddUser = () => {
                 name="phone"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.phone}
+                value={(values.phone.length ?  values.phone : edit[0]?.phone)}
+              
               />
 
               <Typography
@@ -368,7 +376,8 @@ const AddUser = () => {
                 name="cnic"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.cnic}
+                value={(values.cnic.length ?  values.cnic : edit[0]?.cnic)}
+                
               />
 
               <Typography
@@ -392,7 +401,8 @@ const AddUser = () => {
                 name="address"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.address}
+                value={(values.address.length ?  values.address : edit[0]?.address)}
+           
               />
             </Box>
           </Box>

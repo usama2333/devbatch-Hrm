@@ -79,7 +79,13 @@ const User = ({adduser}) => {
   }
 
   const editHandler = (id) => {
+    console.log(id,'edit id is ................')
+    const editData = data.filter(item => item.id == id);
+    console.log(editData,'this is edit data')
+    
+    dispatch(tableActions.setEdit(editData));
     dispatch(tableActions.setShow('adduser'));
+    
     
  }
  const deleteHandler = (id) => {

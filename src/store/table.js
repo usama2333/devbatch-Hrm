@@ -6,7 +6,8 @@ const initialState = {
     check : false,
     data : [],
     view : [],
-    name : []
+    name : [],
+    edit : []
     
 }
 
@@ -28,6 +29,9 @@ const tableSlice = createSlice ({
           },
           setName(state ,action) {
             state.name = action.payload;
+          },
+          setEdit(state ,action) {
+            state.edit = action.payload;
           },
     
     }
