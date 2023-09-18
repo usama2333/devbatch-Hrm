@@ -46,7 +46,7 @@ const Home = () => {
     dispatch(tableActions.setCheck());
     setDisplayText((pre) => (pre == "grid" ? "none" : "grid"));
 
-    console.log("click");
+   
   };
 
   const dashboardHandler = () => {

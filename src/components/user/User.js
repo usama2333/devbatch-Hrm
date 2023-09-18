@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import React, { Fragment, useState, useLayoutEffect } from "react";
+import React, { Fragment, useState, useLayoutEffect,useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import {  Search } from "@mui/icons-material";
@@ -79,9 +79,7 @@ const User = ({adduser}) => {
   }
 
   const editHandler = (id) => {
-    console.log(id,'edit id is ................')
     const editData = data.filter(item => item.id == id);
-    console.log(editData,'this is edit data')
     
     dispatch(tableActions.setEdit(editData));
     dispatch(tableActions.setShow('adduser'));
@@ -89,7 +87,6 @@ const User = ({adduser}) => {
     
  }
  const deleteHandler = (id) => {
-  console.log({id})
   const updatedData = data.filter(item => item.id != id);
   dispatch(tableActions.setData(updatedData));
 }
@@ -97,15 +94,15 @@ const User = ({adduser}) => {
 const handleInputChange = (event) => {
   const newValue = event.target.value;
   setInputValue(newValue);
-  console.log(inputValue,'search..................')
+  
   const filteredData = data.filter((item) =>
     item.name.toLowerCase().includes(newValue)
   );
-  console.log(filteredData,'test filter data ')
   setesearchData(filteredData)
-  // You can do additional processing here if needed.
+  
 };
- 
+
+
   return (
     <Fragment>
       <Box
@@ -197,7 +194,7 @@ const handleInputChange = (event) => {
                 {(searchData?.length ? searchData : data).map((row,index) =>{ 
                   if(index < howManyRow) return(
                   <TableRow
-                    key={row.id}
+                    key={index}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell
@@ -307,9 +304,10 @@ const handleInputChange = (event) => {
             src={leftArrow}
           ></Box>
 
-          {[0, 1, 2, 3].map((item) => {
+          {[0, 1, 2, 3].map((item,index) => {
             return (
               <Box
+              key = {index}
                 onClick={() => seteactiveState(item)}
                 sx={item === activeState ? backColor : normalColor}
               >

@@ -17,7 +17,6 @@ import { tableActions } from "../../store/table";
 import userProfile from "../../assests/images/viewProfile.png";
 
 
-
 const initialValues = {
   name: "",
   email: "",
@@ -35,9 +34,8 @@ const AddUser = () => {
   const data = useSelector((state) => state.table.data);
   const [checkid, setCheckid] = useState(data.length + 1);
   const edit = useSelector((state) => state.table.edit);
-  console.log('this is ..............................',edit)
-  // const check = useSelector((state) => state.table.check);
-  // dispatch(tableActions.setData(tableDummy));
+  const editData = edit;
+
 
   const test = {
     id: checkid,
@@ -53,15 +51,21 @@ const AddUser = () => {
       initialValues: initialValues,
       validationSchema: userSchema,
       onSubmit: (values, action) => {
-        console.log("data submited");
-        console.log(values, "new user data");
 
         const newData = [{...values,...test}];
         const allData = [...data,...newData];
-        console.log(allData, 'all dat disd')
+     
+        if(editData.length != 0) {
+          const updatedData = allData.filter(item => item.id != editData[0].id);
+          dispatch(tableActions.setData(updatedData));
+          dispatch(tableActions.setShow("user"));
+        }
+        else{
+          dispatch(tableActions.setData(allData))
+          dispatch(tableActions.setShow("user"));
+        }
        
-        dispatch(tableActions.setData(allData))
-        dispatch(tableActions.setShow("user"));
+       
       },
     });
   return (

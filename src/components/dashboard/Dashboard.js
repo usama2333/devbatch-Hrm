@@ -33,17 +33,13 @@ const Dashboard = () => {
   const data = useSelector((state) => state.table.data);
   const [lastdata,setLastdata] = useState([]);
 
-  
-  console.log(lastdata,'last data')
-
   useEffect(()=> {
     setLastdata(data[data.length - 1]);
-    //  dispatch(tableActions.setName(lastdata));
+    
   },[data])
 
   useLayoutEffect(()=>{
     
-    // dispatch(tableActions.setData(data));
   },[])
   return (
 
@@ -89,9 +85,9 @@ const Dashboard = () => {
               
             }}
           >
-            {depart.map((data) => (
+            {depart.map((data,index) => (
               <Department
-                key={data.name}
+                key = {index}
                 img={data.img}
                 name={data.name}
                 user={data.user}

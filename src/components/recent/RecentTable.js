@@ -15,7 +15,6 @@ import { tableActions } from "../../store/table";
 const RecentTable = ({data}) => {
   const dispatch = useDispatch();
   // const data = useSelector((state) => state.table.data);
-  console.log(data,'tabbbbbbbbbbbbb')
   useLayoutEffect(()=>{
     
   },[])
@@ -44,9 +43,9 @@ const RecentTable = ({data}) => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {data.map((row) => (
+                {data.map((row,index) => (
                   <TableRow
-                    key={row.name}
+                    key={index}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell  component="th" scope="row">
