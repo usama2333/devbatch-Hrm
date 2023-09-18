@@ -19,6 +19,7 @@ import DatePick from "../datepicker/DatePick";
 import RecentTable from "../recent/RecentTable";
 import {  useSelector } from "react-redux";
 import { ChartComponent } from "./components/Chart";
+import DateRange from "../datepicker/DateRange";
 
 
 const Dashboard = () => {
@@ -51,8 +52,9 @@ const Dashboard = () => {
 
           <Box sx={calanderMain}>
             <Stack direction="row">
+            <DateRange/>
               {/* <Box component="img" src={calander}></Box> */}
-              <DatePick />
+              {/* <DatePick /> */}
             {/* <NewCalander/> */}
               {/* <Typography sx={dateBox}>Jul, 28 2022 - Jul, 28 2022</Typography> */}
             </Stack>
