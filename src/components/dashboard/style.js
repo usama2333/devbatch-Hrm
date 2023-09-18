@@ -75,15 +75,19 @@ export const dateBox={
 
 export const graphStack= {
     mt: "2rem",
-    ml: { xs: "0rem",xs: "0rem", sm: "3rem" },
-    pb: "4.2rem",
+    // ml: { xs: "0rem",xs: "0rem", sm: "3rem" },
+    // pb: "4.2rem",
+   
 }
 export const graphFlex = {
-    flex: {
-        lg: "0 0 50%",
-        xxs: "0 0 95%",
-      },
+    // flex: {
+    //     lg: "0 0 50%",
+    //     xxs: "0 0 95%",
+    //   },
+   
+      flex: 'calc((100% - 3rem) / 2)',
       mt: { xxs: "2rem",xs: "2rem", lg: "0rem" },
+      boxSizing : 'border-box'
     
 }
 export const userGeneral= {
@@ -94,10 +98,12 @@ export const userGeneral= {
 }
 
 export const recentFlex = {
-    flex: {
-        lg: "0 0 50%",
-        xxs: "0 0 95%",
-      },
+    // flex: {
+    //     lg: "0 0 50%",
+    //     xxs: "0 0 95%",
+    //   },
+    boxSizing : 'border-box',
+    flex: 'calc((100% - 3rem) / 2)',
       
 }
 
@@ -111,7 +117,7 @@ export const recentTypo= {
 export const recentUserBox= {
     border: "1px solid #F3F3F3",
     borderRadius: "11px",
-    mr: { xxs: "0rem",xs: "0rem", lg: "3rem" },
+    // mr: { xxs: "0rem",xs: "0rem", lg: "3rem" },
     padding: "0.9rem 1.3rem",
 }
 export const recentUserStack= {

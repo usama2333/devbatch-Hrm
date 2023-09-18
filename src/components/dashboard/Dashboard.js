@@ -1,7 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material";
 import React, { Fragment, useState,useLayoutEffect, useEffect  } from "react";
 import Department from "../department/Department";
-
+import graph from '../../assests/images/graph.png';
 import {
   calanderMain,
   depart,
@@ -114,19 +114,29 @@ const Dashboard = () => {
       <Stack
         direction="row"
         flexWrap="wrap-reverse"
+        gap = '3rem'
         // justifyContent="center"
         // alignItems="center"
+        
         sx={graphStack}
       >
         <Box sx={graphFlex}>
           <Typography sx={userGeneral}>Users (General)</Typography>
-          <Box sx={{
-            width: { lg: check === true ? '54.5rem' : '49.5rem' , xs: "100%",xxs: "100%" },
+          <Box component='img' sx={{
+            
+              width : { lg: check === true ? '54rem' : '48rem' , xs: "100%",xxs: "100%" },
+               height : '25rem',
+               transition: 'all 0.3s ease-in-out',
+          }} src={graph}></Box>
+
+          {/* <Box sx={{
+            width : '90%',
+            // width: { lg: check === true ? '54.5rem' : '49.5rem' , xs: "100%",xxs: "100%" },
             height: "25rem",
             transition: 'all 0.3s ease-in-out',
           }}>
         <ChartComponent/>
-        </Box>
+        </Box> */}
 </Box>
         <Box sx={recentFlex}>
           <Typography sx={recentTypo}>Recent Users</Typography>
