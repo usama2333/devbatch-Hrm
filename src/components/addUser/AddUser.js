@@ -1,5 +1,13 @@
-import { Box, Typography,Button,InputLabel,MenuItem,Select,TextField } from "@mui/material";
-import React, { Fragment, useState } from "react";
+import {
+  Box,
+  Typography,
+  Button,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from "@mui/material";
+import React, { Fragment,useEffect, useState } from "react";
 import { inputTextStyle, phoneTextStyle } from "./style";
 import SwitchButton from "../switch/SwitchButton";
 import dummy from "../../assests/images/dummy.png";
@@ -10,7 +18,6 @@ import { userSchema } from "../../schema/user";
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
 import userProfile from "../../assests/images/viewProfile.png";
-
 
 const initialValues = {
   name: "",
@@ -28,23 +35,42 @@ const AddUser = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.table.data);
   const [checkid, setCheckid] = useState(data.length + 1);
-  const [status,setStatus] = useState('Activated');
+  const [status, setStatus] = useState("Activated");
   const edit = useSelector((state) => state.table.edit);
   const editData = edit;
- 
+
   const statusHandler = () => {
-  
-    setStatus((pre) => (pre === 'Activated' ? "Deactivated" : "Activated"));
-    console.log(status,'status')
-  }
+    setStatus((pre) => (pre === "Activated" ? "Deactivated" : "Activated"));
+    console.log(status, "status");
+  };
+
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    console.log(file , 'fileeeeeeeeeeeeeeeee')
+    setSelectedImage(file);
+    console.log(selectedImage,'image is ....')
+  };
+  useEffect(() => {
+    // This code will run when selectedImage changes
+    console.log(selectedImage, 'image is ....');
+  }, [selectedImage]);
+  const handleButtonClick = () => {
+    // Trigger a click event on the input element with the specified id
+    const imageInput = document.getElementById('imageInput');
+    if (imageInput) {
+      imageInput.click();
+    }
+  };
 
   const test = {
     id: checkid,
     status: status,
     created: "12-20-2023",
     deactive: "13-20-2023",
-    image: userProfile,
-    time:"12:20AM"
+    image: selectedImage ? URL.createObjectURL(selectedImage) : dummy,
+    time: "12:20AM",
   };
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
@@ -52,21 +78,19 @@ const AddUser = () => {
       initialValues: initialValues,
       validationSchema: userSchema,
       onSubmit: (values, action) => {
+        const newData = [{ ...values, ...test }];
+        const allData = [...data, ...newData];
 
-        const newData = [{...values,...test}];
-        const allData = [...data,...newData];
-     
-        if(editData.length != 0) {
-          const updatedData = allData.filter(item => item.id != editData[0].id);
+        if (editData.length != 0) {
+          const updatedData = allData.filter(
+            (item) => item.id != editData[0].id
+          );
           dispatch(tableActions.setData(updatedData));
           dispatch(tableActions.setShow("user"));
-        }
-        else{
-          dispatch(tableActions.setData(allData))
+        } else {
+          dispatch(tableActions.setData(allData));
           dispatch(tableActions.setShow("user"));
         }
-       
-       
       },
     });
   return (
@@ -135,8 +159,7 @@ const AddUser = () => {
                 name="name"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={(values.name.length ?  values.name : edit[0]?.name)}
-              
+                value={values.name.length ? values.name : edit[0]?.name}
               />
 
               <Typography
@@ -160,8 +183,7 @@ const AddUser = () => {
                 name="email"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={(values.email.length ?  values.email : edit[0]?.email)}
-               
+                value={values.email.length ? values.email : edit[0]?.email}
               />
 
               <Typography
@@ -188,8 +210,11 @@ const AddUser = () => {
                 name="designation"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={(values.designation.length ?  values.designation : edit[0]?.designation)}
-               
+                value={
+                  values.designation.length
+                    ? values.designation
+                    : edit[0]?.designation
+                }
               />
 
               <InputLabel
@@ -213,8 +238,11 @@ const AddUser = () => {
                 name="department"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={(values.department.length ?  values.department : edit[0]?.department)}
-                
+                value={
+                  values.department.length
+                    ? values.department
+                    : edit[0]?.department
+                }
               >
                 <MenuItem value={"IT"}>IT</MenuItem>
                 <MenuItem value={"Computer Science"}>Computer Science</MenuItem>
@@ -242,10 +270,10 @@ const AddUser = () => {
                 name="gender"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={(values.gender.length ?  values.gender : edit[0]?.gender)}
+                value={values.gender.length ? values.gender : edit[0]?.gender}
               >
                 <MenuItem value={"male"}>Male</MenuItem>
-                <MenuItem value={"female"}>Female Science</MenuItem>
+                <MenuItem value={"female"}>Female</MenuItem>
                 <MenuItem value={"other"}>other</MenuItem>
               </Select>
             </Box>
@@ -275,6 +303,7 @@ const AddUser = () => {
                     // ml : '4rem'
                   }}
                 >
+                {!selectedImage && (
                   <Box
                     component="img"
                     sx={{
@@ -283,6 +312,21 @@ const AddUser = () => {
                     }}
                     src={dummy}
                   ></Box>
+                  )}
+
+                   {selectedImage && (
+        <Box component="div" display="flex" justifyContent="center" sx={{
+           
+                    
+                  
+        }}>
+          <img
+            src={URL.createObjectURL(selectedImage)}
+            alt="Selected Image"
+            style={{ maxWidth: '100%', maxHeight: '100%',borderRadius : '20px' }}
+          />
+        </Box>
+      )}
                 </Box>
                 <Box
                   sx={{
@@ -293,6 +337,7 @@ const AddUser = () => {
                   }}
                 >
                   <Button
+                   onClick={handleButtonClick}
                     sx={{
                       background: "#FE8062 0% 0% no-repeat padding-box",
                       "&:hover": {
@@ -322,6 +367,13 @@ const AddUser = () => {
                       </Typography>
                     </Box>
                   </Button>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    id="imageInput" // Add an id to the input element
+                    style={{ display: "none" }}
+                    onChange={handleImageChange}
+                  />
                 </Box>
                 <Box
                   component="img"
@@ -356,8 +408,7 @@ const AddUser = () => {
                 name="phone"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={(values.phone.length ?  values.phone : edit[0]?.phone)}
-              
+                value={values.phone.length ? values.phone : edit[0]?.phone}
               />
 
               <Typography
@@ -381,8 +432,7 @@ const AddUser = () => {
                 name="cnic"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={(values.cnic.length ?  values.cnic : edit[0]?.cnic)}
-                
+                value={values.cnic.length ? values.cnic : edit[0]?.cnic}
               />
 
               <Typography
@@ -406,8 +456,9 @@ const AddUser = () => {
                 name="address"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={(values.address.length ?  values.address : edit[0]?.address)}
-           
+                value={
+                  values.address.length ? values.address : edit[0]?.address
+                }
               />
             </Box>
           </Box>
@@ -430,9 +481,7 @@ const AddUser = () => {
               Account status
             </Typography>
 
-            <Box 
-             onClick={statusHandler}
-            >
+            <Box onClick={statusHandler}>
               <SwitchButton />
             </Box>
           </Box>
