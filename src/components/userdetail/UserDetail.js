@@ -12,7 +12,20 @@ import { redBox, yellowBox } from "../user/style";
 const UserDetail = () => {
   const dispatch = useDispatch();
   const view = useSelector((state) => state.table.view);
+  const data = useSelector((state) => state.table.data);
   console.log(view,'test view data ............')
+
+
+  const editHandler = (id) => {
+    console.log(id,'edit id is ................')
+    const editData = data.filter(item => item.id == id);
+    console.log(editData,'this is edit data')
+    
+    dispatch(tableActions.setEdit(editData));
+    dispatch(tableActions.setShow('adduser'));
+    
+    
+ }
 
 
  
@@ -199,7 +212,7 @@ const UserDetail = () => {
                   &nbsp; Download
                 </Button>
                 <Button
-                onClick={() =>  dispatch(tableActions.setShow('adduser')) }
+                onClick={() => editHandler(view[0].id)}
                   sx={{
                     background: "#FE8062 0% 0% no-repeat padding-box",
                     font: {
