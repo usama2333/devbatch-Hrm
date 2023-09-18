@@ -28,13 +28,19 @@ const AddUser = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.table.data);
   const [checkid, setCheckid] = useState(data.length + 1);
+  const [status,setStatus] = useState('Activated');
   const edit = useSelector((state) => state.table.edit);
   const editData = edit;
-
+ 
+  const statusHandler = () => {
+  
+    setStatus((pre) => (pre === 'Activated' ? "Deactivated" : "Activated"));
+    console.log(status,'status')
+  }
 
   const test = {
     id: checkid,
-    status: "Activated",
+    status: status,
     created: "12-20-2023",
     deactive: "13-20-2023",
     image: userProfile,
@@ -424,7 +430,9 @@ const AddUser = () => {
               Account status
             </Typography>
 
-            <Box>
+            <Box 
+             onClick={statusHandler}
+            >
               <SwitchButton />
             </Box>
           </Box>
