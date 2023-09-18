@@ -1,34 +1,28 @@
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import React, { Fragment, useState,useLayoutEffect, useEffect  } from "react";
 import Department from "../department/Department";
-import graph from "../../assests/images/graph.png";
+
 import {
   calanderMain,
   depart,
-  graphBox,
   graphFlex,
   graphStack,
   nameTypo,
   recentFlex,
   recentTypo,
   recentUserBox,
-  recentUserStack,
   userGeneral,
-  userName,
-  userRecent,
   welcome,
 } from "./style";
-import User from "../recent/Recent";
 import AddNew from "../newsuer/AddNew";
 import DatePick from "../datepicker/DatePick";
 import RecentTable from "../recent/RecentTable";
-import { useDispatch, useSelector } from "react-redux";
-import { tableActions } from "../../store/table";
+import {  useSelector } from "react-redux";
 import { ChartComponent } from "./components/Chart";
-import NewCalander from "../datepicker/NewCalander";
+
 
 const Dashboard = () => {
-  const dispatch = useDispatch();
+
   const check = useSelector((state) => state.table.check);
   const data = useSelector((state) => state.table.data);
   const [lastdata,setLastdata] = useState([]);
@@ -38,17 +32,17 @@ const Dashboard = () => {
     
   },[data])
 
-  useLayoutEffect(()=>{
-    
-  },[])
+
   return (
 
     <Fragment>
+    <Box sx={{padding : '0px 4rem'}}>
       <Box>
         <Stack
           direction="row"
           justifyContent="space-between"
           alignItems="center"
+          
         >
           <Box sx={{ mt: "4rem" }}>
             <Typography sx={welcome}>Welcome</Typography>
@@ -72,6 +66,9 @@ const Dashboard = () => {
         <Box
         sx={{
           display : 'flex',
+          gap : '3rem',
+          // flex : '0 0 50%',
+          flex: 'calc((100% - 3rem) / 2)',
           flexDirection : {xxs : 'column-reverse' , md : 'row'},
          
         }}
@@ -80,8 +77,11 @@ const Dashboard = () => {
           <Box
             sx={{
               display :'flex',
-              flex: "0 0 50%",
+              // flex: "0 0 50%",
+          flex: 'calc((100% - 3rem) / 2)',
+
               flexDirection : 'row',
+              gap : '3rem'
               
             }}
           >
@@ -97,7 +97,7 @@ const Dashboard = () => {
 
           <Box
             sx={{
-              flex: "0 0 46.5%",
+              flex: "0 0 50%",
               boxSizing : 'border-box'
               
             }}
@@ -121,7 +121,7 @@ const Dashboard = () => {
         <Box sx={graphFlex}>
           <Typography sx={userGeneral}>Users (General)</Typography>
           <Box sx={{
-            width: { lg: check == true ? '54.5rem' : '49.5rem' , xs: "100%",xxs: "100%" },
+            width: { lg: check === true ? '54.5rem' : '49.5rem' , xs: "100%",xxs: "100%" },
             height: "25rem",
             transition: 'all 0.3s ease-in-out',
           }}>
@@ -149,6 +149,7 @@ const Dashboard = () => {
       </Stack>
 
       {/* end graph section */}
+      </Box>
     </Fragment>
   );
 };

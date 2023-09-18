@@ -1,33 +1,6 @@
 import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-
-const row = [
-    {
-        first : 'Email',
-        second : 'hassan123@gmail.com',
-        third : 'Department',
-        fourth :'IT Consultant'
-    },
-    {
-        first : 'Phone',
-        second : '+92 859 43403',
-        third : 'CNIC',
-        fourth :'33333-3333333-3'
-    },
-    {
-        first : 'Gender',
-        second : 'Male',
-        third : 'Created at',
-        fourth :'Nov 9, 2023'
-    },
-
-]
+import {Table,TableBody,TableCell,TableContainer,TableHead,TableRow,Paper} from '@mui/material';
+import { row } from './style';
 
 export default function GeneralTable() {
   return (

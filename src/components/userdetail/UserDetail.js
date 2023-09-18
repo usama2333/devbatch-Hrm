@@ -1,10 +1,8 @@
 import { Box, Button, Typography } from "@mui/material";
 import React, { Fragment } from "react";
-import viewProfile from "../../assests/images/viewProfile.png";
 import EditCalendarIcon from "@mui/icons-material/EditCalendar";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import GeneralTable from "../generalinfo/GeneralTable";
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
 import { redBox, yellowBox } from "../user/style";
@@ -18,7 +16,7 @@ const UserDetail = () => {
 
   const editHandler = (id) => {
     console.log(id,'edit id is ................')
-    const editData = data.filter(item => item.id == id);
+    const editData = data.filter(item => item.id === id);
     console.log(editData,'this is edit data')
     
     dispatch(tableActions.setEdit(editData));

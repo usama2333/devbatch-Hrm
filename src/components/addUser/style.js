@@ -1,3 +1,4 @@
+
 export const inputTextStyle = {
     font: {xxs : '"normal normal normal 12px/14px Product Sans"',sm :"normal normal normal 12px/14px Product Sans",md : "normal normal normal 14px/17px Product Sans"},
                   letterSpacing: "0px",

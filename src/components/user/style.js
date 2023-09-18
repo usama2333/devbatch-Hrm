@@ -1,4 +1,10 @@
 import { Box } from "@mui/material";
+import eyes from "../../assests/images/eye.png";
+import bin from "../../assests/images/bin.png";
+import edit from "../../assests/images/edit.png";
+import leftArrow from "../../assests/images/leftArrow.png";
+import rightArrow from "../../assests/images/rightArrow.png";
+export {eyes,bin,edit,leftArrow,rightArrow}
 
 export const redBox = (
   <Box

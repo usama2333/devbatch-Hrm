@@ -1,8 +1,12 @@
 
-import red from "../../assests/images/blue.png";
-import blue from "../../assests/images/red.png";
 import usamaPic from '../../assests/images/usamaPic.jpg';
 import viewProfile from '../../assests/images/viewProfile.png';
+import logo from "../../assests/images/logo.png";
+import dashboard from "../../assests/images/dashboard.png";
+import user from "../../assests/images/user.png";
+import line from "../../assests/images/line.png";
+import flower from "../../assests/images/flower.png";
+export {logo,dashboard,user,line,flower}
 export const userRecent = {
     font: 'normal normal medium 14px/21px Poppins',
     letterSpacing: '0px',

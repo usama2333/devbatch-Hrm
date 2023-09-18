@@ -1,27 +1,20 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
-import React, { Fragment, useState, useLayoutEffect,useEffect } from "react";
-import logo from "../../assests/images/logo.png";
-import dashboard from "../../assests/images/dashboard.png";
-import user from "../../assests/images/user.png";
-import line from "../../assests/images/line.png";
-import Navbar from "../../components/navbar/Navbar";
-import flower from "../../assests/images/flower.png";
+import React, { Fragment, useState, useLayoutEffect } from "react";
+
 import Dashboard from "../../components/dashboard/Dashboard";
 import User from "../../components/user/User";
-import {
-  dashboardSx,
-  relBox,
-  rows,
-  tableDummy,
-  transitionBox,
-  userSx,
-} from "./style";
+import Navbar from "../../components/navbar/Navbar";
 import AddUser from "../../components/addUser/AddUser";
+import UserDetail from "../../components/userdetail/UserDetail";
+
+import {flower,line,logo,relBox,tableDummy,transitionBox
+} from "./style";
+
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
 import PersonIcon from "@mui/icons-material/Person";
 import WidgetsIcon from "@mui/icons-material/Widgets";
-import UserDetail from "../../components/userdetail/UserDetail";
+
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -40,11 +33,11 @@ const Home = () => {
     dispatch(tableActions.setData(tableDummy));
   }, []);
   const heightHandler = () => {
-    setFirstH((pre) => (pre == "20%" ? "10%" : "20%"));
-    setSecondH((pre) => (pre == "80%" ? "90%" : "80%"));
+    setFirstH((pre) => (pre === "20%" ? "10%" : "20%"));
+    setSecondH((pre) => (pre === "80%" ? "90%" : "80%"));
     // setCheck((pre) => (pre == false ? true : false));
     dispatch(tableActions.setCheck());
-    setDisplayText((pre) => (pre == "grid" ? "none" : "grid"));
+    setDisplayText((pre) => (pre === "grid" ? "none" : "grid"));
 
    
   };

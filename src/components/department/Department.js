@@ -1,7 +1,5 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React, { Fragment } from "react";
-import red from "../../assests/images/blue.png";
-import blue from "../../assests/images/red.png";
 import { departBox, departInnerBox, nameBox, userBox } from "./style";
 
 const Department = ({ img, name, user }) => {

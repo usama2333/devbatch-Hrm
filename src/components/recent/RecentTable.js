@@ -1,23 +1,10 @@
-import React, { Fragment,useLayoutEffect } from "react";
-import { Box, Typography } from "@mui/material";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import { stackSx, userName, userRecent } from "./style";
- import { useDispatch, useSelector } from "react-redux";
-import { tableActions } from "../../store/table";
+import React, { Fragment } from "react";
+import { Box,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,Paper } from "@mui/material";
+import { userName, userRecent } from "./style";
 
 
 const RecentTable = ({data}) => {
-  const dispatch = useDispatch();
-  // const data = useSelector((state) => state.table.data);
-  useLayoutEffect(()=>{
-    
-  },[])
+ 
   return (
     <Fragment>
       <Box>

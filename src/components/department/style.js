@@ -7,8 +7,8 @@ export const departBox= {
       opacity: 1,
       pb : '3.5rem',
       mt : {xxs :'2rem',xs :'2rem',md :'0rem'},
-      width : {xxs : '44%', sm : '42%'},
-      ml : {xxs : '1rem', sm : '3rem'}
+      width : '100%',
+    //   ml : {xxs : '1rem', sm : '3rem'}
 }
 
 export const departInnerBox = {

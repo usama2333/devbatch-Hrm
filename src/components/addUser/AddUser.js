@@ -1,15 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography,Button,InputLabel,MenuItem,Select,TextField } from "@mui/material";
 import React, { Fragment, useState } from "react";
-import TextField from "@mui/material/TextField";
 import { inputTextStyle, phoneTextStyle } from "./style";
 import SwitchButton from "../switch/SwitchButton";
-import Button from "@mui/material/Button";
 import dummy from "../../assests/images/dummy.png";
 import cancel from "../../assests/images/cancel.png";
 import UploadIcon from "@mui/icons-material/Upload";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
 import { useFormik } from "formik";
 import { userSchema } from "../../schema/user";
 import { useDispatch, useSelector } from "react-redux";

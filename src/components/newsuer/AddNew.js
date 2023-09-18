@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import icon from "../../assests/images/icon.png";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography,TextField } from "@mui/material";
 import {
   addEmail,
   adduser,
@@ -8,7 +8,7 @@ import {
   adduserInner,
  
 } from "./style";
-import TextField from "@mui/material/TextField";
+
 const AddNew = () => {
   return (
     <Fragment>
@@ -23,11 +23,13 @@ const AddNew = () => {
             direction="row"
             justifyContent="space-between"
             alignItems="center"
+            gap='2rem'
+            sx={{boxSizing : 'border-box'}}
           >
             <Box
               sx={{
                 display: "flex",
-                flex: "0 0 60%",
+                flex: "0 0 70%",
               }}
             >
               <TextField
@@ -57,9 +59,9 @@ const AddNew = () => {
               sx={{
                 display: "flex",
                 flex: "0 0 30%",
-                justifyContent : 'space-evenly',
+                justifyContent : 'space-between',
                 mt: "0.7rem",
-                mr: "2rem",
+                // mr: "2rem",
               }}
             >
               <Button
@@ -70,7 +72,7 @@ const AddNew = () => {
                   "&:hover": {
                     backgroundColor: "#e0cc9f", // Define the hover effect style
                   },
-                  padding: "0.75rem 3rem",
+                  padding: "0.75rem 2rem",
                   font: "normal normal normal 13px/15px Product Sans",
                   letterSpacing: "0px",
                   color: "#707787",
@@ -80,7 +82,7 @@ const AddNew = () => {
               <Box sx={{display : 'flex', alignItems : 'center' }}>
               
               <Typography sx={{display : {xxs : 'none', sm : 'flex',}}}>Send Link</Typography>
-              <Box component="img" sx={{ml : '2rem'}} src={icon}></Box>
+              <Box component="img" sx={{ml : '1rem'}} src={icon}></Box>
               </Box>
               
               </Button>

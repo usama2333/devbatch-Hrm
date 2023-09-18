@@ -1,34 +1,8 @@
-import { Box, Typography } from "@mui/material";
-import React, { Fragment, useState, useLayoutEffect,useEffect } from "react";
-import TextField from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
+import { Box,MenuItem, Typography,TextField,TableHead,Paper,TableRow,InputAdornment,Button,Table, TableBody,TableCell,TableContainer,} from "@mui/material";
+import React, { Fragment, useState } from "react";
 import {  Search } from "@mui/icons-material";
-import Button from "@mui/material/Button";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import {
-  tableHeader,
-  tableBodyText,
-  backColor,
-  backText,
-  normalColor,
-  normalText,
-  redBox,
-  yellowBox,
-  rows,
+import {tableHeader,tableBodyText,backColor,backText,normalColor,normalText,redBox,yellowBox, eyes, bin, leftArrow, rightArrow, edit,
 } from "./style";
-import eyes from "../../assests/images/eye.png";
-import bin from "../../assests/images/bin.png";
-import edit from "../../assests/images/edit.png";
-import leftArrow from "../../assests/images/leftArrow.png";
-import rightArrow from "../../assests/images/rightArrow.png";
-
-import MenuItem from "@mui/material/MenuItem";
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
 
@@ -37,7 +11,6 @@ import { tableActions } from "../../store/table";
 const User = ({adduser}) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.table.data);
-  const checkLength = data?.length;
   const [rowHandle,setrow] = useState([
     {
       value: "1",
@@ -62,24 +35,18 @@ const User = ({adduser}) => {
    
   ])
   const [searchData, setesearchData] = useState([]);
-
   const [activeState, seteactiveState] = useState(0);
-  const [roww, setRoww] = useState(data.length);
   const [howManyRow, sethowManyRow] = useState(data?.length);
  const [inputValue,setInputValue]=useState(null);
-
-  useLayoutEffect(()=>{
-    
-  },[])
   
   const viewHandler = (id) => {
      dispatch(tableActions.setShow('userdetailview'));
-     const viewData = data.filter(item => item.id == id);
+     const viewData = data.filter(item => item.id === id);
      dispatch(tableActions.setView(viewData));
   }
 
   const editHandler = (id) => {
-    const editData = data.filter(item => item.id == id);
+    const editData = data.filter(item => item.id === id);
     
     dispatch(tableActions.setEdit(editData));
     dispatch(tableActions.setShow('adduser'));
@@ -87,7 +54,7 @@ const User = ({adduser}) => {
     
  }
  const deleteHandler = (id) => {
-  const updatedData = data.filter(item => item.id != id);
+  const updatedData = data.filter(item => item.id !== id);
   dispatch(tableActions.setData(updatedData));
 }
 

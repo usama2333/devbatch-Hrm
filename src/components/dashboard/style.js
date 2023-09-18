@@ -39,7 +39,7 @@ export const welcome = {
       },
       letterSpacing: "0px",
 
-      ml: {xxs: "2rem", xs: "2rem", sm: "4rem" },
+    //   ml: {xxs: "2rem", xs: "2rem", sm: "4rem" },
       opacity: 1,
 }
   
@@ -52,7 +52,7 @@ export const nameTypo = {
       letterSpacing: "0px",
       letterSpacing: "0px",
 
-      ml: { xxs: "2rem",xs: "2rem", sm: "4rem" },
+    //   ml: { xxs: "2rem",xs: "2rem", sm: "4rem" },
       opacity: 1,
 }
 
@@ -60,7 +60,7 @@ export const calanderMain={
     background: "#FCFCFC 0% 0% no-repeat border-box",
     borderRadius: "5px",
     opacity: 1,
-    mr: {xxs : '2rem',xs : '4rem'},
+    // mr: {xxs : '2rem',xs : '4rem'},
     mt: "3rem",
 }
 
