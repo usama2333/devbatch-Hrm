@@ -5,7 +5,7 @@ export const departBox= {
       borderRadius: "10px",
       
       opacity: 1,
-      pb : '3.5rem',
+      pb : '3rem',
       mt : {xxs :'2rem',xs :'2rem',md :'0rem'},
       width : '100%',
     //   ml : {xxs : '1rem', sm : '3rem'}

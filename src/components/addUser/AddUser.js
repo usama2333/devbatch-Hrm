@@ -7,7 +7,7 @@ import {
   Select,
   TextField,
 } from "@mui/material";
-import React, { Fragment,useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { inputTextStyle, phoneTextStyle } from "./style";
 import SwitchButton from "../switch/SwitchButton";
 import dummy from "../../assests/images/dummy.png";
@@ -18,6 +18,7 @@ import { userSchema } from "../../schema/user";
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
 import userProfile from "../../assests/images/viewProfile.png";
+import emptyUser from "../../assests/images/emptyUser.png";
 
 const initialValues = {
   name: "",
@@ -48,17 +49,17 @@ const AddUser = () => {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    console.log(file , 'fileeeeeeeeeeeeeeeee')
+    console.log(file, "fileeeeeeeeeeeeeeeee");
     setSelectedImage(file);
-    console.log(selectedImage,'image is ....')
+    console.log(selectedImage, "image is ....");
   };
   useEffect(() => {
     // This code will run when selectedImage changes
-    console.log(selectedImage, 'image is ....');
+    console.log(selectedImage, "image is ....");
   }, [selectedImage]);
   const handleButtonClick = () => {
     // Trigger a click event on the input element with the specified id
-    const imageInput = document.getElementById('imageInput');
+    const imageInput = document.getElementById("imageInput");
     if (imageInput) {
       imageInput.click();
     }
@@ -69,7 +70,7 @@ const AddUser = () => {
     status: status,
     created: "12-20-2023",
     deactive: "13-20-2023",
-    image: selectedImage ? URL.createObjectURL(selectedImage) : dummy,
+    image: selectedImage ? URL.createObjectURL(selectedImage) : emptyUser,
     time: "12:20AM",
   };
 
@@ -300,33 +301,41 @@ const AddUser = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     display: { xxs: "none", sm: "flex" },
+                    objectFit : 'cover',
+                    boxSizing : 'border-box'
                     // ml : '4rem'
                   }}
                 >
-                {!selectedImage && (
-                  <Box
-                    component="img"
-                    sx={{
-                      width: { sm: "40px", md: "70px", lg: "80px" },
-                      height: { sm: "30px", md: "60px" },
-                    }}
-                    src={dummy}
-                  ></Box>
+                  {!selectedImage && (
+                    <Box
+                      component="img"
+                      sx={{
+                        width: { sm: "40px", md: "70px", lg: "80px" },
+                        height: { sm: "30px", md: "60px" },
+                      }}
+                      src={dummy}
+                    ></Box>
                   )}
 
-                   {selectedImage && (
-        <Box component="div" display="flex" justifyContent="center" sx={{
-           
-                    
-                  
-        }}>
-          <img
-            src={URL.createObjectURL(selectedImage)}
-            alt="Selected Image"
-            style={{ maxWidth: '100%', maxHeight: '100%',borderRadius : '20px' }}
-          />
-        </Box>
-      )}
+                  {selectedImage && (
+                    <Box
+                      component="div"
+                      display="flex"
+                      justifyContent="center"
+                     
+                    >
+                      <img
+                        src={URL.createObjectURL(selectedImage)}
+                        alt="Selected Image"
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          borderRadius: "20px",
+                        }}
+                      />
+                    </Box>
+                  )}
                 </Box>
                 <Box
                   sx={{
@@ -337,7 +346,7 @@ const AddUser = () => {
                   }}
                 >
                   <Button
-                   onClick={handleButtonClick}
+                    onClick={handleButtonClick}
                     sx={{
                       background: "#FE8062 0% 0% no-repeat padding-box",
                       "&:hover": {
@@ -376,6 +385,7 @@ const AddUser = () => {
                   />
                 </Box>
                 <Box
+                  onClick={() => setSelectedImage(null)}
                   component="img"
                   src={cancel}
                   sx={{

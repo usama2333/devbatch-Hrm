@@ -22,6 +22,7 @@ import { ChartComponent } from "./components/Chart";
 import DateRange from "../datepicker/DateRange";
 
 
+
 const Dashboard = () => {
 
   const check = useSelector((state) => state.table.check);
@@ -53,6 +54,7 @@ const Dashboard = () => {
           <Box sx={calanderMain}>
             <Stack direction="row">
             <DateRange/>
+            {/* <DatePickerRange/> */}
               {/* <Box component="img" src={calander}></Box> */}
               {/* <DatePick /> */}
             {/* <NewCalander/> */}
@@ -99,7 +101,7 @@ const Dashboard = () => {
 
           <Box
             sx={{
-              flex: "0 0 50%",
+              flex: 'calc((100% - 3rem) / 2)',
               boxSizing : 'border-box'
               
             }}
@@ -126,9 +128,11 @@ const Dashboard = () => {
           <Typography sx={userGeneral}>Users (General)</Typography>
           <Box component='img' sx={{
             
-              width : { lg: check === true ? '54rem' : '48rem' , xs: "100%",xxs: "100%" },
+              // width : { lg: check === true ? '54rem' : '48rem' , xs: "100%",xxs: "100%" },
                height : '25rem',
+               width : '100%',
                transition: 'all 0.3s ease-in-out',
+              //  objectFit: 'cover'
           }} src={graph}></Box>
 
           {/* <Box sx={{
