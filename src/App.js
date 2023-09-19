@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/Login";
+import Reset from './pages/reset/Reset';
 import Home from "./pages/home/Home";
 import AuthContext from "./store/auth-context";
 import Error from "./pages/error/Error";
@@ -27,6 +28,7 @@ function App() {
 
        <Route element={<Login/>} path="/login" exact/>
        <Route element={<Signup/>} path="/" exact/>
+       <Route element={<Reset/>} path="/reset" exact/>
 
       </Routes>
     </Router>

@@ -85,6 +85,7 @@ export const remTypo = {
 export const forgotBox = {
   mr: {xxs : '0rem', sm :'8rem'},
   color: "#FE8062",
+  cursor : 'pointer'
 };
 
 export const signInBox = {

@@ -157,7 +157,7 @@ const Login = () => {
                         <Typography sx={remTypo}>Remember me</Typography>
                       </Box>
 
-                      <Typography sx={forgotBox}>Forgot password?</Typography>
+                      <Typography onClick={() => navigate('/reset')} sx={forgotBox}>Forgot password?</Typography>
                     </Stack>
 
                     <Button

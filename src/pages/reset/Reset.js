@@ -1,5 +1,5 @@
 import { Box, Container, Stack, Typography,TextField,Button } from "@mui/material";
-import React, { Fragment,useContext, useEffect,useLayoutEffect, useState } from "react";
+import React, { Fragment,useContext} from "react";
 import backgroundImg from "../../assests/images/loginBack.png";
 import AuthContext from "../../store/auth-context";
 
@@ -18,7 +18,7 @@ import {
 } from "./style";
 // import { useHistory } from "react-router-dom";
 import { useFormik } from "formik";
-import { signupSchema } from "../../schema/signup";
+import { resetSchema } from "../../schema/reset";
 import { tableActions } from "../../store/table";
 import { useDispatch, useSelector } from "react-redux";
 import signUpData from "../../api/signupForm";
@@ -27,8 +27,8 @@ import { useNavigate } from "react-router-dom";
 
 const initialValues = {
   email: "",
-  name: "",
   password: "",
+  newpassword: "",
   confirmpassword: "",
 };
 
@@ -43,20 +43,14 @@ const Signup = () => {
     navigate('/login')
     console.log("sign............");
   };
-  useLayoutEffect(() => {
-    dispatch(tableActions.setLogin(false));
-  },);
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
-      validationSchema: signupSchema,
+      validationSchema: resetSchema,
       onSubmit: (values, action) => {
-        signUpData(values,authCtx,login,navigate);
+        console.log(values,'forgot data....................')
         
-        dispatch(tableActions.setSignup(values));
-
-       
       },
     });
   return (
@@ -66,9 +60,9 @@ const Signup = () => {
           <Box sx={firstBox}>
             <Box sx={absBox}>
               <Box>
-                <Typography sx={signUpTypo}>sign up</Typography>
+                <Typography sx={signUpTypo}>Reset Password</Typography>
                 <Typography sx={createBox}>
-                  Please fill your detail to create your account.
+                  Please fill your detail to reset your password.
                 </Typography>
 
                 <Box sx={emailBox}>
@@ -101,29 +95,6 @@ const Signup = () => {
                     <Stack>
                       <Typography style={{
                           color:
-                            errors.name && touched.name ? "red" : "#344054",
-                        }} sx={emailTypo}>
-                        Name
-                        {errors.name && touched.name ? (
-                          <span style={{ color: "red" }}>&nbsp;*</span>
-                        ) : null}
-                        </Typography>
-                      <TextField
-                        sx={{ maxWidth: "376px" }}
-                        variant="outlined"
-                        id="name"
-                        // size="small"
-                        name="name"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.name}
-                      />
-                      
-                    </Stack>
-
-                    <Stack>
-                      <Typography style={{
-                          color:
                             errors.password && touched.password ? "red" : "#344054",
                         }} sx={emailTypo}>
                         Password
@@ -134,13 +105,36 @@ const Signup = () => {
                       <TextField
                         sx={{ maxWidth: "376px" }}
                         variant="outlined"
-                        type="password"
-                        // size="small"
                         id="password"
+                        // size="small"
                         name="password"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.password}
+                      />
+                      
+                    </Stack>
+
+                    <Stack>
+                      <Typography style={{
+                          color:
+                            errors.newpassword && touched.newpassword ? "red" : "#344054",
+                        }} sx={emailTypo}>
+                        New Password
+                        {errors.newpassword && touched.newpassword ? (
+                          <span style={{ color: "red" }}>&nbsp;*</span>
+                        ) : null}
+                        </Typography>
+                      <TextField
+                        sx={{ maxWidth: "376px" }}
+                        variant="outlined"
+                        type="password"
+                        // size="small"
+                        id="newpassword"
+                        name="newpassword"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.newpassword}
                       />
                      
                     </Stack>
@@ -175,7 +169,7 @@ const Signup = () => {
                       variant="contained"
       
                     >
-                      Sign Up
+                      Reset Password
                     </Button>
                   </form>
                   <Typography sx={alreadyAccount}>

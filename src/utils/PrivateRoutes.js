@@ -7,7 +7,7 @@ const PrivateRoutes = () => {
 
     console.log('private routes')
 
-    let auth = authCtx.isLoggedIn
+    const auth = authCtx.isLoggedIn
     console.log(auth,'test auth')
 
     return(
