@@ -20,7 +20,7 @@ import {
   signInBox,
   imgBox,
 } from "./style";
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { loginSchema } from "../../schema/login";
 import { useDispatch, useSelector } from "react-redux";
@@ -36,7 +36,7 @@ const initialValues = {
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const Login = () => {
-  // const history = useHistory();
+  const navigate = useNavigate();
   const [testHistory, setTestHistory] = useState(null);
   const login = useSelector((state) => state.table.login);
   const authCtx =  useContext(AuthContext);
@@ -46,6 +46,7 @@ const Login = () => {
   
   const signupHandler = () => {
     // history.push("/");
+    navigate('/')
   };
 
   useLayoutEffect(() => {

@@ -22,6 +22,7 @@ import { signupSchema } from "../../schema/signup";
 import { tableActions } from "../../store/table";
 import { useDispatch, useSelector } from "react-redux";
 import signUpData from "../../api/signupForm";
+import { useNavigate } from "react-router-dom";
 
 
 const initialValues = {
@@ -34,11 +35,12 @@ const initialValues = {
 const Signup = () => {
   const login = useSelector((state) => state.table.login);
   const authCtx =  useContext(AuthContext);
-  // const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
  
 
   const signinHandler = () => {
+    navigate('/login')
     // history.push("/login");
     console.log("sign............");
   };
