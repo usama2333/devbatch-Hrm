@@ -1,5 +1,5 @@
 import { Box, Container, Stack, Typography,TextField,Button,Checkbox } from "@mui/material";
-import React, { Fragment,useState,useLayoutEffect,useEffect,useContext } from "react";
+import React, { Fragment,useLayoutEffect,useContext } from "react";
 import backgroundImg from "../../assests/images/loginBack.png";
 import {
   absoluteBox,
@@ -37,15 +37,13 @@ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const Login = () => {
   const navigate = useNavigate();
-  const [testHistory, setTestHistory] = useState(null);
   const login = useSelector((state) => state.table.login);
   const authCtx =  useContext(AuthContext);
-  const signup = useSelector((state) => state.table.signup);
+
   
   const dispatch = useDispatch();
   
   const signupHandler = () => {
-    // history.push("/");
     navigate('/')
   };
 
@@ -54,32 +52,13 @@ const Login = () => {
     
   },[dispatch]);
  
- const handleHistory = () => {
-  
- }
 
- useEffect(() => {
-
- },[])
-
-  console.log(signup,'in login component data')
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
       validationSchema: loginSchema,
       onSubmit: (values, action) => {
-        console.log(values, "data....................");
-        // dispatch(tableActions.setLogin(true));
-       
         signUpData(values,authCtx,login,navigate);
-        // if(testHistory === true) {
-        //    history.push('/home');
-        // }else {
-        //   history.push('/login');
-        // }
-        // history.push('/home');
-        // dispatch(tableActions.setSignup(values));
-        
       
       },
     });
@@ -165,7 +144,6 @@ const Login = () => {
                       sx={signInBox}
                       fullWidth
                       variant="contained"
-                     onClick = {handleHistory}
                     >
                       Sign in
                     </Button>

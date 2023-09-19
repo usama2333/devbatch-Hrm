@@ -163,7 +163,7 @@ const UserDetail = () => {
                 <Typography
                   sx={{
                     font: {
-                      xs: "normal normal normal 10px/12px Product Sans",
+                      xxs: "normal normal normal 10px/12px Product Sans",
                       xs: "normal normal normal 12px/14px Product Sans",
                       lg: "normal normal normal 13px/15px Product Sans",
                     },

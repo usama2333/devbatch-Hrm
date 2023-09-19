@@ -1,7 +1,7 @@
 import { Box, Container, Stack, Typography,TextField,Button } from "@mui/material";
-import React, { Fragment,useContext} from "react";
+import React, { Fragment} from "react";
 import backgroundImg from "../../assests/images/loginBack.png";
-import AuthContext from "../../store/auth-context";
+
 
 import {
   absBox,
@@ -16,12 +16,8 @@ import {
   signUpBtn,
   signUpTypo,
 } from "./style";
-// import { useHistory } from "react-router-dom";
 import { useFormik } from "formik";
 import { resetSchema } from "../../schema/reset";
-import { tableActions } from "../../store/table";
-import { useDispatch, useSelector } from "react-redux";
-import signUpData from "../../api/signupForm";
 import { useNavigate } from "react-router-dom";
 
 
@@ -33,15 +29,12 @@ const initialValues = {
 };
 
 const Signup = () => {
-  const login = useSelector((state) => state.table.login);
-  const authCtx =  useContext(AuthContext);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  
  
 
   const signinHandler = () => {
     navigate('/login')
-    console.log("sign............");
   };
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
@@ -49,8 +42,7 @@ const Signup = () => {
       initialValues: initialValues,
       validationSchema: resetSchema,
       onSubmit: (values, action) => {
-        console.log(values,'forgot data....................')
-        
+        navigate('/login')
       },
     });
   return (
@@ -82,7 +74,6 @@ const Signup = () => {
                       <TextField
                         sx={{ maxWidth: "376px" }}
                         variant="outlined"
-                        // size="small"
                         id="email"
                         name="email"
                         onChange={handleChange}
@@ -106,7 +97,6 @@ const Signup = () => {
                         sx={{ maxWidth: "376px" }}
                         variant="outlined"
                         id="password"
-                        // size="small"
                         name="password"
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -129,7 +119,6 @@ const Signup = () => {
                         sx={{ maxWidth: "376px" }}
                         variant="outlined"
                         type="password"
-                        // size="small"
                         id="newpassword"
                         name="newpassword"
                         onChange={handleChange}
@@ -152,7 +141,6 @@ const Signup = () => {
                       <TextField
                         sx={{ maxWidth: "376px" }}
                         variant="outlined"
-                        // size="small"
                         type="password"
                         id="confirmpassword"
                         name="confirmpassword"

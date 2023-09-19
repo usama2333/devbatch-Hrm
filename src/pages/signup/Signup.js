@@ -1,5 +1,5 @@
 import { Box, Container, Stack, Typography,TextField,Button } from "@mui/material";
-import React, { Fragment,useContext, useEffect,useLayoutEffect, useState } from "react";
+import React, { Fragment,useContext,useLayoutEffect } from "react";
 import backgroundImg from "../../assests/images/loginBack.png";
 import AuthContext from "../../store/auth-context";
 
@@ -16,7 +16,6 @@ import {
   signUpBtn,
   signUpTypo,
 } from "./style";
-// import { useHistory } from "react-router-dom";
 import { useFormik } from "formik";
 import { signupSchema } from "../../schema/signup";
 import { tableActions } from "../../store/table";
@@ -41,7 +40,6 @@ const Signup = () => {
 
   const signinHandler = () => {
     navigate('/login')
-    console.log("sign............");
   };
   useLayoutEffect(() => {
     dispatch(tableActions.setLogin(false));

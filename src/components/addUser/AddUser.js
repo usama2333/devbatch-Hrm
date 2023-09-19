@@ -1,24 +1,17 @@
-import {
-  Box,
-  Typography,
-  Button,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
+import {Box,Typography, Button,InputLabel,MenuItem,Select,TextField,
 } from "@mui/material";
 import React, { Fragment, useEffect, useState } from "react";
-import { inputTextStyle, phoneTextStyle } from "./style";
+import {
+  buttonClickSx,buttonSx,cancel,cancelBox,createButton,dummy,dummyImgBox,dummyImgFlex,dummyImgSx,emptyUser,infoSx,
+  infoSxBox,inputTextStyle,mainBox,phoneTextStyle,statusBox,statusSx, uploadTypo,
+} from "./style";
 import SwitchButton from "../switch/SwitchButton";
-import dummy from "../../assests/images/dummy.png";
-import cancel from "../../assests/images/cancel.png";
 import UploadIcon from "@mui/icons-material/Upload";
 import { useFormik } from "formik";
 import { userSchema } from "../../schema/user";
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
-import userProfile from "../../assests/images/viewProfile.png";
-import emptyUser from "../../assests/images/emptyUser.png";
+
 
 const initialValues = {
   name: "",
@@ -26,7 +19,6 @@ const initialValues = {
   designation: "",
   department: "",
   gender: "",
-  // image: "",
   phone: "",
   cnic: "",
   address: "",
@@ -49,16 +41,11 @@ const AddUser = () => {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    console.log(file, "fileeeeeeeeeeeeeeeee");
+
     setSelectedImage(file);
-    console.log(selectedImage, "image is ....");
   };
-  useEffect(() => {
-    // This code will run when selectedImage changes
-    console.log(selectedImage, "image is ....");
-  }, [selectedImage]);
+  useEffect(() => {}, [selectedImage]);
   const handleButtonClick = () => {
-    // Trigger a click event on the input element with the specified id
     const imageInput = document.getElementById("imageInput");
     if (imageInput) {
       imageInput.click();
@@ -82,9 +69,9 @@ const AddUser = () => {
         const newData = [{ ...values, ...test }];
         const allData = [...data, ...newData];
 
-        if (editData.length != 0) {
+        if (editData.length !== 0) {
           const updatedData = allData.filter(
-            (item) => item.id != editData[0].id
+            (item) => item.id !== editData[0].id
           );
           dispatch(tableActions.setData(updatedData));
           dispatch(tableActions.setShow("user"));
@@ -96,37 +83,9 @@ const AddUser = () => {
     });
   return (
     <Fragment>
-      <Box
-        sx={{
-          width: "93%",
-          // height: "500px",
-          margin: "0px auto",
-          background: "#FFFFFF 0% 0% no-repeat padding-box",
-          border: "1px solid #EAEAEA",
-          borderRadius: "12px",
-          opacity: 1,
-          mt: "3rem",
-          padding: "1rem",
-        }}
-      >
-        <Box
-          sx={{
-            background: "#F3F3F3 0% 0% no-repeat padding-box",
-            borderRadius: "4px",
-          }}
-        >
-          <Typography
-            sx={{
-              font: "normal normal normal 20px/24px Product Sans",
-              letterSpacing: "0.6px",
-              color: "#222222",
-              opacity: 1,
-              padding: "1rem",
-              pl: "3rem",
-            }}
-          >
-            General Info
-          </Typography>
+      <Box sx={mainBox}>
+        <Box sx={infoSxBox}>
+          <Typography sx={infoSx}>General Info</Typography>
         </Box>
 
         {/* form section */}
@@ -280,50 +239,15 @@ const AddUser = () => {
             </Box>
 
             <Box sx={{ flex: "0 0 49%" }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  flexWrap: { xxs: "wrap", sm: "nowrap" },
-                  pr: { sm: "0rem", md: "2rem", lg: "3rem" },
-                }}
-              >
+              <Box sx={dummyImgFlex}>
                 <Typography sx={inputTextStyle}>Upload Image</Typography>
-                <Box
-                  sx={{
-                    background: "#FFFFFF 0% 0% no-repeat padding-box",
-                    border: "1px solid #D0D5DD",
-                    borderRadius: "10px",
-                    height: { sm: "60px", md: "118px", lg: "130px" },
-                    width: { sm: "60px", md: "118px", lg: "130px" },
-                    mt: "1rem",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    display: { xxs: "none", sm: "flex" },
-                    objectFit : 'cover',
-                    boxSizing : 'border-box'
-                    // ml : '4rem'
-                  }}
-                >
+                <Box sx={dummyImgBox}>
                   {!selectedImage && (
-                    <Box
-                      component="img"
-                      sx={{
-                        width: { sm: "40px", md: "70px", lg: "80px" },
-                        height: { sm: "30px", md: "60px" },
-                      }}
-                      src={dummy}
-                    ></Box>
+                    <Box component="img" sx={dummyImgSx} src={dummy}></Box>
                   )}
 
                   {selectedImage && (
-                    <Box
-                      component="div"
-                      display="flex"
-                      justifyContent="center"
-                     
-                    >
+                    <Box component="div" display="flex" justifyContent="center">
                       <img
                         src={URL.createObjectURL(selectedImage)}
                         alt="Selected Image"
@@ -337,22 +261,10 @@ const AddUser = () => {
                     </Box>
                   )}
                 </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    // ml :'3rem'
-                  }}
-                >
+                <Box sx={buttonSx}>
                   <Button
                     onClick={handleButtonClick}
-                    sx={{
-                      background: "#FE8062 0% 0% no-repeat padding-box",
-                      "&:hover": {
-                        backgroundColor: "#d66145",
-                      },
-                    }}
+                    sx={buttonClickSx}
                     variant="contained"
                     size="small"
                   >
@@ -364,16 +276,7 @@ const AddUser = () => {
                       <Box>
                         <UploadIcon />
                       </Box>
-                      <Typography
-                        sx={{
-                          font: "normal normal normal 14px/17px Product Sans",
-                          color: "#FFFFFF",
-                          textTransform: "capitalize",
-                          ml: "0.7rem",
-                        }}
-                      >
-                        Upload
-                      </Typography>
+                      <Typography sx={uploadTypo}>Upload</Typography>
                     </Box>
                   </Button>
                   <input
@@ -388,12 +291,7 @@ const AddUser = () => {
                   onClick={() => setSelectedImage(null)}
                   component="img"
                   src={cancel}
-                  sx={{
-                    height: "22px",
-                    width: "22px",
-                    mt: "1rem",
-                    cursor: "pointer",
-                  }}
+                  sx={cancelBox}
                 ></Box>
               </Box>
 
@@ -473,46 +371,14 @@ const AddUser = () => {
             </Box>
           </Box>
 
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              mt: "1rem",
-            }}
-          >
-            <Typography
-              sx={{
-                font: "normal normal normal 14px/17px Product Sans",
-                letterSpacing: "0px",
-                color: "#344054",
-                mr: "15rem",
-              }}
-            >
-              Account status
-            </Typography>
+          <Box sx={statusBox}>
+            <Typography sx={statusSx}>Account status</Typography>
 
             <Box onClick={statusHandler}>
               <SwitchButton />
             </Box>
           </Box>
-          <Button
-            sx={{
-              mt: "0rem",
-              fontSize: "1.4rem",
-              color: "#FFFFFF",
-              maxWidth: "376px",
-              // padding : '0 1rem',
-              pl: "3rem",
-              pr: "3rem",
-              textTransform: "capitalize",
-              background: "#FE8062 0% 0% no-repeat padding-box",
-              "&:hover": {
-                backgroundColor: "#d66145",
-              },
-            }}
-            variant="contained"
-            type="submit"
-          >
+          <Button sx={createButton} variant="contained" type="submit">
             Create
           </Button>
         </form>

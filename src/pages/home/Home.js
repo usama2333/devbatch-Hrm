@@ -24,12 +24,9 @@ const Home = () => {
 
   const [firstH, setFirstH] = useState("20%");
   const [secondH, setSecondH] = useState("80%");
-  // const [check, setCheck] = useState(false);
   const [displayText, setDisplayText] = useState("grid");
 
   useLayoutEffect(() => {
-    // Code to run on component mount
-
     dispatch(tableActions.setData(tableDummy));
   }, []);
   const heightHandler = () => {

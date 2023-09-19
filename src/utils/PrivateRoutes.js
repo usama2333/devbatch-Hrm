@@ -4,11 +4,7 @@ import AuthContext from "../store/auth-context";
 
 const PrivateRoutes = () => {
     const authCtx =  useContext(AuthContext);
-
-    console.log('private routes')
-
     const auth = authCtx.isLoggedIn
-    console.log(auth,'test auth')
 
     return(
         auth ? <Outlet/> : <Navigate to='/login'/>

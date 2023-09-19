@@ -11,7 +11,6 @@ const Navbarr = () => {
   const authCtx = useContext(AuthContext);
   const show = useSelector((state) => state.table.show);
   const data = useSelector((state) => state.table.data);
-  const name = useSelector((state) => state.table.name);
   const [lastdata,setLastdata] = useState([]);
 
   const dispatch = useDispatch();
@@ -47,7 +46,7 @@ const Navbarr = () => {
     setAnchorEl(null);
     authCtx.logout();
     navigate('/login')
-    // history.push('/login')
+    
   };
 
   useEffect(()=> {
