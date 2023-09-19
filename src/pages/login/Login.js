@@ -20,7 +20,7 @@ import {
   signInBox,
   imgBox,
 } from "./style";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { useFormik } from "formik";
 import { loginSchema } from "../../schema/login";
 import { useDispatch, useSelector } from "react-redux";
@@ -36,7 +36,7 @@ const initialValues = {
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const Login = () => {
-  const history = useHistory();
+  // const history = useHistory();
   const [testHistory, setTestHistory] = useState(null);
   const login = useSelector((state) => state.table.login);
   const authCtx =  useContext(AuthContext);
@@ -45,7 +45,7 @@ const Login = () => {
   const dispatch = useDispatch();
   
   const signupHandler = () => {
-    history.push("/");
+    // history.push("/");
   };
 
   useLayoutEffect(() => {
@@ -70,7 +70,7 @@ const Login = () => {
         console.log(values, "data....................");
         // dispatch(tableActions.setLogin(true));
        
-        signUpData(values,history,authCtx,login,setTestHistory);
+        signUpData(values,authCtx,login,setTestHistory);
         // if(testHistory === true) {
         //    history.push('/home');
         // }else {

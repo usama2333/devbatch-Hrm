@@ -1,33 +1,35 @@
-
-import { Fragment,useContext } from 'react';
-import { BrowserRouter as Router, Route, Switch,Redirect } from 'react-router-dom';
-import Signup from './pages/signup/Signup';
-import Login from './pages/login/Login';
-import Home from './pages/home/Home';
-import AuthContext from './store/auth-context';
+import { Fragment, useContext,useEffect,useLayoutEffect,useState } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+import Signup from "./pages/signup/Signup";
+import Login from "./pages/login/Login";
+import Home from "./pages/home/Home";
+import AuthContext from "./store/auth-context";
+import Error from "./pages/error/Error";
+import PrivateRoutes from "./utils/PrivateRoutes";
 
 function App() {
+  
   const authCtx = useContext(AuthContext);
+
   return (
     <Fragment>
-    
-     
-      <Router>
-    
-      <Switch>
-      {authCtx.isLoggedIn && (
-      <Route exact path="/home" component={Home} />
-      )}
+    <Router>
+      <Routes>
+       <Route element={<PrivateRoutes/>}>
+          <Route element={<Home/>} path="/home" exact/>
+       </Route>
 
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/" component={Signup} />
+       <Route element={<Login/>} path="/login" exact/>
+       <Route element={<Signup/>} path="/" exact/>
 
-      <Route>
-          <Redirect to = '/login'/>
-        </Route>
-      </Switch>
-      </Router>
-      
+      </Routes>
+    </Router>
 
     </Fragment>
   );

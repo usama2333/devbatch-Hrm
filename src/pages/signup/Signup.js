@@ -16,7 +16,7 @@ import {
   signUpBtn,
   signUpTypo,
 } from "./style";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { useFormik } from "formik";
 import { signupSchema } from "../../schema/signup";
 import { tableActions } from "../../store/table";
@@ -34,12 +34,12 @@ const initialValues = {
 const Signup = () => {
   const login = useSelector((state) => state.table.login);
   const authCtx =  useContext(AuthContext);
-  const history = useHistory();
+  // const history = useHistory();
   const dispatch = useDispatch();
  
 
   const signinHandler = () => {
-    history.push("/login");
+    // history.push("/login");
     console.log("sign............");
   };
 
@@ -58,7 +58,7 @@ const Signup = () => {
         console.log(values,'data....................')
         // AddInputData(values, history, notify);
         
-        signUpData(values,history,authCtx,login);
+        signUpData(values,authCtx,login);
         
         dispatch(tableActions.setSignup(values));
 

@@ -4,7 +4,7 @@ import bell from "../../assests/images/bell.png";
 import {bellIconBox,dashboardBox,mainBox,navEmail,navStack,navTypo,pieIcon,} from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
 
 const Navbarr = () => {
@@ -17,7 +17,7 @@ const Navbarr = () => {
   const dispatch = useDispatch();
   const [auth, setAuth] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleChange = (event) => {
     setAuth(event.target.checked);
@@ -46,7 +46,7 @@ const Navbarr = () => {
 
     setAnchorEl(null);
     authCtx.logout();
-    history.push('/login')
+    // history.push('/login')
   };
 
   useEffect(()=> {
