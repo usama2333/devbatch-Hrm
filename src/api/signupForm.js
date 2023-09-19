@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 
 
-export default function signUpData(data,authCtx,login,setTestHistory ) {
+export default function signUpData(data,authCtx,login,naviagte ) {
     let url;
     if(login) {
 
@@ -30,10 +30,12 @@ export default function signUpData(data,authCtx,login,setTestHistory ) {
                 console.log('home test......before.........',login)
                 // setTestHistory(login);
                 // history.push('/home');
+                naviagte('/home')
                 console.log('home test.......after........',login)
             }else {
                 // setTestHistory(login);
                 // history.push('/login');
+                naviagte('/login')
                 console.log('login test...............',login)
             }
             return res.json();

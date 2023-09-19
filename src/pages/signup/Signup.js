@@ -60,7 +60,7 @@ const Signup = () => {
         console.log(values,'data....................')
         // AddInputData(values, history, notify);
         
-        signUpData(values,authCtx,login);
+        signUpData(values,authCtx,login,navigate);
         
         dispatch(tableActions.setSignup(values));
 

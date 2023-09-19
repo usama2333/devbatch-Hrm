@@ -71,7 +71,7 @@ const Login = () => {
         console.log(values, "data....................");
         // dispatch(tableActions.setLogin(true));
        
-        signUpData(values,authCtx,login,setTestHistory);
+        signUpData(values,authCtx,login,navigate);
         // if(testHistory === true) {
         //    history.push('/home');
         // }else {

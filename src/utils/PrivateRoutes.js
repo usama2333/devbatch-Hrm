@@ -1,11 +1,17 @@
 import { Outlet,Navigate } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../store/auth-context";
 
 const PrivateRoutes = () => {
+    const authCtx =  useContext(AuthContext);
 
-    let auth = {'token' : true}
+    console.log('private routes')
+
+    let auth = authCtx.isLoggedIn
+    console.log(auth,'test auth')
 
     return(
-        auth.token ? <Outlet/> : <Navigate to='/login'/>
+        auth ? <Outlet/> : <Navigate to='/login'/>
     )
 
 }
