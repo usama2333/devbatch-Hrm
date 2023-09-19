@@ -1,13 +1,14 @@
-import React, { Fragment,useState ,useEffect} from "react";
+import React, { Fragment,useState ,useEffect,useContext} from "react";
 import {AppBar,Box,Toolbar,Typography,Stack,MenuItem,Menu,IconButton } from "@mui/material";
 import bell from "../../assests/images/bell.png";
 import {bellIconBox,dashboardBox,mainBox,navEmail,navStack,navTypo,pieIcon,} from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
 import { useHistory } from "react-router-dom";
-
+import AuthContext from "../../store/auth-context";
 
 const Navbarr = () => {
+  const authCtx = useContext(AuthContext);
   const show = useSelector((state) => state.table.show);
   const data = useSelector((state) => state.table.data);
   const name = useSelector((state) => state.table.name);
@@ -44,6 +45,7 @@ const Navbarr = () => {
   const handleLogout = () => {
 
     setAnchorEl(null);
+    authCtx.logout();
     history.push('/login')
   };
 

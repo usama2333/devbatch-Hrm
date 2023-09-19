@@ -41,7 +41,7 @@ const Dashboard = () => {
     <Box sx={{padding : '0px 4rem'}}>
       <Box>
         <Stack
-          direction="row"
+          direction={{xxs : 'column',sm : 'row'}}
           justifyContent="space-between"
           alignItems="center"
           

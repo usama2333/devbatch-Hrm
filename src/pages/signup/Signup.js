@@ -1,6 +1,7 @@
 import { Box, Container, Stack, Typography,TextField,Button } from "@mui/material";
-import React, { Fragment } from "react";
+import React, { Fragment,useContext, useEffect,useLayoutEffect, useState } from "react";
 import backgroundImg from "../../assests/images/loginBack.png";
+import AuthContext from "../../store/auth-context";
 
 import {
   absBox,
@@ -18,6 +19,10 @@ import {
 import { useHistory } from "react-router-dom";
 import { useFormik } from "formik";
 import { signupSchema } from "../../schema/signup";
+import { tableActions } from "../../store/table";
+import { useDispatch, useSelector } from "react-redux";
+import signUpData from "../../api/signupForm";
+
 
 const initialValues = {
   email: "",
@@ -27,11 +32,24 @@ const initialValues = {
 };
 
 const Signup = () => {
+  const login = useSelector((state) => state.table.login);
+  const authCtx =  useContext(AuthContext);
   const history = useHistory();
+
+  const dispatch = useDispatch();
+ 
+
   const signinHandler = () => {
     history.push("/login");
     console.log("sign............");
   };
+
+  // useEffect(() => {
+  //   dispatch(tableActions.setLogin(false));
+  // },)
+  useLayoutEffect(() => {
+    dispatch(tableActions.setLogin(false));
+  },);
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
@@ -40,6 +58,12 @@ const Signup = () => {
       onSubmit: (values, action) => {
         console.log(values,'data....................')
         // AddInputData(values, history, notify);
+        
+        signUpData(values,history,authCtx,login);
+        
+        dispatch(tableActions.setSignup(values));
+
+        // history.push("/login");
       },
     });
   return (

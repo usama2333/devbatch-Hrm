@@ -7,6 +7,8 @@ const initialState = {
   view: [],
   name: [],
   edit: [],
+  signup : [],
+  login : true,
 };
 
 const tableSlice = createSlice({
@@ -30,6 +32,12 @@ const tableSlice = createSlice({
     },
     setEdit(state, action) {
       state.edit = action.payload;
+    },
+    setSignup(state, action) {
+      state.signup = action.payload;
+    },
+    setLogin(state, action) {
+      state.login = action.payload;
     },
   },
 });

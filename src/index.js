@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { ThemeProvider, createTheme } from "@mui/material";
 import { Provider } from "react-redux";
 import store from "./store";
+import { AuthContextProvider } from './store/auth-context';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -24,11 +25,13 @@ const theme = createTheme({
 });
 
 root.render(
+  <AuthContextProvider>
   <Provider store={store}>
   <ThemeProvider theme={theme}>
     <App />
     </ThemeProvider>
     </Provider>
+  </AuthContextProvider>
  
 );
 
