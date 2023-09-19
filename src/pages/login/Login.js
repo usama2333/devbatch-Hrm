@@ -1,5 +1,5 @@
 import { Box, Container, Stack, Typography,TextField,Button,Checkbox } from "@mui/material";
-import React, { Fragment,useLayoutEffect,useContext } from "react";
+import React, { Fragment,useState,useLayoutEffect,useEffect,useContext } from "react";
 import backgroundImg from "../../assests/images/loginBack.png";
 import {
   absoluteBox,
@@ -36,18 +36,30 @@ const initialValues = {
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const Login = () => {
+  const history = useHistory();
+  const [testHistory, setTestHistory] = useState(null);
   const login = useSelector((state) => state.table.login);
   const authCtx =  useContext(AuthContext);
-  const dispatch = useDispatch();
   const signup = useSelector((state) => state.table.signup);
-  const history = useHistory();
+  
+  const dispatch = useDispatch();
+  
   const signupHandler = () => {
     history.push("/");
   };
 
   useLayoutEffect(() => {
     dispatch(tableActions.setLogin(true));
-  },);
+    
+  },[dispatch]);
+ 
+ const handleHistory = () => {
+  
+ }
+
+ useEffect(() => {
+
+ },[])
 
   console.log(signup,'in login component data')
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
@@ -56,8 +68,17 @@ const Login = () => {
       validationSchema: loginSchema,
       onSubmit: (values, action) => {
         console.log(values, "data....................");
-        dispatch(tableActions.setLogin(true));
-        signUpData(values,history,authCtx,login);
+        // dispatch(tableActions.setLogin(true));
+       
+        signUpData(values,history,authCtx,login,setTestHistory);
+        // if(testHistory === true) {
+        //    history.push('/home');
+        // }else {
+        //   history.push('/login');
+        // }
+        // history.push('/home');
+        // dispatch(tableActions.setSignup(values));
+        
       
       },
     });
@@ -143,6 +164,7 @@ const Login = () => {
                       sx={signInBox}
                       fullWidth
                       variant="contained"
+                     onClick = {handleHistory}
                     >
                       Sign in
                     </Button>

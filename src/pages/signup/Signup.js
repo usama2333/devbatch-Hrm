@@ -35,7 +35,6 @@ const Signup = () => {
   const login = useSelector((state) => state.table.login);
   const authCtx =  useContext(AuthContext);
   const history = useHistory();
-
   const dispatch = useDispatch();
  
 
