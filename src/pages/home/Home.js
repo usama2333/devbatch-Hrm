@@ -1,15 +1,12 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
 import React, { Fragment, useState, useLayoutEffect } from "react";
-
 import Dashboard from "../../components/dashboard/Dashboard";
 import User from "../../components/user/User";
 import Navbar from "../../components/navbar/Navbar";
 import AddUser from "../../components/addUser/AddUser";
 import UserDetail from "../../components/userdetail/UserDetail";
-
 import {flower,line,logo,relBox,tableDummy,transitionBox
 } from "./style";
-
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
 import PersonIcon from "@mui/icons-material/Person";
@@ -32,11 +29,8 @@ const Home = () => {
   const heightHandler = () => {
     setFirstH((pre) => (pre === "20%" ? "10%" : "20%"));
     setSecondH((pre) => (pre === "80%" ? "90%" : "80%"));
-    // setCheck((pre) => (pre == false ? true : false));
     dispatch(tableActions.setCheck());
     setDisplayText((pre) => (pre === "grid" ? "none" : "grid"));
-
-   
   };
 
   const dashboardHandler = () => {
@@ -69,7 +63,6 @@ const Home = () => {
                 "transparent linear-gradient(180deg, #FE8062 0%, #7B2713 100%) 0% 0% no-repeat padding-box",
               boxShadow: "3px 0px 10px #0000000D",
               opacity: 1,
-              // height: "65rem",
               height: "100vh",
               position: "sticky",
             }}

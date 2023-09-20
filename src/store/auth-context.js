@@ -1,5 +1,6 @@
-import React , {useState} from 'react';
-
+import React , {useEffect, useState} from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { tableActions } from "../store/table";
 
 const AuthContext = React.createContext({
   token: '',
@@ -9,13 +10,16 @@ const AuthContext = React.createContext({
 });
 
 export const AuthContextProvider = (props) => {
+  const dispatch = useDispatch();
+
 
     const initialToken = localStorage.getItem('token');
 
     const [token, setToken] = useState(initialToken);
   
     const userIsLoggedIn = !!token;
-  
+    dispatch(tableActions.setLogin(userIsLoggedIn));
+    
     const logoutHandler = () => {
        setToken(null);
        localStorage.removeItem('token');
@@ -28,6 +32,7 @@ export const AuthContextProvider = (props) => {
      console.log('Data is found');
      console.log(token);
     };
+
   
     const contextValue = {
       token: token,
@@ -35,6 +40,10 @@ export const AuthContextProvider = (props) => {
       login: loginHandler,
       logout: logoutHandler,
     };
+
+    useEffect(() => {
+       console.log(userIsLoggedIn,'log state')
+    } , [userIsLoggedIn])
   
     return (
       <AuthContext.Provider value={contextValue}>
