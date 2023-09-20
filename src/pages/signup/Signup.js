@@ -11,6 +11,7 @@ import {
   emailBox,
   emailTypo,
   firstBox,
+  formMainCon,
   imgBox,
   secondHaf,
   signUpBtn,
@@ -60,10 +61,10 @@ const Signup = () => {
   return (
     <Fragment>
       <Container disableGutters maxWidth="custom" sx={conBox}>
-        <Stack direction="row">
+        <Stack direction="row" sx={{height : '100vh', overflow : 'hidden'}}>
           <Box sx={firstBox}>
             <Box sx={absBox}>
-              <Box>
+              <Box sx={formMainCon}>
                 <Typography sx={signUpTypo}>sign up</Typography>
                 <Typography sx={createBox}>
                   Please fill your detail to create your account.
@@ -84,7 +85,7 @@ const Signup = () => {
                       </Typography>
 
                       <TextField
-                        sx={{ maxWidth: "376px" }}
+                       sx={{ width : '100%' }}
                         variant="outlined"
                         // size="small"
                         id="email"
@@ -107,7 +108,7 @@ const Signup = () => {
                         ) : null}
                         </Typography>
                       <TextField
-                        sx={{ maxWidth: "376px" }}
+                        sx={{ width : '100%' }}
                         variant="outlined"
                         id="name"
                         // size="small"
@@ -130,7 +131,7 @@ const Signup = () => {
                         ) : null}
                         </Typography>
                       <TextField
-                        sx={{ maxWidth: "376px" }}
+                        sx={{ width : '100%' }}
                         variant="outlined"
                         type="password"
                         // size="small"
@@ -154,7 +155,7 @@ const Signup = () => {
                         ) : null}
                         </Typography>
                       <TextField
-                        sx={{ maxWidth: "376px" }}
+                        sx={{ width : '100%' }}
                         variant="outlined"
                         // size="small"
                         type="password"
