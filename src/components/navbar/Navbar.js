@@ -15,6 +15,7 @@ import {
   dashboardBox,
   mainBox,
   menuItemSx,
+  menuLogoutSx,
   navEmail,
   navStack,
   navTypo,
@@ -151,7 +152,7 @@ const Navbarr = () => {
                     <MenuItem sx={menuItemSx} onClick={handleAddUser}>
                       Add User
                     </MenuItem>
-                    <MenuItem sx={menuItemSx} onClick={handleLogout}>
+                    <MenuItem sx={menuLogoutSx} onClick={handleLogout}>
                       Logout
                     </MenuItem>
                   </Box>

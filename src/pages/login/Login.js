@@ -19,6 +19,7 @@ import {
   secondBox,
   signInBox,
   imgBox,
+  formMainCon,
 } from "./style";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
@@ -68,10 +69,10 @@ const Login = () => {
   return (
     <Fragment>
       <Container disableGutters maxWidth="custom" sx={conSx}>
-        <Stack direction="row">
+        <Stack direction="row" sx={{height : '100vh', overflow : 'hidden'}}>
           <Box sx={firstBox}>
             <Box sx={absoluteBox}>
-              <Box>
+              <Box sx={formMainCon}>
                 <Typography sx={loginTypo}>Login</Typography>
                 <Typography sx={detailTypo}>
                   Please fill your detail to create your account.
@@ -94,7 +95,7 @@ const Login = () => {
                       </Typography>
 
                       <TextField
-                        sx={{ maxWidth: "376px" }}
+                        sx={{ width : '100%' }}
                         variant="outlined"
                         // size="small"
                         id="email"
@@ -117,7 +118,7 @@ const Login = () => {
                         ) : null}
                       </Typography>
                       <TextField
-                        sx={{ maxWidth: "376px" }}
+                       sx={{ width : '100%' }}
                         variant="outlined"
                         type="password"
                         // size="small"

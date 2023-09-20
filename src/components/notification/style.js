@@ -3,4 +3,5 @@ export const notificationData = [
     'Hassan is loggedout',
     'Ali updated profile',
     'Data uploaded',
+    
 ]

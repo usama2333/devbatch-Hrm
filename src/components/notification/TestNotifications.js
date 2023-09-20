@@ -56,6 +56,7 @@ function TestNotifications() {
         <Box
           sx={{
             // backgroundColor: "#FE8062",
+            maxHeight : '215px',
             boxSizing: "border-box",
             margin: "0px",
           }}
@@ -71,6 +72,7 @@ function TestNotifications() {
           <MenuItem
             sx={{
               padding: "1rem 3rem",
+              backgroundColor : '#F3F3F3',
               font: "normal normal normal 14px/16px Product Sans",
             }}
             onClick={handleNotification}
