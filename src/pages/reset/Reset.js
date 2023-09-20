@@ -1,7 +1,7 @@
 import { Box, Container, Stack, Typography,TextField,Button } from "@mui/material";
-import React, { Fragment} from "react";
+import React, { Fragment,useContext,useLayoutEffect } from "react";
 import backgroundImg from "../../assests/images/loginBack.png";
-
+import AuthContext from "../../store/auth-context";
 
 import {
   absBox,
@@ -11,14 +11,18 @@ import {
   emailBox,
   emailTypo,
   firstBox,
+  formMainCon,
   imgBox,
   secondHaf,
   signUpBtn,
   signUpTypo,
 } from "./style";
 import { useFormik } from "formik";
-import { resetSchema } from "../../schema/reset";
+// import { resetSchema } from "../../schema/signup";
+import { tableActions } from "../../store/table";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { resetSchema } from "../../schema/reset";
 
 
 const initialValues = {
@@ -28,33 +32,42 @@ const initialValues = {
   confirmpassword: "",
 };
 
-const Signup = () => {
+const Reset = () => {
+  const login = useSelector((state) => state.table.login);
+  const authCtx =  useContext(AuthContext);
   const navigate = useNavigate();
-  
+  const dispatch = useDispatch();
  
 
   const signinHandler = () => {
     navigate('/login')
   };
+  useLayoutEffect(() => {
+    dispatch(tableActions.setLogin(false));
+  },);
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
       validationSchema: resetSchema,
       onSubmit: (values, action) => {
-        navigate('/login')
+        // signUpData(values,authCtx,login,navigate);
+        
+        // dispatch(tableActions.setSignup(values));
+
+       
       },
     });
   return (
     <Fragment>
       <Container disableGutters maxWidth="custom" sx={conBox}>
-        <Stack direction="row">
+        <Stack direction="row" sx={{height : '100vh', overflow : 'hidden'}}>
           <Box sx={firstBox}>
             <Box sx={absBox}>
-              <Box>
+              <Box sx={formMainCon}>
                 <Typography sx={signUpTypo}>Reset Password</Typography>
                 <Typography sx={createBox}>
-                  Please fill your detail to reset your password.
+                  Please fill your detail to Reset your account.
                 </Typography>
 
                 <Box sx={emailBox}>
@@ -72,8 +85,9 @@ const Signup = () => {
                       </Typography>
 
                       <TextField
-                        sx={{ maxWidth: "376px" }}
+                       sx={{ width : '100%' }}
                         variant="outlined"
+                        // size="small"
                         id="email"
                         name="email"
                         onChange={handleChange}
@@ -94,15 +108,17 @@ const Signup = () => {
                         ) : null}
                         </Typography>
                       <TextField
-                        sx={{ maxWidth: "376px" }}
+                        sx={{ width : '100%' }}
                         variant="outlined"
+                        type="password"
+                        // size="small"
                         id="password"
                         name="password"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.password}
                       />
-                      
+                     
                     </Stack>
 
                     <Stack>
@@ -116,9 +132,10 @@ const Signup = () => {
                         ) : null}
                         </Typography>
                       <TextField
-                        sx={{ maxWidth: "376px" }}
+                        sx={{ width : '100%' }}
                         variant="outlined"
                         type="password"
+                        // size="small"
                         id="newpassword"
                         name="newpassword"
                         onChange={handleChange}
@@ -139,8 +156,9 @@ const Signup = () => {
                         ) : null}
                         </Typography>
                       <TextField
-                        sx={{ maxWidth: "376px" }}
+                        sx={{ width : '100%' }}
                         variant="outlined"
+                        // size="small"
                         type="password"
                         id="confirmpassword"
                         name="confirmpassword"
@@ -157,7 +175,7 @@ const Signup = () => {
                       variant="contained"
       
                     >
-                      Reset Password
+                      Reset
                     </Button>
                   </form>
                   <Typography sx={alreadyAccount}>
@@ -187,4 +205,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Reset;
