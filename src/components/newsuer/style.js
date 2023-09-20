@@ -83,3 +83,42 @@ export const linkTypo= {
     color: "#707787",
     // mr: {xxs :'0.5rem' , xs : '1.1rem'},
 }
+
+export const firstUserFlex = {
+    display: "flex",
+    flex: "0 0 70%",
+}
+export const secondUserFlex = {
+    display: "flex",
+                flex: "0 0 30%",
+                justifyContent : 'space-between',
+                mt: "0.7rem",
+                // mr: "2rem",
+}
+
+export const firstUserTypo = {
+    background: "#FFFFFF 0% 0% no-repeat border-box",
+    mt: "0.7rem",
+    // border: "1px solid #EAEAEA",
+    borderRadius: "6px",
+    font: {
+      xxs: "normal normal normal 12px/15px Product Sans",
+      xs: "normal normal normal 12px/15px Product Sans",
+      sm: "normal normal normal 14px/17px Product Sans",
+    },
+    letterSpacing: "0px",
+    color: "#707787",
+}
+
+export const sendLinkBtn = {
+    background: "#FFFFFF 0% 0% no-repeat padding-box",
+    font: "normal normal normal 12px/14px Product Sans",
+    textTransform: "capitalize",
+    "&:hover": {
+      backgroundColor: "#e0cc9f", // Define the hover effect style
+    },
+    padding: "0.75rem 2rem",
+    font: "normal normal normal 13px/15px Product Sans",
+    letterSpacing: "0px",
+    color: "#707787",
+}

@@ -1,5 +1,5 @@
 
-export default function signUpData(data, authCtx, login, naviagte) {
+export default function signUpData(data, authCtx, login, naviagte,notify) {
   let url;
   if (login) {
     url =
@@ -24,9 +24,13 @@ export default function signUpData(data, authCtx, login, naviagte) {
       if (res.status === 200 || res.status === 201) {
         console.log("successfull");
         if (login) {
+          notify('Login successfully')
           naviagte("/home");
+          
         } else {
+          notify('Signup successfully')
           naviagte("/login");
+          
         }
         return res.json();
       } else {
@@ -43,6 +47,7 @@ export default function signUpData(data, authCtx, login, naviagte) {
       authCtx.login(data.idToken, expirationTime.toISOString());
     })
     .catch((err) => {
-      alert(err.message);
+      // alert(err.message);
+      notify(err.message)
     });
 }

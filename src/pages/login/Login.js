@@ -27,6 +27,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
 import signUpData from "../../api/signupForm";
 import AuthContext from "../../store/auth-context";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const initialValues = {
   email: "",
@@ -34,6 +36,7 @@ const initialValues = {
 };
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
+const notify = (error) => toast(error);
 
 const Login = () => {
   const navigate = useNavigate();
@@ -58,8 +61,8 @@ const Login = () => {
       initialValues: initialValues,
       validationSchema: loginSchema,
       onSubmit: (values, action) => {
-        signUpData(values,authCtx,login,navigate);
-      
+        signUpData(values,authCtx,login,navigate,notify);
+        // notify('Login successfully')
       },
     });
   return (
@@ -165,6 +168,7 @@ const Login = () => {
           </Box>
         </Stack>
       </Container>
+      <ToastContainer />
     </Fragment>
   );
 };

@@ -12,7 +12,6 @@ import { tableActions } from "../../store/table";
 import PersonIcon from "@mui/icons-material/Person";
 import WidgetsIcon from "@mui/icons-material/Widgets";
 
-
 const Home = () => {
   const dispatch = useDispatch();
   const show = useSelector((state) => state.table.show);
@@ -205,6 +204,7 @@ const Home = () => {
           </Box>
         </Stack>
       </Container>
+     
     </Fragment>
   );
 };

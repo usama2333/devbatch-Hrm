@@ -1,12 +1,15 @@
 import React, { Fragment } from "react";
 import icon from "../../assests/images/icon.png";
-import { Box, Button, Stack, Typography,TextField } from "@mui/material";
+import { Box, Button, Stack, Typography, TextField } from "@mui/material";
 import {
   addEmail,
   adduser,
   adduserBox,
   adduserInner,
- 
+  firstUserFlex,
+  firstUserTypo,
+  secondUserFlex,
+  sendLinkBtn,
 } from "./style";
 
 const AddNew = () => {
@@ -23,29 +26,12 @@ const AddNew = () => {
             direction="row"
             justifyContent="space-between"
             alignItems="center"
-            gap='2rem'
-            sx={{boxSizing : 'border-box'}}
+            gap="2rem"
+            sx={{ boxSizing: "border-box" }}
           >
-            <Box
-              sx={{
-                display: "flex",
-                flex: "0 0 70%",
-              }}
-            >
+            <Box sx={firstUserFlex}>
               <TextField
-                sx={{
-                  background: "#FFFFFF 0% 0% no-repeat border-box",
-                  mt: "0.7rem",
-                  // border: "1px solid #EAEAEA",
-                  borderRadius: "6px",
-                  font: {
-                    xxs: "normal normal normal 12px/15px Product Sans",
-                    xs: "normal normal normal 12px/15px Product Sans",
-                    sm: "normal normal normal 14px/17px Product Sans",
-                  },
-                  letterSpacing: "0px",
-                  color: "#707787",
-                }}
+                sx={firstUserTypo}
                 fullWidth
                 size="small"
                 id="outlined-basic"
@@ -55,39 +41,16 @@ const AddNew = () => {
               />
             </Box>
 
-            <Box
-              sx={{
-                display: "flex",
-                flex: "0 0 30%",
-                justifyContent : 'space-between',
-                mt: "0.7rem",
-                // mr: "2rem",
-              }}
-            >
-              <Button
-                sx={{
-                  background: "#FFFFFF 0% 0% no-repeat padding-box",
-                  font: "normal normal normal 12px/14px Product Sans",
-                  textTransform: "capitalize",
-                  "&:hover": {
-                    backgroundColor: "#e0cc9f", // Define the hover effect style
-                  },
-                  padding: "0.75rem 2rem",
-                  font: "normal normal normal 13px/15px Product Sans",
-                  letterSpacing: "0px",
-                  color: "#707787",
-                }}
-                variant="contained"
-              >
-              <Box sx={{display : 'flex', alignItems : 'center' }}>
-              
-              <Typography sx={{display : {xxs : 'none', sm : 'flex',}}}>Send Link</Typography>
-              <Box component="img" sx={{ml : '1rem'}} src={icon}></Box>
-              </Box>
-              
+            <Box sx={secondUserFlex}>
+              <Button sx={sendLinkBtn} variant="contained">
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <Typography sx={{ display: { xxs: "none", sm: "flex" } }}>
+                    Send Link
+                  </Typography>
+                  <Box component="img" sx={{ ml: "1rem" }} src={icon}></Box>
+                </Box>
               </Button>
             </Box>
-
           </Stack>
         </Box>
       </Box>

@@ -57,7 +57,7 @@ export const nameTypo = {
 }
 
 export const calanderMain={
-    background: "#FCFCFC 0% 0% no-repeat border-box",
+    // background: "#FCFCFC 0% 0% no-repeat border-box",
     borderRadius: "5px",
     opacity: 1,
     // mr: {xxs : '2rem',xs : '4rem'},
@@ -128,4 +128,29 @@ export const recentUserStack= {
 }
 
   
+export const firstFlex = {
+  display: "flex",
+  gap: "3rem",
+  // flex : '0 0 50%',
+  flex: "calc((100% - 3rem) / 2)",
+  flexDirection: { xxs: "column-reverse", md: "row" },
+}
 
+export const secondFlex = {
+  display: "flex",
+  // flex: "0 0 50%",
+  flex: "calc((100% - 3rem) / 2)",
+
+  flexDirection: "row",
+  gap: "3rem",
+}
+
+export const addNewBox = {
+  flex: "calc((100% - 3rem) / 2)",
+                boxSizing: "border-box",
+}
+export const userImSx = {
+  height: "25rem",
+  width: "100%",
+  transition: "all 0.3s ease-in-out",
+}

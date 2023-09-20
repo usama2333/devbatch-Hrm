@@ -3,16 +3,8 @@ import React, { Fragment, useState, useEffect } from "react";
 import Department from "../department/Department";
 import graph from "../../assests/images/graph.png";
 import {
-  calanderMain,
-  depart,
-  graphFlex,
-  graphStack,
-  nameTypo,
-  recentFlex,
-  recentTypo,
-  recentUserBox,
-  userGeneral,
-  welcome,
+  addNewBox,calanderMain,depart,firstFlex,graphFlex,graphStack,nameTypo,
+  recentFlex, recentTypo,recentUserBox, secondFlex,userGeneral,userImSx,welcome,
 } from "./style";
 import AddNew from "../newsuer/AddNew";
 import RecentTable from "../recent/RecentTable";
@@ -36,7 +28,7 @@ const Dashboard = () => {
             justifyContent="space-between"
             alignItems="center"
           >
-            <Box sx={{ mt: "4rem" }}>
+            <Box sx={{ mt: "4rem",mb : '0.5rem' }}>
               <Typography sx={welcome}>Welcome</Typography>
               <Typography sx={nameTypo}>{lastdata.name}</Typography>
             </Box>
@@ -44,11 +36,6 @@ const Dashboard = () => {
             <Box sx={calanderMain}>
               <Stack direction="row">
                 <DateRange />
-                {/* <DatePickerRange/> */}
-                {/* <Box component="img" src={calander}></Box> */}
-                {/* <DatePick /> */}
-                {/* <NewCalander/> */}
-                {/* <Typography sx={dateBox}>Jul, 28 2022 - Jul, 28 2022</Typography> */}
               </Stack>
             </Box>
           </Stack>
@@ -57,25 +44,8 @@ const Dashboard = () => {
         {/* start depart section here */}
 
         <Box sx={{ mt: "2rem" }}>
-          <Box
-            sx={{
-              display: "flex",
-              gap: "3rem",
-              // flex : '0 0 50%',
-              flex: "calc((100% - 3rem) / 2)",
-              flexDirection: { xxs: "column-reverse", md: "row" },
-            }}
-          >
-            <Box
-              sx={{
-                display: "flex",
-                // flex: "0 0 50%",
-                flex: "calc((100% - 3rem) / 2)",
-
-                flexDirection: "row",
-                gap: "3rem",
-              }}
-            >
+          <Box sx={firstFlex}>
+            <Box sx={secondFlex}>
               {depart.map((data, index) => (
                 <Department
                   key={index}
@@ -86,12 +56,7 @@ const Dashboard = () => {
               ))}
             </Box>
 
-            <Box
-              sx={{
-                flex: "calc((100% - 3rem) / 2)",
-                boxSizing: "border-box",
-              }}
-            >
+            <Box sx={addNewBox}>
               <AddNew />
             </Box>
           </Box>
@@ -109,15 +74,7 @@ const Dashboard = () => {
         >
           <Box sx={graphFlex}>
             <Typography sx={userGeneral}>Users (General)</Typography>
-            <Box
-              component="img"
-              sx={{
-                height: "25rem",
-                width: "100%",
-                transition: "all 0.3s ease-in-out",
-              }}
-              src={graph}
-            ></Box>
+            <Box component="img" sx={userImSx} src={graph}></Box>
           </Box>
           <Box sx={recentFlex}>
             <Typography sx={recentTypo}>Recent Users</Typography>
