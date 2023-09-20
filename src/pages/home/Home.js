@@ -1,5 +1,5 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
-import React, { Fragment, useState, useLayoutEffect } from "react";
+import React, { Fragment, useEffect,useState, useLayoutEffect } from "react";
 import Dashboard from "../../components/dashboard/Dashboard";
 import User from "../../components/user/User";
 import Navbar from "../../components/navbar/Navbar";
@@ -11,26 +11,46 @@ import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
 import PersonIcon from "@mui/icons-material/Person";
 import WidgetsIcon from "@mui/icons-material/Widgets";
+import { useMediaQuery } from '@mui/material';
 
 const Home = () => {
+  const [isMobile, setIsMobile] = useState(false);
   const dispatch = useDispatch();
   const show = useSelector((state) => state.table.show);
   const check = useSelector((state) => state.table.check);
-  
-
-  const [firstH, setFirstH] = useState("20%");
-  const [secondH, setSecondH] = useState("80%");
-  const [displayText, setDisplayText] = useState("grid");
+ const [reduceSize,setreduceSize]= useState(false)
+const enable = isMobile|| reduceSize
+  const firstH =enable ? '10%' : '20%'
+  const secondH = enable ? '90%' : '80%'
+  const displayText = enable ? 'none' : 'grid'
 
   useLayoutEffect(() => {
     dispatch(tableActions.setData(tableDummy));
   }, []);
   const heightHandler = () => {
-    setFirstH((pre) => (pre === "20%" ? "10%" : "20%"));
-    setSecondH((pre) => (pre === "80%" ? "90%" : "80%"));
     dispatch(tableActions.setCheck());
-    setDisplayText((pre) => (pre === "grid" ? "none" : "grid"));
+    setreduceSize(!reduceSize)
   };
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 600px)'); // Define your breakpoint here
+
+    const handleMediaQueryChange = (event) => {
+      setreduceSize(event.matches)
+      setIsMobile(event.matches);
+    };
+
+    // Initial check
+    handleMediaQueryChange(mediaQuery);
+
+    // Add a listener for changes in the media query
+    mediaQuery.addListener(handleMediaQueryChange);
+
+    // Clean up the listener when the component unmounts
+    return () => {
+      mediaQuery.removeListener(handleMediaQueryChange);
+    };
+  }, []);
 
   const dashboardHandler = () => {
     dispatch(tableActions.setShow("dashboard"));
@@ -52,18 +72,20 @@ const Home = () => {
           width: "100%",
         }}
       >
-        <Stack direction="row">
+        <Stack direction="row" sx={{
+          height : '100vh'
+        }}>
           <Box
             sx={{
-              flex: `0 0 ${firstH}`,
+              flex: {sm :`0 0 ${firstH}`, xxs : ' 0 0 10%'},
               transition: "flex 0.3s ease-in-out",
               backfaceVisibility: "hidden",
               background:
                 "transparent linear-gradient(180deg, #FE8062 0%, #7B2713 100%) 0% 0% no-repeat padding-box",
               boxShadow: "3px 0px 10px #0000000D",
               opacity: 1,
-              height: "100vh",
-              position: "sticky",
+              // height: "100vh",
+              // position: "sticky",
             }}
           >
             <Box sx={relBox}>
@@ -75,7 +97,7 @@ const Home = () => {
                 ></Box>
               </Box>
 
-              {!check ? (
+              {!enable ? (
                 <Box
                   component="img"
                   sx={{
@@ -93,7 +115,8 @@ const Home = () => {
                   component="img"
                   sx={{
                     cursor: "pointer",
-                    ml: { xxs: "1rem", xs: "1rem", sm: "1rem" },
+                    ml: { xxs: "0.5rem", xs: "0.5rem", sm: "1rem" },
+                    height : {xxs : '24px' , sm : 'auto'}
                   }}
                   src={flower}
                 ></Box>
@@ -139,7 +162,7 @@ const Home = () => {
                   Dashboard
                 </Typography>
               </Stack>
-
+                
               <Stack
                 onClick={userHandler}
                 direction="row"
@@ -185,7 +208,7 @@ const Home = () => {
           </Box>
           <Box
             sx={{
-              flex: `0 0 ${secondH}`,
+              flex: {sm : `0 0 ${secondH}`, xxs : '0 0 90%'},
               transition: "all 0.3s ease-in-out",
             }}
           >

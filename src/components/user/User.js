@@ -74,7 +74,7 @@ const handleInputChange = (event) => {
     <Fragment>
       <Box
         sx={{
-          width: "92%",
+          width: "94%",
           // height: "379px",
           margin: "0px auto",
           background: "#FFFFFF 0% 0% no-repeat padding-box",
@@ -92,6 +92,7 @@ const handleInputChange = (event) => {
             mt: "2rem",
             display: "flex",
             justifyContent: "space-between",
+            maxWidth : {md : '100%',xxs : '86%'}
           }}
         >
           <TextField
@@ -134,7 +135,7 @@ const handleInputChange = (event) => {
             mt: "2rem",
           }}
         >
-          <TableContainer  sx={{ overflowX: "auto", maxHeight: 282 }} component={Paper}>
+          <TableContainer  sx={{ overflow: "auto", maxHeight: {xl : 390 , xxs : 282} , maxWidth : {md : '100%',xxs : '90%'}, margin : '0 auto'}} component={Paper}>
             <Table aria-label="simple table">
               <TableHead>
                 <TableRow
@@ -226,12 +227,13 @@ const handleInputChange = (event) => {
 
       <Box
         sx={{
-          width: "93%",
+          width: "94%",
           margin: "0px auto",
           mt: "2rem",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          maxWidth : {md : '100%',xxs : '86%'}
           // pb :'6.9rem'
         }}
       >

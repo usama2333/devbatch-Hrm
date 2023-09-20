@@ -22,7 +22,7 @@ export const bellIconBox = {
 //   width: { xxs: "3rem", xs: "3rem", sm: "3rem", md: "3.5rem", lg: "auto" },
 //   height: { xxs: "3rem", xs: "3rem", sm: "3rem", md: "3.5rem", lg: "auto" },
   display: { xxs: "none", xs: "none", sm: "flex" },
-  mr : '1.5rem',
+  mr : {sm : '1rem', md : '1.5rem'},
   cursor :'pointer'
 
 };
@@ -30,7 +30,7 @@ export const bellIconBox = {
 export const navStack = {
   ml: "1.5rem",
   mr: "1.3rem",
-  display: { xxs: "none", xs: "none", sm: "flex" },
+  display: { xxs: "none", xs: "flex" },
 };
 
 export const navTypo = {
@@ -52,8 +52,8 @@ export const navEmail = {
 };
 
 export const pieIcon = {
-  width: { xxs: "2.5rem", xs: "2.5rem", sm: "3rem", md: "3.5rem", lg: "4rem" },
-  height: { xxs: "2.5rem", xs: "2.5rem", sm: "3rem", md: "3.5rem", lg: "4rem" },
+  width: { xxs: "3.5rem",  md: "3.5rem", lg: "4rem" },
+  height: { xxs: "3.5rem",  md: "3.5rem", lg: "4rem" },
   cursor: "pointer",
   borderRadius: "100px",
 
