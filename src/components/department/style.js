@@ -5,7 +5,7 @@ export const departBox= {
       borderRadius: "10px",
       
       opacity: 1,
-      pb : '3rem',
+      pb : {xxs : '2rem',sm : '3rem'},
       mt : {xxs :'2rem',xs :'2rem',md :'0rem'},
       width : '100%',
     //   ml : {xxs : '1rem', sm : '3rem'}
@@ -16,7 +16,7 @@ export const departInnerBox = {
     flexDirection: "row",
     alignItems: "center",
     pt: "1.3rem",
-    pl: {xxs : '0.2rem', xs : '1.3rem'},
+    pl: {xxs : '0.8rem', xs : '1.3rem'},
 }
 
 export const nameBox = {

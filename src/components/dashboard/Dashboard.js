@@ -21,14 +21,14 @@ const Dashboard = () => {
 
   return (
     <Fragment>
-      <Box sx={{ padding: "0px 4rem" }}>
+      <Box sx={{ padding: {xxs : '0 1rem' , xs : '0 2rem', sm : '0 4rem'} }}>
         <Box>
           <Stack
             direction={{ xxs: "column", sm: "row" }}
             justifyContent="space-between"
             alignItems="center"
           >
-            <Box sx={{ mt: "4rem",mb : '0.5rem' }}>
+            <Box sx={{ mt: {xxs : '0rem' , xs : '1rem', sm : '4rem'},mb : {xs : '0.5rem'} }}>
               <Typography sx={welcome}>Welcome</Typography>
               <Typography sx={nameTypo}>{lastdata.name}</Typography>
             </Box>

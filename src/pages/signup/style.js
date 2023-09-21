@@ -24,7 +24,7 @@ export const firstBox = {
 export const absBox = {
   // mt: "5.8rem",
   // mb : '2rem',
-  width: {xxs :'90%',sm :'80%' ,md : '70%', lg : '100%'},
+  width: {xxs :'90%',sm :'70%' ,md : '60%', lg : '100%'},
   // height: "500px",
   /* UI Properties */
   background: "#F9F9F9 0% 0% no-repeat padding-box",

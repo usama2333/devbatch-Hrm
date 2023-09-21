@@ -27,7 +27,7 @@ export const firstBox = {
 export const absoluteBox = {
   // mt: "5.8rem",
   // mb : '2rem',
-  width: {xxs :'90%',sm :'80%' ,md : '70%', lg : '100%'},
+  width: {xxs :'90%',sm :'70%' ,md : '60%', lg : '100%'},
   // height: "500px",
   /* UI Properties */
   background: "#F9F9F9 0% 0% no-repeat padding-box",
@@ -166,7 +166,7 @@ export const imgBox = {
 export const formMainCon = {
   padding: {
     xl :"6.5rem 7rem 0rem 7rem",
-    md: "5.9rem 6.5rem 0rem 6.5rem",
+    md: "5.9rem 7.5rem 0rem 7.5rem",
     sm: "3.9rem 4.5rem 0rem 4.5rem",
     xs: "3.5rem 4rem 0rem 4rem",
     xxs: "2.9rem 3.5rem 0rem 2.5rem",

@@ -61,7 +61,7 @@ export const calanderMain={
     borderRadius: "5px",
     opacity: 1,
     // mr: {xxs : '2rem',xs : '4rem'},
-    mt: "3rem",
+    mt: {xxs : '1.5rem' , xs : '3rem'},
 }
 
 export const dateBox={
@@ -74,7 +74,7 @@ export const dateBox={
 }
 
 export const graphStack= {
-    mt: "2rem",
+    mt: {xxs : '2rem'},
     // ml: { xs: "0rem",xs: "0rem", sm: "3rem" },
     // pb: "4.2rem",
    
@@ -102,6 +102,7 @@ export const recentFlex = {
     //     lg: "0 0 50%",
     //     xxs: "0 0 95%",
     //   },
+    mt : {xxs : '2rem', lg : '0rem'},
     boxSizing : 'border-box',
     flex: 'calc((100% - 3rem) / 2)',
       
@@ -130,7 +131,7 @@ export const recentUserStack= {
   
 export const firstFlex = {
   display: "flex",
-  gap: "3rem",
+  gap: {xxs : "1rem",sm : '3rem'},
   // flex : '0 0 50%',
   flex: "calc((100% - 3rem) / 2)",
   flexDirection: { xxs: "column-reverse", md: "row" },
@@ -139,10 +140,10 @@ export const firstFlex = {
 export const secondFlex = {
   display: "flex",
   // flex: "0 0 50%",
-  flex: "calc((100% - 3rem) / 2)",
+  flex: {xxs :"calc((100% - 1.5rem) / 2)", sm : "calc((100% - 3rem) / 2)"},
 
   flexDirection: "row",
-  gap: "3rem",
+  gap: {xxs : "1.5rem",sm :'3rem'},
 }
 
 export const addNewBox = {
@@ -150,7 +151,7 @@ export const addNewBox = {
                 boxSizing: "border-box",
 }
 export const userImSx = {
-  height: "25rem",
+  height: {xxs : '20rem', sm :'25rem'},
   width: "100%",
   transition: "all 0.3s ease-in-out",
 }

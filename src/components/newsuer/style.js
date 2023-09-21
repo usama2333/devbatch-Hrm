@@ -4,8 +4,8 @@ export const adduserBox={
     opacity: 1,
     // width: { md: "50rem", sm: "45rem", xs: "28rem",xxs: "22rem"  },
     // pb: "1rem",
-    margin : {xxs : '0 2rem' , md : '0 0'},
-    padding : '1rem 2rem',
+    margin : {xxs : '0 0rem' , sm : '0 0'},
+    padding : {xxs : '1rem 1rem', xs : '1rem 2rem'},
     boxSizing : 'border-box'
     
     
@@ -86,11 +86,12 @@ export const linkTypo= {
 
 export const firstUserFlex = {
     display: "flex",
-    flex: "0 0 70%",
+    // flex: "0 0 70%",
+    flex: 'calc(70% - 1.5rem) ',
 }
 export const secondUserFlex = {
     display: "flex",
-                flex: "0 0 30%",
+    flex: 'calc(30% - 1.5rem) ',
                 justifyContent : 'space-between',
                 mt: "0.7rem",
                 // mr: "2rem",
@@ -117,8 +118,9 @@ export const sendLinkBtn = {
     "&:hover": {
       backgroundColor: "#e0cc9f", // Define the hover effect style
     },
-    padding: "0.75rem 2rem",
+    padding: "0.75rem 0rem",
     font: "normal normal normal 13px/15px Product Sans",
     letterSpacing: "0px",
     color: "#707787",
+    width : '100%'
 }

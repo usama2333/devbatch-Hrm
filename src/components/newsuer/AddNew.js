@@ -44,10 +44,10 @@ const AddNew = () => {
             <Box sx={secondUserFlex}>
               <Button sx={sendLinkBtn} variant="contained">
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <Typography sx={{ display: { xxs: "none", sm: "flex" } }}>
+                  <Typography >
                     Send Link
                   </Typography>
-                  <Box component="img" sx={{ ml: "1rem" }} src={icon}></Box>
+                  <Box component="img" sx={{ ml:{xxs : "0.5rem",xs : '1rem'} }} src={icon}></Box>
                 </Box>
               </Button>
             </Box>

@@ -29,7 +29,7 @@ const enable = isMobile|| reduceSize
   }, []);
   const heightHandler = () => {
     dispatch(tableActions.setCheck());
-    setreduceSize(!reduceSize)
+    setreduceSize(reduceSize)
   };
 
   useEffect(() => {
@@ -84,8 +84,8 @@ const enable = isMobile|| reduceSize
                 "transparent linear-gradient(180deg, #FE8062 0%, #7B2713 100%) 0% 0% no-repeat padding-box",
               boxShadow: "3px 0px 10px #0000000D",
               opacity: 1,
-              // height: "100vh",
-              // position: "sticky",
+              minHeight: "100vh",
+              position: "sticky",
             }}
           >
             <Box sx={relBox}>
