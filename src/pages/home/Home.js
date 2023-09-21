@@ -29,7 +29,7 @@ const enable = isMobile|| reduceSize
   }, []);
   const heightHandler = () => {
     dispatch(tableActions.setCheck());
-    setreduceSize(reduceSize)
+    setreduceSize(!reduceSize)
   };
 
   useEffect(() => {
