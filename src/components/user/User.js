@@ -6,8 +6,6 @@ import {tableHeader,tableBodyText,backColor,backText,normalColor,normalText,redB
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
 
-
-
 const User = ({adduser}) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.table.data);
@@ -81,7 +79,7 @@ const handleInputChange = (event) => {
           border: "1px solid #EAEAEA",
           borderRadius: "4px",
           opacity: 1,
-          mt: "5rem",
+          mt: {xxs : '1rem', sm : '5rem'},
           pb : '2rem'
         }}
       >
@@ -91,11 +89,14 @@ const handleInputChange = (event) => {
             margin: "0px auto",
             mt: "2rem",
             display: "flex",
+            flexDirection : {xxs : 'column', sm : 'row'},
             justifyContent: "space-between",
-            maxWidth : {md : '100%',xxs : '86%'}
+            maxWidth : '100%',
+            gap : {xxs : 1 , sm : 0}
           }}
         >
           <TextField
+          sx={ {width :{xxs : '85%' , sm : 'auto'}, margin : {xxs : ' 0 auto', sm : '0 0'}}}
             placeholder="search"
             size="small"
             text="search"
@@ -119,6 +120,10 @@ const handleInputChange = (event) => {
               "&:hover": {
                 backgroundColor: "#d66145", // Define the hover effect style
               },
+              // width : '50%',
+              display : 'flex',
+              alignSelf : 'end',
+              mr : {xxs : '2rem', sm : '0rem'}
             }}
             variant="contained"
             onClick={adduser}
@@ -135,7 +140,7 @@ const handleInputChange = (event) => {
             mt: "2rem",
           }}
         >
-          <TableContainer  sx={{ overflow: "auto", maxHeight: {xl : 390 , xxs : 282} , maxWidth : {md : '100%',xxs : '90%'}, margin : '0 auto'}} component={Paper}>
+          <TableContainer  sx={{ overflowX: "scroll", overflowY : 'scroll', maxHeight: {xl : 390 , xxs : 282}, maxWidth: {md : 1280, sm : 500, xs : 370, xxs : 260}, margin : '0 auto'}} component={Paper}>
             <Table aria-label="simple table">
               <TableHead>
                 <TableRow
@@ -164,7 +169,7 @@ const handleInputChange = (event) => {
                   if(index < howManyRow) return(
                   <TableRow
                     key={index}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 },padding : 0}}
                   >
                     <TableCell
                       sx={{ tableBodyText }}
@@ -231,9 +236,11 @@ const handleInputChange = (event) => {
           margin: "0px auto",
           mt: "2rem",
           display: "flex",
+          flexDirection : {xxs : 'column', sm :'row'},
           justifyContent: "space-between",
           alignItems: "center",
-          maxWidth : {md : '100%',xxs : '86%'}
+          maxWidth : {md : '100%',xxs : '100%'},
+          gap : {xxs : 1 , sm : 0}
           // pb :'6.9rem'
         }}
       >

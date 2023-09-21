@@ -167,6 +167,7 @@ export const tableBodyText = {
   letterSpacing: "0px",
   color: "#2D2D2D",
   opacity: 1,
+  
 };
 
 export const backColor = {

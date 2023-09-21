@@ -74,7 +74,8 @@ const Home = () => {
         <Stack
           direction="row"
           sx={{
-            // height: "100vh",
+            height: "100vh",
+            
           }}
         >
           <Box
@@ -87,8 +88,9 @@ const Home = () => {
                 "transparent linear-gradient(180deg, #FE8062 0%, #7B2713 100%) 0% 0% no-repeat border-box",
               boxShadow: "3px 0px 10px #0000000D",
               opacity: 1,
-              height: "100vh",
+              minHeight: "100vh",
               position: "sticky",
+              top : 0,
               boxSizing: "border-box",
               overflow: 'hidden',
               

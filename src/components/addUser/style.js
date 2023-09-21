@@ -52,12 +52,13 @@ export const statusSx = {
     font: {xxs: "normal normal normal 14px/15px Product Sans", xs : "normal normal normal 14px/17px Product Sans"},
                 letterSpacing: "0px",
                 color: "#344054",
-                mr: {xxs : '8rem', xs : '10rem', sm : '15rem'},
+                mr: {xxs : '0rem', xs : '0rem', sm : '15rem'},
 }
 
 export const statusBox = {
     display: "flex",
     alignItems: "center",
+    justifyContent : {xxs : 'space-between',sm : 'start' },
     mt: "1rem",
 }
 
