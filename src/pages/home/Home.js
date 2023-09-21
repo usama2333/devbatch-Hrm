@@ -1,42 +1,41 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
-import React, { Fragment, useEffect,useState, useLayoutEffect } from "react";
+import React, { Fragment, useEffect, useState, useLayoutEffect } from "react";
 import Dashboard from "../../components/dashboard/Dashboard";
 import User from "../../components/user/User";
 import Navbar from "../../components/navbar/Navbar";
 import AddUser from "../../components/addUser/AddUser";
 import UserDetail from "../../components/userdetail/UserDetail";
-import {flower,line,logo,relBox,tableDummy,transitionBox
-} from "./style";
+import { flower, line, logo, relBox, tableDummy, transitionBox } from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
 import PersonIcon from "@mui/icons-material/Person";
 import WidgetsIcon from "@mui/icons-material/Widgets";
-import { useMediaQuery } from '@mui/material';
+import { useMediaQuery } from "@mui/material";
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
   const dispatch = useDispatch();
   const show = useSelector((state) => state.table.show);
   const check = useSelector((state) => state.table.check);
- const [reduceSize,setreduceSize]= useState(false)
-const enable = isMobile|| reduceSize
-  const firstH =enable ? '10%' : '20%'
-  const secondH = enable ? '90%' : '80%'
-  const displayText = enable ? 'none' : 'grid'
+  const [reduceSize, setreduceSize] = useState(false);
+  const enable = isMobile || reduceSize;
+  const firstH = enable ? "12%" : "20%";
+  const secondH = enable ? "88%" : "80%";
+  const displayText = enable ? "none" : "grid";
 
   useLayoutEffect(() => {
     dispatch(tableActions.setData(tableDummy));
   }, []);
   const heightHandler = () => {
     dispatch(tableActions.setCheck());
-    setreduceSize(!reduceSize)
+    setreduceSize(!reduceSize);
   };
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 600px)'); // Define your breakpoint here
+    const mediaQuery = window.matchMedia("(max-width: 600px)"); // Define your breakpoint here
 
     const handleMediaQueryChange = (event) => {
-      setreduceSize(event.matches)
+      setreduceSize(event.matches);
       setIsMobile(event.matches);
     };
 
@@ -72,27 +71,32 @@ const enable = isMobile|| reduceSize
           width: "100%",
         }}
       >
-        <Stack direction="row" sx={{
-          height : '100vh'
-        }}>
+        <Stack
+          direction="row"
+          sx={{
+            height: "100vh",
+          }}
+        >
           <Box
             sx={{
-              flex: {sm :`0 0 ${firstH}`, xxs : ' 0 0 10%'},
+              flex: `0 0 ${firstH}`,
+              // flex : '0 0 10%',
               transition: "flex 0.3s ease-in-out",
               backfaceVisibility: "hidden",
               background:
-                "transparent linear-gradient(180deg, #FE8062 0%, #7B2713 100%) 0% 0% no-repeat padding-box",
+                "transparent linear-gradient(180deg, #FE8062 0%, #7B2713 100%) 0% 0% no-repeat border-box",
               boxShadow: "3px 0px 10px #0000000D",
               opacity: 1,
               minHeight: "100vh",
               position: "sticky",
+              boxSizing: "border-box",
             }}
           >
             <Box sx={relBox}>
               <Box onClick={heightHandler} sx={transitionBox}>
                 <Box
                   component="img"
-                  sx={{ display: "inline-block" }}
+                  sx={{ display: "inline-block", width : {xxs : '70%', sm : '100%'} }}
                   src={line}
                 ></Box>
               </Box>
@@ -101,12 +105,13 @@ const enable = isMobile|| reduceSize
                 <Box
                   component="img"
                   sx={{
-                    ml: {
+                    pl: {
                       xxs: "1rem",
                       xs: "1rem",
-                      sm: "2rem",
-                     
+                      sm: "1rem",
+
                     },
+                    objectFit: "contain",
                   }}
                   src={logo}
                 ></Box>
@@ -115,8 +120,11 @@ const enable = isMobile|| reduceSize
                   component="img"
                   sx={{
                     cursor: "pointer",
-                    ml: { xxs: "0.5rem", xs: "0.5rem", sm: "1rem" },
-                    height : {xxs : '24px' , sm : 'auto'}
+                    pl: { xxs: "0rem", xs: "0rem", sm: "0rem" },
+                    height: { xxs: "22px", sm: "22px" },
+                    objectFit: "contain",
+                    
+                    // display: { xxs: "block", sm: "none" },
                   }}
                   src={flower}
                 ></Box>
@@ -130,14 +138,20 @@ const enable = isMobile|| reduceSize
                   mt: "4.4rem",
                   padding: "1rem 0",
                   width: "100%",
+                  // margin : '0 auto',
                   cursor: "pointer",
                   boxSizing: "border-box",
                   background:
                     show === "dashboard" &&
-                    "transparent linear-gradient(90deg, #FFFFFF26 0%, #4A90E200 100%) 0% 0% no-repeat padding-box",
+                    "transparent linear-gradient(90deg, #FFFFFF26 0%, #4A90E200 100%) 0% 0% no-repeat border-box",
                 }}
               >
-                <Box sx={{ ml: { xxs: "1rem", xs: "1rem", sm: "2rem" } }}>
+                <Box
+                  sx={{
+                    boxSizing: "border-box",
+                    pl: { xxs: "1rem", xs: "1rem", sm: "1rem" },
+                  }}
+                >
                   <WidgetsIcon
                     sx={{
                       fontSize: "20px",
@@ -152,17 +166,20 @@ const enable = isMobile|| reduceSize
                       lg: "normal normal normal 15px/18px Product Sans",
                       xxs: "normal normal normal 12px/15px Product Sans",
                     },
+                    boxSizing: "border-box",
                     letterSpacing: "0px",
                     color: show === "dashboard" ? "#FFFFFF" : "#F6C2B5",
-                    ml: "1.3rem",
+                    pl: "1rem",
                     opacity: 1,
                     display: displayText,
                   }}
                 >
                   Dashboard
                 </Typography>
+
+               
               </Stack>
-                
+
               <Stack
                 onClick={userHandler}
                 direction="row"
@@ -175,10 +192,10 @@ const enable = isMobile|| reduceSize
                   cursor: "pointer",
                   background:
                     show === "user" &&
-                    "transparent linear-gradient(90deg, #FFFFFF26 0%, #4A90E200 100%) 0% 0% no-repeat padding-box",
+                    "transparent linear-gradient(90deg, #FFFFFF26 0%, #4A90E200 100%) 0% 0% no-repeat border-box ",
                 }}
               >
-                <Box sx={{ ml: { xxs: "1rem", xs: "1rem", sm: "2rem" } }}>
+                <Box sx={{ ml: { xxs: "1rem", xs: "1rem", sm: "1rem" } }}>
                   <PersonIcon
                     sx={{
                       fontSize: "20px",
@@ -196,7 +213,7 @@ const enable = isMobile|| reduceSize
                     },
                     letterSpacing: "0px",
                     color: show === "user" ? "#FFFFFF" : "#F6C2B5",
-                    ml: "1.3rem",
+                    pl: "1.3rem",
                     opacity: 1,
                     display: displayText,
                   }}
@@ -208,8 +225,10 @@ const enable = isMobile|| reduceSize
           </Box>
           <Box
             sx={{
-              flex: {sm : `0 0 ${secondH}`, xxs : '0 0 90%'},
+              flex: `0 0 ${secondH}`,
+              // flex : '0 0 90%',
               transition: "all 0.3s ease-in-out",
+              boxSizing: "border-box",
             }}
           >
             <Box>
@@ -227,7 +246,6 @@ const enable = isMobile|| reduceSize
           </Box>
         </Stack>
       </Container>
-     
     </Fragment>
   );
 };

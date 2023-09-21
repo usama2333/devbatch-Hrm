@@ -31,12 +31,12 @@ export const relBox = {
 }
 
 export const transitionBox = {
-    height: "5.4rem",
-    width: "5.4rem",
+    height: {xxs : '4rem' , sm : '5.4rem'},
+    width: {xxs : '4rem' , sm : '5.4rem'},
     position: "absolute",
     backfaceVisibility : 'hidden',
     transition: 'all 0.3s ease-in-out',
-    right : {xxs : '-3rem',xs : '-4rem',sm : '-5rem', md : '-2.25rem'},
+    right : {xxs : '-3rem',xs : '-3rem',sm : '-5rem', md : '-2.25rem'},
     mt: "30px",
     background: "#FE8062 0% 0% no-repeat padding-box",
     boxShadow: "-5px 0px 6px #0000000D",
