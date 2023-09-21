@@ -26,7 +26,7 @@ const AddNew = () => {
             direction="row"
             justifyContent="space-between"
             alignItems="center"
-            gap="2rem"
+            gap={{xxs : '1rem', xs : '2rem'}}
             sx={{ boxSizing: "border-box" }}
           >
             <Box sx={firstUserFlex}>
@@ -44,7 +44,7 @@ const AddNew = () => {
             <Box sx={secondUserFlex}>
               <Button sx={sendLinkBtn} variant="contained">
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <Typography >
+                  <Typography sx={{xxs : '0.9rem' , xs : '1rem'}} >
                     Send Link
                   </Typography>
                   <Box component="img" sx={{ ml:{xxs : "0.5rem",xs : '1rem'} }} src={icon}></Box>

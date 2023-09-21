@@ -19,8 +19,8 @@ const Home = () => {
   const check = useSelector((state) => state.table.check);
   const [reduceSize, setreduceSize] = useState(false);
   const enable = isMobile || reduceSize;
-  const firstH = enable ? "12%" : "20%";
-  const secondH = enable ? "88%" : "80%";
+  const firstH = enable ? "10%" : "20%";
+  const secondH = enable ? "90%" : "80%";
   const displayText = enable ? "none" : "grid";
 
   useLayoutEffect(() => {
@@ -74,22 +74,24 @@ const Home = () => {
         <Stack
           direction="row"
           sx={{
-            height: "100vh",
+            // height: "100vh",
           }}
         >
           <Box
             sx={{
               flex: `0 0 ${firstH}`,
               // flex : '0 0 10%',
-              transition: "flex 0.3s ease-in-out",
-              backfaceVisibility: "hidden",
+              transition: "all 0.3s ease-in-out",
+              // backfaceVisibility: "hidden",
               background:
                 "transparent linear-gradient(180deg, #FE8062 0%, #7B2713 100%) 0% 0% no-repeat border-box",
               boxShadow: "3px 0px 10px #0000000D",
               opacity: 1,
-              minHeight: "100vh",
+              height: "100vh",
               position: "sticky",
               boxSizing: "border-box",
+              overflow: 'hidden',
+              
             }}
           >
             <Box sx={relBox}>
@@ -108,7 +110,7 @@ const Home = () => {
                     pl: {
                       xxs: "1rem",
                       xs: "1rem",
-                      sm: "1rem",
+                      sm: "2rem",
 
                     },
                     objectFit: "contain",
@@ -120,8 +122,8 @@ const Home = () => {
                   component="img"
                   sx={{
                     cursor: "pointer",
-                    pl: { xxs: "0rem", xs: "0rem", sm: "0rem" },
-                    height: { xxs: "22px", sm: "22px" },
+                    pl: { xxs: "0rem", xs: "0.5rem", sm: "1rem" },
+                     height: { xxs: "22px", sm: "auto" },
                     objectFit: "contain",
                     
                     // display: { xxs: "block", sm: "none" },
@@ -149,7 +151,7 @@ const Home = () => {
                 <Box
                   sx={{
                     boxSizing: "border-box",
-                    pl: { xxs: "1rem", xs: "1rem", sm: "1rem" },
+                    pl: { xxs: "0.5rem", xs: "1rem", sm: "2rem" },
                   }}
                 >
                   <WidgetsIcon
@@ -195,7 +197,7 @@ const Home = () => {
                     "transparent linear-gradient(90deg, #FFFFFF26 0%, #4A90E200 100%) 0% 0% no-repeat border-box ",
                 }}
               >
-                <Box sx={{ ml: { xxs: "1rem", xs: "1rem", sm: "1rem" } }}>
+                <Box sx={{ pl: { xxs: "0.5rem", xs: "1rem", sm: "2rem" } }}>
                   <PersonIcon
                     sx={{
                       fontSize: "20px",
@@ -229,6 +231,7 @@ const Home = () => {
               // flex : '0 0 90%',
               transition: "all 0.3s ease-in-out",
               boxSizing: "border-box",
+              // overflow: 'hidden'
             }}
           >
             <Box>

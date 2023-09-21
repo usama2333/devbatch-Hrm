@@ -34,7 +34,7 @@ export const transitionBox = {
     height: {xxs : '4rem' , sm : '5.4rem'},
     width: {xxs : '4rem' , sm : '5.4rem'},
     position: "absolute",
-    backfaceVisibility : 'hidden',
+    // backfaceVisibility : 'hidden',
     transition: 'all 0.3s ease-in-out',
     right : {xxs : '-3rem',xs : '-3rem',sm : '-5rem', md : '-2.25rem'},
     mt: "30px",
@@ -45,6 +45,7 @@ export const transitionBox = {
     cursor: "pointer",
     display: "grid",
     placeContent: "center",
+    zIndex : 22
 }
 
 

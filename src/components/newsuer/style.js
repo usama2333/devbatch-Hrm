@@ -87,11 +87,11 @@ export const linkTypo= {
 export const firstUserFlex = {
     display: "flex",
     // flex: "0 0 70%",
-    flex: 'calc(70% - 1.5rem) ',
+    flex: {xxs :  'calc(60% - 0.5rem) ', xs :  'calc(70% - 1.5rem) '},
 }
 export const secondUserFlex = {
     display: "flex",
-    flex: 'calc(30% - 1.5rem) ',
+    flex: {xxs :  'calc(40% - 0.5rem) ', xs :  'calc(30% - 1.5rem) '},
                 justifyContent : 'space-between',
                 mt: "0.7rem",
                 // mr: "2rem",

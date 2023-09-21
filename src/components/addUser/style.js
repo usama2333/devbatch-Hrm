@@ -7,14 +7,14 @@ import emptyUser from "../../assests/images/emptyUser.png";
 export {cancel,dummy,emptyUser}
 
 export const mainBox = {
-    width: "93%",
+    width: {xxs : '84%',xs : '88%', sm :'93%'},
     // height: "500px",
     margin: "0px auto",
     background: "#FFFFFF 0% 0% no-repeat padding-box",
     border: "1px solid #EAEAEA",
     borderRadius: "12px",
     opacity: 1,
-    mt: "3rem",
+    mt: {xxs : '2rem', xs : '2rem',sm :'3rem'},
     padding: "1rem",
 }
 export const inputTextStyle = {
@@ -35,12 +35,12 @@ export const phoneTextStyle = {
 }
 export const createButton = {
     mt: "0rem",
-    fontSize: "1.4rem",
+    fontSize: "1.2rem",
     color: "#FFFFFF",
     maxWidth: "376px",
     // padding : '0 1rem',
-    pl: "3rem",
-    pr: "3rem",
+    pl: {xxs : '2.2.rem', xs : '3rem'},
+    pr: {xxs : '2.2.rem', xs : '3rem'},
     textTransform: "capitalize",
     background: "#FE8062 0% 0% no-repeat padding-box",
     "&:hover": {
@@ -49,10 +49,10 @@ export const createButton = {
 }
 
 export const statusSx = {
-    font: "normal normal normal 14px/17px Product Sans",
+    font: {xxs: "normal normal normal 14px/15px Product Sans", xs : "normal normal normal 14px/17px Product Sans"},
                 letterSpacing: "0px",
                 color: "#344054",
-                mr: "15rem",
+                mr: {xxs : '8rem', xs : '10rem', sm : '15rem'},
 }
 
 export const statusBox = {
@@ -66,9 +66,10 @@ export const  cancelBox = {
     width: "22px",
     mt: "1rem",
     cursor: "pointer",
+    display : {xxs : 'none', xs :'flex'}
 }
 export const uploadTypo = {
-    font: "normal normal normal 14px/17px Product Sans",
+    font: {xxs : "normal normal normal 12px/18px Product Sans", sm :"normal normal normal 14px/17px Product Sans"},
     color: "#FFFFFF",
     textTransform: "capitalize",
     ml: "0.7rem",
@@ -103,10 +104,12 @@ export const dummyImgBox = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    display: { xxs: "none", sm: "flex" },
+    display: { xxs: "none", xs: "flex" },
     objectFit : 'cover',
-    boxSizing : 'border-box'
+    boxSizing : 'border-box',
+    // mb : '3.5rem'
     // ml : '4rem'
+    // backgroundColor : 'red'
 }
 
 export const dummyImgFlex = {
@@ -114,14 +117,16 @@ export const dummyImgFlex = {
     justifyContent: "space-between",
     flexWrap: { xxs: "wrap", sm: "nowrap" },
     pr: { sm: "0rem", md: "2rem", lg: "3rem" },
+    // backgroundColor : 'red',
+    mb : {sm : '0rem', md : '2.6rem', lg : '1.4rem'}
 }
 export const infoSx = {
-    font: "normal normal normal 20px/24px Product Sans",
+    font: {xxs : "normal normal normal 1.8rem/2rem Product Sans",sm : "normal normal normal 2rem/2.4rem Product Sans"},
     letterSpacing: "0.6px",
     color: "#222222",
     opacity: 1,
     padding: "1rem",
-    pl: "3rem",
+    pl: {xxs : '1rem', xs : '3rem'},
 }
 export const infoSxBox = {
     background: "#F3F3F3 0% 0% no-repeat padding-box",

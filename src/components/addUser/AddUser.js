@@ -94,10 +94,12 @@ const AddUser = () => {
           <Box
             sx={{
               display: "flex",
+              flexDirection : {xxs : 'column', sm :'row'},
               mt: "0.5rem",
+              gap : 2
             }}
           >
-            <Box sx={{ flex: "0 0 49%", pr: "2rem" }}>
+            <Box sx={{ flex : 'calc((100% - 2rem) / 2)',}}>
               <Typography
                 style={{
                   color: errors.name && touched.name ? "red" : "#344054",
@@ -238,7 +240,7 @@ const AddUser = () => {
               </Select>
             </Box>
 
-            <Box sx={{ flex: "0 0 49%" }}>
+            <Box sx={{ flex : 'calc((100% - 2rem) / 2)', }}>
               <Box sx={dummyImgFlex}>
                 <Typography sx={inputTextStyle}>Upload Image</Typography>
                 <Box sx={dummyImgBox}>

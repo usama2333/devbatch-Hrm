@@ -60,6 +60,7 @@ export const calanderMain={
     // background: "#FCFCFC 0% 0% no-repeat border-box",
     borderRadius: "5px",
     opacity: 1,
+    // width : '100%',
     // mr: {xxs : '2rem',xs : '4rem'},
     mt: {xxs : '1.5rem' , xs : '3rem'},
 }
@@ -119,7 +120,7 @@ export const recentUserBox= {
     border: "1px solid #F3F3F3",
     borderRadius: "11px",
     // mr: { xxs: "0rem",xs: "0rem", lg: "3rem" },
-    padding: "0.9rem 1.3rem",
+    padding: {xxs : "0.9rem 0.3rem",xs : "0.9rem 1.3rem"},
 }
 export const recentUserStack= {
     background: "#F3F3F3 0% 0% no-repeat padding-box",
