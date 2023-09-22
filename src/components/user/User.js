@@ -140,11 +140,11 @@ const handleInputChange = (event) => {
             mt: "2rem",
           }}
         >
-          <TableContainer  sx={{ overflowX: "scroll", overflowY : 'scroll', maxHeight: {xl : 390 , xxs : 282}, maxWidth: {md : 1280, sm : 500, xs : 370, xxs : 260}, margin : '0 auto'}} component={Paper}>
+          <TableContainer  sx={{ overflowX: "scroll", overflowY : 'scroll', maxHeight: {xl : 390 ,lg : 290,md : 282, xxs : 282}, maxWidth: {md : 1280, sm : 500, xs : 370, xxs : 260}, margin : '0 auto',}} component={Paper}>
             <Table aria-label="simple table">
               <TableHead>
                 <TableRow
-                  sx={{ background: "#F3F3F3 0% 0% no-repeat padding-box" }}
+                  sx={{ background: "#F3F3F3 0% 0% no-repeat border-box" }}
                 >
                   <TableCell sx={tableHeader}>User Name</TableCell>
                   <TableCell sx={tableHeader} align="left">
@@ -199,6 +199,7 @@ const handleInputChange = (event) => {
                       <Box>{row.time}</Box>
                     </TableCell>
                     <TableCell sx={{ tableBodyText }} align="left">
+                    <Box sx={{display : 'flex', flexDirection : 'row', flexWrap : 'nowrap'}}>
                       <Box
                         component="img"
                         src={eyes}
@@ -217,6 +218,7 @@ const handleInputChange = (event) => {
                         sx={{ cursor: "pointer" }}
                         onClick={() => deleteHandler(row.id)}
                       ></Box>
+                      </Box>
                     </TableCell>
                   </TableRow>
                 )})}

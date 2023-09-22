@@ -5,17 +5,17 @@ export const detailMainBox = {
   opacity: 1,
   width: "92%",
   margin: "0px auto",
-  mt: "2rem",
+  mt: {xxs : '2rem' ,md : '4rem', xl  : '5rem'},
   display: "flex",
   justifyContent: "space-between",
-  padding: { xs: "1rem", sm: "2rem" },
+  padding: { xxs: "1rem", sm: "2rem" ,md : '3rem', xl : '3rem'},
   boxSizing: "border-box",
 };
 
 export const detailInner = {
-  width: { md: "98%", sm: "90%", xs: "90%", xxs: "89%" },
+  width: { lg: "98%",md: "92%", sm: "90%", xs: "98%", xxs: "98%" },
   display: "flex",
-  flexDirection: "row",
+  flexDirection: {xxs : 'column', sm : 'row'},
   boxSizing: "border-box",
   pb: "1rem",
 };
@@ -24,29 +24,31 @@ export const flexSx = {
   flex: "0 0 20%",
   padding: { xxs: "0.5rem 0 0 0.5rem" },
   boxSizing: "border-box",
+  alignSelf : {xxs : 'center'},
 };
 export const flexImg = {
   height: {
-    xxs: "80px",
-    xs: "110px",
-    sm: "130px",
-    md: "150px",
-    lg: "200px",
-    xl: "248px",
+    xxs: "120px",
+    xs: "140px",
+    sm: "160px",
+    md: "210px",
+    lg: "220px",
+    xl: "260px",
   },
   width: {
-    xxs: "80px",
-    xs: "110px",
-    sm: "130px",
-    md: "150px",
+    xxs: "120px",
+    xs: "150px",
+    sm: "150px",
+    md: "200px",
     lg: "200px",
     xl: "248px",
   },
   borderRadius: "10px",
+  mb :{xxs : '2rem', sm :'0rem'}
 };
 export const otherFlex = {
   flex: "0 0 80%",
-  pl: { xxs: "0.5rem", xs: "1rem", sm: "3rem", xl: "4rem" },
+  pl: { xxs: "0.5rem", xs: "1rem", sm: "2rem", xl: "4rem" },
   boxSizing: "border-box",
 };
 export const nameFlex = {
@@ -55,13 +57,15 @@ export const nameFlex = {
   justifyContent: "space-between",
   flexWrap: "wrap",
   alignItems: "start",
+  mb : {xxs : '1rem',md : '2rem', xl : '3rem'},
+  boxSizing : 'border-box'
 };
 export const nameSx = {
   font: {
     xxs: "normal normal bold 18px/24px Product Sans",
     xs: "normal normal bold 22px/28px Product Sans",
     sm: "normal normal bold 26px/33px Product Sans",
-    lg: "normal normal bold 28px/35px Product Sans",
+    md: "normal normal bold 28px/35px Product Sans",
     xl: "normal normal bold 30px/37px Product Sans",
   },
   letterSpacing: "0.9px",
@@ -73,7 +77,7 @@ export const desigSx = {
     xxs: "normal normal normal 12px/16px Product Sans",
     xs: "normal normal normal 14px/18px Product Sans",
     sm: "normal normal normal 16px/20px Product Sans",
-    lg: "normal normal normal 18px/22px Product Sans",
+    md: "normal normal normal 18px/22px Product Sans",
     xl: "normal normal normal 20px/24px Product Sans",
   },
   letterSpacing: "0.9px",
@@ -89,8 +93,8 @@ export const statusSx = {
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
-  mt: { xxs: "0.9rem", xs: "1rem", lg: "0rem" },
-  ml: { lg: "-6rem", xl: " 0rem" },
+  mt: { xxs: "0.9rem", xs: "1rem", lg: "0rem", xl : '1rem' },
+  ml: { sm : '0rem',md : '0rem',lg: "-6rem", xl: " 0rem" },
 };
 
 export const statusTypo = {
@@ -102,12 +106,13 @@ export const statusTypo = {
   letterSpacing: "0px",
   color: "#2D2D2D",
   opacity: 1,
-  ml: "0.7rem",
+   ml: "0.7rem",
 };
 export const btnBox = {
   display: "flex",
-  alignItems: "center",
-  mt: { xxs: "0.9rem", xs: "1rem", lg: "0rem" },
+  // alignItems: "center",
+  justifyContent : {xxs : 'space-between'},
+  mt: { xxs: "1rem", xs: "1rem", lg: "0rem" },
 };
 export const downloadBtn = {
   font: {
@@ -125,7 +130,7 @@ export const downloadBtn = {
   },
   border: "2px solid #FE8062",
   boxSizing: "border-box",
-  mr: { xxs: "0.3rem", xs: "0.5rem", sm: "2rem" },
+  mr: { xxs: "2rem", xs: "3rem", sm: "2rem" },
 };
 export const editUserSx = {
   background: "#FE8062 0% 0% no-repeat padding-box",
@@ -155,13 +160,14 @@ export const iconBox = {
 
 export const addressSx = {
   font: {
-    xl: "normal normal normal 15px/18px Product Sans",
+    xl: "normal normal normal 16px/18px Product Sans",
     xs: "normal normal normal 12px/14px Product Sans",
     xxs: "normal normal normal 10px/12px Product Sans",
   },
   letterSpacing: "0.45px",
   color: "#707787",
   ml: "0.6rem",
+  mb : {xl : '1rem'}
 };
 
 export const infoBox = {
@@ -169,7 +175,7 @@ export const infoBox = {
   opacity: 0.09,
   height: "2px",
   mt: { xxs: "0.5rem", sm: "1.8rem" },
-  width: { xxs: "85%", xs: "90%", sm: "99%" },
+  width: { xxs: "85%", xs: "98%", sm: "99%" },
 };
 
 export const infoTypo = {
@@ -179,19 +185,20 @@ export const infoTypo = {
   },
   letterSpacing: "1.8px",
   color: "#FE8062",
-  mt: { xxs: "1rem", sm: "2rem" },
-  mb: { xxs: "1rem", sm: "2rem" },
+  mt: { xxs: "1rem", sm: "2rem", xl : '3rem' },
+  mb: { xxs: "1rem", sm: "2rem" , xl : '3rem'},
 };
 
 export const departFlex = {
   display: "flex",
-  flexDirection: { xxs: "column", sm: "row" },
+  flexDirection: { xxs: "column", xs : 'row',sm: "row" },
   justifyContent: "space-between",
-  pr: { xxs: "3rem", xs: "6rem", sm: "2rem", md: "6rem" },
+  pr: { xxs: "3rem", xs: "0rem", sm: "2rem", md: "6rem" },
 };
 
 export const departInnerFlex = {
-  flex: { xxs: "50%", sm: "0 0 45%", md: "0 0 37%" },
+  flex: { xxs: "0 0 50%", sm: "0 0 45%", md: "0 0 37%" },
+  
 };
 export const departBox = {
   display: "flex",
@@ -201,8 +208,8 @@ export const departBox = {
 export const departTypo = {
   font: {
     xxs: "normal normal normal 8px/11px Product Sans",
-    lg: "normal normal normal 10px/13px Product Sans",
-    xl: "normal normal normal 12px/15px Product Sans",
+    md: "normal normal normal 10px/13px Product Sans",
+    xl: "normal normal normal 13px/15px Product Sans",
   },
   letterSpacing: "0.36px",
   color: "#707787",
@@ -210,8 +217,8 @@ export const departTypo = {
 export const cnicTypo = {
   font: {
     xxs: "normal normal normal 8px/11px Product Sans",
-    lg: "normal normal normal 10px/13px Product Sans",
-    xl: "normal normal normal 12px/15px Product Sans",
+    md: "normal normal normal 10px/13px Product Sans",
+    xl: "normal normal normal 13px/15px Product Sans",
   },
   letterSpacing: "0.36px",
   color: "#707787",
@@ -220,7 +227,7 @@ export const cnicTypo = {
 export const createdSx = {
   font: {
     xxs: "normal normal normal 8px/11px Product Sans",
-    lg: "normal normal normal 10px/13px Product Sans",
+    md: "normal normal normal 10px/13px Product Sans",
     xl: "normal normal normal 12px/15px Product Sans",
   },
   letterSpacing: "0.36px",
@@ -231,10 +238,12 @@ export const dFlex = {
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
+  mr : {xxs : '1.5rem', sm : '0rem'}
 };
 export const dView = {
   font: {
     xl: "normal normal normal 15px/18px Product Sans",
+    md: "normal normal normal 11x/15px Product Sans",
     lg: "normal normal normal 13px/16px Product Sans",
     xxs: "normal normal normal 10px/12px Product Sans",
   },
@@ -244,6 +253,7 @@ export const dView = {
 export const cView = {
   font: {
     xl: "normal normal normal 15px/18px Product Sans",
+    md: "normal normal normal 11x/15px Product Sans",
     lg: "normal normal normal 13px/16px Product Sans",
     xxs: "normal normal normal 10px/12px Product Sans",
   },
@@ -254,6 +264,7 @@ export const cView = {
 export const createdView = {
   font: {
     xl: "normal normal normal 15px/18px Product Sans",
+    md: "normal normal normal 11x/15px Product Sans",
     lg: "normal normal normal 13px/16px Product Sans",
     xxs: "normal normal normal 10px/12px Product Sans",
   },
@@ -275,8 +286,8 @@ export const emailBoxFlex = {
 export const emailT = {
   font: {
     xxs: "normal normal normal 8px/11px Product Sans",
-    lg: "normal normal normal 10px/13px Product Sans",
-    xl: "normal normal normal 12px/15px Product Sans",
+    md: "normal normal normal 10px/13px Product Sans",
+    xl: "normal normal normal 13px/15px Product Sans",
   },
   letterSpacing: "0.36px",
   color: "#707787",
@@ -284,8 +295,8 @@ export const emailT = {
 export const emailF = {
   font: {
     xxs: "normal normal normal 8px/11px Product Sans",
-    lg: "normal normal normal 10px/13px Product Sans",
-    xl: "normal normal normal 12px/15px Product Sans",
+    md: "normal normal normal 10px/13px Product Sans",
+    xl: "normal normal normal 13px/15px Product Sans",
   },
   letterSpacing: "0.36px",
   color: "#707787",
@@ -293,8 +304,8 @@ export const emailF = {
 export const emailG = {
   font: {
     xxs: "normal normal normal 8px/11px Product Sans",
-    lg: "normal normal normal 10px/13px Product Sans",
-    xl: "normal normal normal 12px/15px Product Sans",
+    md: "normal normal normal 10px/13px Product Sans",
+    xl: "normal normal normal 13px/15px Product Sans",
   },
   letterSpacing: "0.36px",
   color: "#707787",
@@ -307,6 +318,7 @@ export const lastFlex = {
 export const mailTypo = {
   font: {
     xl: "normal normal normal 15px/18px Product Sans",
+    md: "normal normal normal 11x/15px Product Sans",
     lg: "normal normal normal 13px/16px Product Sans",
     xxs: "normal normal normal 10px/12px Product Sans",
   },
@@ -317,6 +329,7 @@ export const mailTypo = {
 export const phoneTypo = {
   font: {
     xl: "normal normal normal 15px/18px Product Sans",
+    md: "normal normal normal 11x/15px Product Sans",
     lg: "normal normal normal 13px/16px Product Sans",
     xxs: "normal normal normal 10px/12px Product Sans",
   },
@@ -328,6 +341,7 @@ export const phoneTypo = {
 export const genderTypo = {
   font: {
     xl: "normal normal normal 15px/18px Product Sans",
+    md: "normal normal normal 11x/15px Product Sans",
     lg: "normal normal normal 13px/16px Product Sans",
     xxs: "normal normal normal 10px/12px Product Sans",
   },
