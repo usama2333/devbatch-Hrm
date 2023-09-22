@@ -36,6 +36,8 @@ const User = ({adduser}) => {
   const [activeState, seteactiveState] = useState(0);
   const [howManyRow, sethowManyRow] = useState(data?.length);
  const [inputValue,setInputValue]=useState(null);
+
+
   
   const viewHandler = (id) => {
      dispatch(tableActions.setShow('userdetailview'));
@@ -140,7 +142,7 @@ const handleInputChange = (event) => {
             mt: "2rem",
           }}
         >
-          <TableContainer  sx={{ overflowX: "scroll", overflowY : 'scroll', maxHeight: {xl : 390 ,lg : 290,md : 282, xxs : 282}, maxWidth: {md : 1280, sm : 500, xs : 370, xxs : 260}, margin : '0 auto',}} component={Paper}>
+          <TableContainer  sx={{ overflowX: "scroll", overflowY : 'scroll', maxHeight: {xl : 390 ,lg : 290,md : 282, xxs : 357}, maxWidth: {md : 1280, sm : 500, xs : 370, xxs : 260}, margin : '0 auto',}} component={Paper}>
             <Table aria-label="simple table">
               <TableHead>
                 <TableRow

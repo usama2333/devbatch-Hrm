@@ -93,6 +93,7 @@ const Signup = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.email}
+                        inputProps={{ style: { font: 'normal normal normal 14px/17px Product Sans', boxSizing : 'border-box', padding : '2.3rem 1rem',border: 'none !important',} }}
                       />
                      
                     </Stack>
@@ -116,6 +117,7 @@ const Signup = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.name}
+                        inputProps={{ style: { font: 'normal normal normal 14px/17px Product Sans', boxSizing : 'border-box', padding : '2.3rem 1rem',border: 'none !important',} }}
                       />
                       
                     </Stack>
@@ -140,6 +142,7 @@ const Signup = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.password}
+                        inputProps={{ style: { font: 'normal normal normal 14px/17px Product Sans', boxSizing : 'border-box', padding : '2.3rem 1rem',border: 'none !important',} }}
                       />
                      
                     </Stack>
@@ -164,6 +167,7 @@ const Signup = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.confirmpassword}
+                        inputProps={{ style: { font: 'normal normal normal 14px/17px Product Sans', boxSizing : 'border-box', padding : '2.3rem 1rem',border: 'none !important',} }}
                       />
                      
                     </Stack>

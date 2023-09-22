@@ -17,6 +17,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const show = useSelector((state) => state.table.show);
   const check = useSelector((state) => state.table.check);
+  const edit = useSelector((state) => state.table.edit);
   const [reduceSize, setreduceSize] = useState(false);
   const enable = isMobile || reduceSize;
   const firstH = enable ? "10%" : "20%";
@@ -61,6 +62,10 @@ const Home = () => {
 
   const addUserHandler = () => {
     dispatch(tableActions.setShow("adduser"));
+    if(edit.length !== 0 ) {
+      dispatch(tableActions.setEdit([]));
+    }
+
   };
   return (
     <Fragment>

@@ -95,7 +95,7 @@ const Login = () => {
                       </Typography>
 
                       <TextField
-                        sx={{ width : '100%' }}
+                        sx={{ width : '100%' , boxSizing : 'border-box', fontSize : '22px'}}
                         variant="outlined"
                         // size="small"
                         id="email"
@@ -103,6 +103,7 @@ const Login = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.email}
+                        inputProps={{ style: { font: 'normal normal normal 14px/17px Product Sans', boxSizing : 'border-box', padding : '2.3rem 1rem',border: 'none !important',} }}
                       />
                      
                     </Stack>
@@ -127,6 +128,7 @@ const Login = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.password}
+                        inputProps={{ style: { font: 'normal normal normal 14px/17px Product Sans', boxSizing : 'border-box', padding : '2.3rem 1rem',border: 'none !important',} }}
                       />
                      
                     </Stack>

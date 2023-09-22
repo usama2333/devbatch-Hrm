@@ -381,7 +381,7 @@ const AddUser = () => {
             </Box>
           </Box>
           <Button sx={createButton} variant="contained" type="submit">
-            Create
+            {edit.length ? 'Update' : 'Create'}
           </Button>
         </form>
       </Box>
