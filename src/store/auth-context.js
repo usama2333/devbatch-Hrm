@@ -1,7 +1,7 @@
 import React , {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../store/table";
-
+import Swal from 'sweetalert2';
 const AuthContext = React.createContext({
   token: '',
   isLoggedIn: false,
@@ -23,6 +23,11 @@ export const AuthContextProvider = (props) => {
     const logoutHandler = () => {
        setToken(null);
        localStorage.removeItem('token');
+       Swal.fire(
+        'Logged out!',
+        'See you soon',
+        'success'
+      )
        console.log('token is removed from local storage');
     };
   

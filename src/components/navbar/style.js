@@ -65,6 +65,12 @@ export const menuItemSx = {
   font: "normal normal normal 14px/16px Product Sans",
 };
 
+export const NotificationItemSx = {
+  padding: "1rem 3rem",
+//   color: "#FFFFFF",
+  backgroundColor : '#feb2a0',
+  font: "normal normal normal 14px/16px Product Sans",
+};
 export const menuLogoutSx = {
     padding: "1rem 3rem",
      backgroundColor : '#F3F3F3',

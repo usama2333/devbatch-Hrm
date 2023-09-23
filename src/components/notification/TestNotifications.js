@@ -4,7 +4,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import Notification from "./Notification";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import { notificationData } from "./style";
-import { menuItemSx } from "../navbar/style";
+import { NotificationItemSx, menuItemSx } from "../navbar/style";
 function TestNotifications() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [notifications, setNotifications] = useState([...notificationData]);
@@ -62,7 +62,7 @@ function TestNotifications() {
           }}
         >
           {notifications.map((notification, index) => (
-            <MenuItem sx={menuItemSx} key={index}>
+            <MenuItem sx={NotificationItemSx} key={index}>
               {notification}
             </MenuItem>
           ))}

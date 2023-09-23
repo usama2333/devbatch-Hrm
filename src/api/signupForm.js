@@ -1,5 +1,5 @@
 
-export default function signUpData(data, authCtx, login, naviagte,notify) {
+export default function signUpData(data, authCtx, login, naviagte,notify,Swal) {
   let url;
   if (login) {
     url =
@@ -22,12 +22,23 @@ export default function signUpData(data, authCtx, login, naviagte,notify) {
   })
     .then((res) => {
       if (res.status === 200 || res.status === 201) {
+       
         console.log("successfull");
         if (login) {
+          Swal.fire(
+            'Good job!',
+            'Logged in successfully!',
+            'success'
+          )
           notify('Login successfully')
           naviagte("/home");
           
         } else {
+          Swal.fire(
+            'Good job!',
+            'Sign up successfully!',
+            'success'
+          )
           notify('Signup successfully')
           naviagte("/login");
           

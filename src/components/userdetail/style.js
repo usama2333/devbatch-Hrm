@@ -348,3 +348,16 @@ export const genderTypo = {
   letterSpacing: "0.45px",
   color: "#344054",
 };
+
+export const typoKey = {
+  font: "normal normal normal 10px/13px Product Sans",
+  letterSpacing: "0.3px",
+  color: "#707787",
+  pb : '0.2rem'
+}
+
+export const typoValue = {
+  font: "normal normal normal 12px/15px Product Sans",
+  letterSpacing: "0.36px",
+  color: "#344054",
+}

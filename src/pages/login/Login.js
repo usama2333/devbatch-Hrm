@@ -30,6 +30,8 @@ import signUpData from "../../api/signupForm";
 import AuthContext from "../../store/auth-context";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from 'sweetalert2';
+
 
 const initialValues = {
   email: "",
@@ -62,8 +64,9 @@ const Login = () => {
       initialValues: initialValues,
       validationSchema: loginSchema,
       onSubmit: (values, action) => {
-        signUpData(values,authCtx,login,navigate,notify);
-        // notify('Login successfully')
+        signUpData(values,authCtx,login,navigate,notify,Swal);
+       
+       
       },
     });
   return (

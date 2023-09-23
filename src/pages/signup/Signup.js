@@ -23,6 +23,9 @@ import { tableActions } from "../../store/table";
 import { useDispatch, useSelector } from "react-redux";
 import signUpData from "../../api/signupForm";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Swal from 'sweetalert2';
 
 
 const initialValues = {
@@ -32,6 +35,7 @@ const initialValues = {
   confirmpassword: "",
 };
 
+const notify = (error) => toast(error);
 const Signup = () => {
   const login = useSelector((state) => state.table.login);
   const authCtx =  useContext(AuthContext);
@@ -51,7 +55,7 @@ const Signup = () => {
       initialValues: initialValues,
       validationSchema: signupSchema,
       onSubmit: (values, action) => {
-        signUpData(values,authCtx,login,navigate);
+        signUpData(values,authCtx,login,navigate,notify,Swal);
         
         dispatch(tableActions.setSignup(values));
 
@@ -204,6 +208,7 @@ const Signup = () => {
           </Box>
         </Stack>
       </Container>
+      <ToastContainer />
     </Fragment>
   );
 };
