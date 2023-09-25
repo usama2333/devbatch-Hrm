@@ -116,7 +116,8 @@ export const sendLinkBtn = {
     font: "normal normal normal 12px/14px Product Sans",
     textTransform: "capitalize",
     "&:hover": {
-      backgroundColor: "#e0cc9f", // Define the hover effect style
+      backgroundColor: "#FE8062 ",
+      color : '#FFFFFF' // Define the hover effect style
     },
     padding: "0.75rem 0rem",
     font: "normal normal normal 13px/15px Product Sans",

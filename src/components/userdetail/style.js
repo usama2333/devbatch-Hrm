@@ -357,7 +357,294 @@ export const typoKey = {
 }
 
 export const typoValue = {
-  font: "normal normal normal 12px/15px Product Sans",
+  font: {xxs : "normal normal normal 11px/15px Product Sans",sm : "normal normal normal 10px/15px Product Sans",xl : "normal normal normal 12px/15px Product Sans"},
   letterSpacing: "0.36px",
   color: "#344054",
 }
+
+export const modalStyel = {
+  position: "absolute",
+  top: "50%",
+  left: { sm: "60%", xs: "55%", xxs: "55%" },
+  transform: "translate(-50%, -50%)",
+  width: { xxs: "75%", xs: "70%", sm: "70%", md: "60%", lg: "50%" },
+  maxWidth: "800px",
+  // height: "54rem",
+  bgcolor: "background.paper",
+  boxShadow: "0px 0px 30px #00000080",
+  border: "1px solid #707070",
+  borderRadius: "3rem",
+  padding: {
+    md: "2.5rem 6.7rem",
+    sm: "2.5rem 2rem",
+    xs: "2.5rem 3rem",
+    xxs: "2rem 1rem",
+  },
+  boxSizing: "border-box",
+  '@media print' : {
+    boxShadow: "none",
+    border: "none",
+    left : '50%',
+    width : '80%',
+    top: "20%",
+}
+
+ 
+}
+
+export const modalFlex = {
+  display: "flex",
+  justifyContent: "space-between",
+  paddingBottom: "2.6rem",
+}
+
+export const employeeTypo = {
+  font: {
+    xxs: "normal normal bold 18px/25px Product Sans",
+    xs: "normal normal bold 22px/28px Product Sans",
+    sm: "normal normal bold 26px/32px Product Sans",
+  },
+  letterSpacing: "0.78px",
+  color: "#344054",
+  '@media print' : {
+    display: "none",
+    
+}
+}
+
+export const mainConFlex = {
+  display: "flex",
+                flexDirection: { xxs: "column", sm: "row" },
+                gap: { xxs: 2, sm: 2, md: 3 },
+}
+
+export const firstCal = {
+  flex: "calc((100% - 3rem) / 2)",
+  border: " 2px solid #70707066",
+  borderRadius: "1.3rem",
+  boxSizing: "border-box",
+  pt: "1rem",
+}
+export const firstCalFlex = {
+  display: "flex",
+flexDirection: "column",
+alignItems: "center",
+height: "100%",
+}
+
+export const firstCalBack = {
+  background: "#FFFFFF 0% 0% no-repeat padding-box",
+  border: "1px dashed #707070",
+  borderRadius: "5px",
+  opacity: "0.15",
+  width: "46px",
+  height: "6px",
+  mb: "0.5rem",
+}
+
+export const firstImgCon = {
+  background: "#ffedf1 0% 0% no-repeat padding-box",
+  pt: "1rem",
+  pb: "1rem",
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
+  // alignItems: "center",
+  // opacity: 0.09
+}
+
+export const firstImg = {
+  width: {
+    xxs: "8rem",
+    xs: "9rem",
+    sm: "9rem",
+    md: "10rem",
+    lg: "11rem",
+    xl: "12rem",
+  },
+  height: {
+    xxs: "8rem",
+    xs: "9rem",
+    sm: "9rem",
+    md: "10rem",
+    lg: "11rem",
+    xl: "12rem",
+  },
+  display: "inline-block",
+  borderRadius : '10px'
+}
+
+export const firstNameBox = {
+  background: "#FE8062 0% 0% no-repeat padding-box",
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  pt: "0.7rem",
+  pb: "0.7rem",
+  opacity: 1,
+}
+
+export const nameTypo = {
+  font: {
+    sm: "normal normal bold 18px/20px Product Sans",
+    md: "normal normal bold 19px/22px Product Sans",
+    lg: "normal normal bold 20px/24px Product Sans",
+  },
+  letterSpacing: "1.2px",
+  color: "#FFFFFF",
+}
+
+export const desginationTypo = {
+  font: "normal normal normal 12px/15px Product Sans",
+  letterSpacing: "0.5px",
+  color: "#FFFFFF",
+  textTransform: "uppercase",
+  pt: "0.3rem",
+}
+
+export const typoKeyBox = {
+  display: "flex",
+  flexDirection: "row",
+  gap: { xxs: "0.5rem", sm: "0.5rem", md: "1.5rem" },
+  pt: "1.5rem",
+  pb: "1.5rem",
+}
+
+export const secondCon = {
+  flex: "calc((100% - 3rem) / 2)",
+  border: " 2px solid #70707066",
+  borderRadius: "1.3rem",
+  boxSizing: "border-box",
+  width: "100%",
+}
+
+export const secondBox = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  flexDirection: "column",
+  // gap : 2,
+  height: "100%",
+  width: "100%",
+}
+
+export const impTypo = {
+  font: "normal normal bold 20px/24px Product Sans",
+  letterSpacing: "0.6px",
+  color: "#2E2F30",
+  pt: {
+    xxs: "1.2rem",
+    xs: "1.2rem",
+    sm: "1.5rem",
+    md: "1.5rem",
+    lg: "3rem",
+  },
+  pb: { xxs: "1rem", xs: "1.2rem", sm: "0rem" },
+}
+
+export const liBox = {
+  pl: {
+    xxs: "1rem",
+    xs: "1rem",
+    sm: "0.8rem",
+    md: "1.2rem",
+    lg: "1.9rem",
+  },
+  pr: {
+    xxs: "1rem",
+    xs: "1rem",
+    sm: "0.8rem",
+    md: "1.2rem",
+    lg: "1.9rem",
+  },
+}
+
+export const QRImg = {
+  width: {
+    xxs: "7rem",
+    xs: "8rem",
+    sm: "9rem",
+    md: "10rem",
+    lg: "13rem",
+    xl: "14rem",
+  },
+  height: {
+    xxs: "7rem",
+    xs: "8rem",
+    sm: "9rem",
+    md: "10rem",
+    lg: "13rem",
+    xl: "14rem",
+  },
+  pt: { xxs: "1rem", xs: "1.2rem", sm: "0rem" },
+  pb: { xxs: "1rem", xs: "1.2rem", sm: "0rem" },
+}
+
+export const returnBox = {
+  boxSizing: "border-box",
+  background: "#FE8062 0% 0% no-repeat padding-box",
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  // pt: "0.7rem",
+  // pb: "0.7rem",
+  padding: "1rem 1rem 1rem 1rem",
+  opacity: 1,
+  // mt: {md : '2rem',lg : '2.7rem', xl : '4.7rem'},
+  borderRadius: "0px 0px 11px 11px",
+  // margin : 'auto'
+}
+
+export const foundTypo = {
+  font: "normal normal normal 11px/14px Product Sans",
+  letterSpacing: "0.33px",
+  color: "#FFFFFF",
+}
+
+export const addressTypo = {
+  font: "normal normal normal 11px/14px Product Sans",
+  letterSpacing: "0.33px",
+  color: "#FFFFFF",
+}
+
+export const countryTypo = {
+  font: "normal normal normal 11px/14px Product Sans",
+  letterSpacing: "0.33px",
+  color: "#FFFFFF",
+  // pt: "0.3rem",
+}
+
+export const downloadBtnBox = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  pt: "2rem",
+  '@media print' : {
+    display: "none",
+    
+}
+}
+
+export const pdfBtn = {
+  background: "#FE8062 0% 0% no-repeat padding-box",
+  font: {
+    xxs: "normal normal normal 10px/14px Product Sans",
+    sm: "normal normal normal 11px/16px Product Sans",
+  },
+  letterSpacing: "0px",
+  color: "#FFFFFF",
+  padding: "0.7rem",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  textTransform : 'capitalize',
+  "&:hover": {
+    backgroundColor: "#FE8062 ",
+    color: "#FFFFFF", // Define the hover effect style
+  },
+}
+

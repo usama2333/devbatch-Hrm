@@ -43,7 +43,7 @@ function TestNotifications() {
           color="error"
         >
           <NotificationsNoneIcon
-            sx={{ color: "#FE8062 ", width: {xxs : '35px', xl : '40px'}, height:  {xxs : '35px', xl : '40px'} }}
+            sx={{ color: "#FE8062 ", width: {xxs : '32px', xl : '40px'}, height:  {xxs : '32px', xl : '40px'} }}
           />
         </Badge>
       </IconButton>
