@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import React, { Fragment } from "react";
 import { departBox, departInnerBox, nameBox, userBox } from "./style";
 
-const Department = ({ img, name, user }) => {
+const Department = ({ img, name, user,data }) => {
   return (
     <Fragment>
       <Box sx={departBox} >

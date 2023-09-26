@@ -11,6 +11,7 @@ import { tableActions } from "../../store/table";
 import PersonIcon from "@mui/icons-material/Person";
 import WidgetsIcon from "@mui/icons-material/Widgets";
 import { useMediaQuery } from "@mui/material";
+import OldTable from "../../components/user/OldTable";
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -248,6 +249,7 @@ const Home = () => {
             <Box>
               {show === "dashboard" && <Dashboard />}
               {show === "user" && <User adduser={addUserHandler} />}
+              {/* {show === "user" && <OldTable adduser={addUserHandler} />} */}
               {show === "adduser" && <AddUser />}
 
               {show === "userdetailview" && <UserDetail />}

@@ -1,6 +1,5 @@
 
-import red from "../../assests/images/blue.png";
-import blue from "../../assests/images/red.png";
+
 
 export const userRecent = {
     font: 'normal normal medium 14px/21px Poppins',
@@ -18,18 +17,18 @@ export const userName = {
     ml : {xxs : '-30px' ,xs : '-30px' , sm :'-80px'}
 }
 
-export const depart = [
-    {
-      img: blue,
-      name: "No of Users",
-      user: "22000",
-    },
-    {
-      img: red,
-      name: "Departmnet",
-      user: "07",
-    },
-  ];
+// export const depart = [
+//     {
+//       img: blue,
+//       name: "No of Users",
+//       user: "22000",
+//     },
+//     {
+//       img: red,
+//       name: "Departmnet",
+//       user: "07",
+//     },
+//   ];
 
 export const welcome = {
     font: {
@@ -152,7 +151,7 @@ export const addNewBox = {
                 boxSizing: "border-box",
 }
 export const userImSx = {
-  height: {xxs : '20rem', sm :'25rem'},
+  height: {xxs : '19rem', sm :'25rem'},
   width: "100%",
   transition: "all 0.3s ease-in-out",
 }

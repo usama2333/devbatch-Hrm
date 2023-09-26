@@ -28,6 +28,57 @@ export const yellowBox = (
   ></Box>
 );
 
+export const conBox = {
+  width: "94%",
+  // height: "379px",
+  margin: "0px auto",
+  background: "#FFFFFF 0% 0% no-repeat padding-box",
+  border: "1px solid #EAEAEA",
+  borderRadius: "4px",
+  opacity: 1,
+  mt: { xxs: "1rem", sm: "5rem" },
+  pb: "2rem",
+}
+
+export const flexBox = {
+  width: "96%",
+  margin: "0px auto",
+  mt: "2rem",
+  display: "flex",
+  flexDirection: { xxs: "column", sm: "row" },
+  justifyContent: "space-between",
+  maxWidth: "100%",
+  gap: { xxs: 1, sm: 0 },
+}
+
+export const addUserBtn = {
+  background: "#FE8062 0% 0% no-repeat padding-box",
+  font: "normal normal normal 12px/14px Product Sans",
+  textTransform: "capitalize",
+  "&:hover": {
+    backgroundColor: "#d66145", // Define the hover effect style
+  },
+  // width : '50%',
+  display: "flex",
+  alignSelf: "end",
+  mr: { xxs: "2rem", sm: "0rem" },
+}
+
+export const tabCon = {
+  overflowX: "scroll",
+  overflowY: "scroll",
+  overflow: "auto",
+  maxHeight: { xl: 390, lg: 290, md: 282, xxs: 357 },
+  maxWidth: { md: 1280, sm: 530, xs: 370, xxs: 260 },
+  margin: "0 auto",
+}
+
+export const tableOuterBox = {
+  width: "96%",
+  margin: "0px auto",
+  mt: "2rem",
+}
+
 export const rows = [
   {
 
@@ -206,3 +257,36 @@ export const normalText = {
   color: "#707787",
 };
 
+export const customPagination = {
+  "& .MuiSvgIcon-root": {
+    backgroundColor: "#FE8062",
+    borderRadius: "4px",
+    color: "#FFFFFF",
+    padding: "0.4rem",
+  },
+  
+  "& .MuiSelect-icon": {
+    display: "none",
+  },
+  "& .MuiSelect-select": {
+    mr: {xxs : '0rem', sm : '6rem',md : '7rem'},
+    borderRadius: "4px",
+    border: "2px solid #EAEAEA",
+    padding : {xxs : '0.5rem',sm : '0.5rem 4rem 0.5rem 4rem'},
+    "&::after": {
+      content: '"Rows"',
+      pl: "0.2rem",
+    },
+   
+  },
+  "& .MuiToolbar-root": {
+    // backgroundColor: 'red',
+
+    display: "flex",
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
+  "& .css-pdct74-MuiTablePagination-selectLabel": {
+    display: "none",
+  },
+}
