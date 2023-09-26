@@ -1,17 +1,13 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
 import React, { Fragment, useEffect, useState, useLayoutEffect } from "react";
-import Dashboard from "../../components/dashboard/Dashboard";
-import User from "../../components/user/User";
 import Navbar from "../../components/navbar/Navbar";
-import AddUser from "../../components/addUser/AddUser";
-import UserDetail from "../../components/userdetail/UserDetail";
 import { flower, line, logo, relBox, tableDummy, transitionBox } from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
 import PersonIcon from "@mui/icons-material/Person";
 import WidgetsIcon from "@mui/icons-material/Widgets";
-import { useMediaQuery } from "@mui/material";
-import OldTable from "../../components/user/OldTable";
+import { Link, Outlet } from "react-router-dom";
+
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -140,6 +136,9 @@ const Home = () => {
                 ></Box>
               )}
 
+              <Link 
+              style={{textDecoration : 'none'}}
+              to="/dashboard">
               <Stack
                 onClick={dashboardHandler}
                 direction="row"
@@ -169,8 +168,9 @@ const Home = () => {
                     }}
                   />
                 </Box>
-
+             
                 <Typography
+               
                   sx={{
                     font: {
                       lg: "normal normal normal 15px/18px Product Sans",
@@ -189,7 +189,11 @@ const Home = () => {
 
                
               </Stack>
+              </Link>
 
+            <Link 
+             style={{textDecoration : 'none'}}
+            to="/user">
               <Stack
                 onClick={userHandler}
                 direction="row"
@@ -205,6 +209,7 @@ const Home = () => {
                     "transparent linear-gradient(90deg, #FFFFFF26 0%, #4A90E200 100%) 0% 0% no-repeat border-box ",
                 }}
               >
+               
                 <Box sx={{ pl: { xxs: "0.5rem", xs: "1rem", sm: "2rem" } }}>
                   <PersonIcon
                     sx={{
@@ -214,8 +219,9 @@ const Home = () => {
                   />
                 </Box>
                 {/* <Box sx={{ml: { xxs: "1rem",xs: "1rem", sm: "2rem", color : 'red' }}} component="img" src={user}></Box> */}
-
+                
                 <Typography
+                
                   sx={{
                     font: {
                       lg: "normal normal normal 15px/18px Product Sans",
@@ -231,6 +237,7 @@ const Home = () => {
                   User
                 </Typography>
               </Stack>
+              </Link>
             </Box>
           </Box>
           <Box
@@ -247,13 +254,9 @@ const Home = () => {
             </Box>
 
             <Box>
-              {show === "dashboard" && <Dashboard />}
-              {show === "user" && <User adduser={addUserHandler} />}
-              {/* {show === "user" && <OldTable adduser={addUserHandler} />} */}
-              {show === "adduser" && <AddUser />}
-
-              {show === "userdetailview" && <UserDetail />}
-              {/* <UserDetail/> */}
+ 
+              <Outlet />
+              
             </Box>
           </Box>
         </Stack>

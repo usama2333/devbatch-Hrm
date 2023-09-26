@@ -62,6 +62,7 @@ export const addUserBtn = {
   display: "flex",
   alignSelf: "end",
   mr: { xxs: "2rem", sm: "0rem" },
+  
 }
 
 export const tabCon = {

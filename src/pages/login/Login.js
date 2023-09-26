@@ -50,7 +50,7 @@ const Login = () => {
   const dispatch = useDispatch();
   
   const signupHandler = () => {
-    navigate('/')
+    navigate('/signup')
   };
 
   useLayoutEffect(() => {

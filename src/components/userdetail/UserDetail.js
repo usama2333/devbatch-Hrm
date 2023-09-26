@@ -76,6 +76,7 @@ import cancle from "../../assests/images/cancel.png";
 import devbatchLogo from "../../assests/images/devbatchLogo.png";
 import QR from "../../assests/images/QR.png";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
+import { Link, Outlet } from "react-router-dom";
 
 const UserDetail = () => {
   const [open, setOpen] = React.useState(false);
@@ -89,7 +90,7 @@ const UserDetail = () => {
   const editHandler = (id) => {
     const editData = data.filter((item) => item.id === id);
     dispatch(tableActions.setEdit(editData));
-    dispatch(tableActions.setShow("adduser"));
+    dispatch(tableActions.setShow("updateuser"));
   };
 
   const printHandler = () => {
@@ -121,6 +122,7 @@ const UserDetail = () => {
                   <FileDownloadIcon />
                   &nbsp; Download
                 </Button>
+                <Link to='/adduser'>
                 <Button
                   onClick={() => editHandler(view[0].id)}
                   sx={editUserSx}
@@ -129,6 +131,7 @@ const UserDetail = () => {
                   <EditCalendarIcon />
                   &nbsp; Edit User
                 </Button>
+                </Link>
               </Box>
             </Box>
             <Box sx={iconBox}>

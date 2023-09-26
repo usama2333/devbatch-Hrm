@@ -55,14 +55,17 @@ const Navbarr = () => {
   const handleDashboard = () => {
     setAnchorEl(null);
     dispatch(tableActions.setShow("dashboard"));
+    navigate('/dashboard');
   };
   const handleUser = () => {
     setAnchorEl(null);
     dispatch(tableActions.setShow("user"));
+    navigate('/user');
   };
   const handleAddUser = () => {
     setAnchorEl(null);
     dispatch(tableActions.setShow("adduser"));
+    navigate('/adduser');
   };
   const handleLogout = () => {
     setAnchorEl(null);
@@ -87,6 +90,7 @@ const Navbarr = () => {
               {show === "dashboard" && "Dashboard"}
               {show === "user" && "User"}
               {show === "adduser" && "Add Users"}
+              {show === "updateuser" && "Edit Users"}
               {show === "userdetailview" && "User Detail"}
             </Typography>
             

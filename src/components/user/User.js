@@ -21,7 +21,6 @@ import {
   yellowBox,
   eyes,
   bin,
-  edit,
   customPagination,
   conBox,
   flexBox,
@@ -29,14 +28,19 @@ import {
   tableOuterBox,
   tabCon,
 } from "./style";
+import edit from "../../assests/images/edit.png";
+import editt from '../../assests/images/edit.png'
 import { useDispatch, useSelector } from "react-redux";
 import { tableActions } from "../../store/table";
 import TablePagination from "@mui/material/TablePagination";
-
+import Alert from '@mui/material/Alert';
+import { Link, Outlet } from "react-router-dom";
 
 const User = ({ adduser }) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.table.data);
+  const show = useSelector((state) => state.table.show);
+  const edit = useSelector((state) => state.table.edit);
 
   const [searchData, setesearchData] = useState([]);
   const [howManyRow, sethowManyRow] = useState(data?.length);
@@ -59,13 +63,20 @@ const User = ({ adduser }) => {
     dispatch(tableActions.setShow("userdetailview"));
     const viewData = data.filter((item) => item.id === id);
     dispatch(tableActions.setView(viewData));
+    
   };
 
   const editHandler = (id) => {
     const editData = data.filter((item) => item.id === id);
 
     dispatch(tableActions.setEdit(editData));
+    dispatch(tableActions.setShow("updateuser"));
+  };
+  const addHandler = () => {
     dispatch(tableActions.setShow("adduser"));
+    if(edit.length !== 0 ) {
+      dispatch(tableActions.setEdit([]));
+    }
   };
   const deleteHandler = (id) => {
     const updatedData = data.filter((item) => item.id !== id);
@@ -86,7 +97,10 @@ const User = ({ adduser }) => {
   return (
     <Fragment>
       <Box sx={conBox}>
+        
         <Box sx={flexBox}>
+        
+       
           <TextField
             sx={{
               width: { xxs: "85%", sm: "auto" },
@@ -105,11 +119,18 @@ const User = ({ adduser }) => {
             }}
             onChange={handleInputChange}
           />
-
-          <Button sx={addUserBtn} variant="contained" onClick={adduser}>
+          
+          <Link 
+        to='/adduser'
+        style={{textDecoration : 'none'}}
+        >
+          <Button  sx={addUserBtn} variant="contained" onClick={() => addHandler()}>
             + &nbsp; Add Users
           </Button>
+          </Link>
+          
         </Box>
+       
 
         {/* table section start here */}
         <Box sx={tableOuterBox}>
@@ -190,24 +211,31 @@ const User = ({ adduser }) => {
                                 flexWrap: "nowrap",
                               }}
                             >
+                             <Link to = '/userdetail'>
                               <Box
                                 component="img"
                                 src={eyes}
                                 sx={{ mr: "0.7rem", cursor: "pointer" }}
                                 onClick={() => viewHandler(row.id)}
                               ></Box>
+                              </Link>
+                              <Link to = '/adduser'>
                               <Box
                                 component="img"
-                                src={edit}
+                                src={editt}
                                 sx={{ mr: "0.7rem", cursor: "pointer" }}
                                 onClick={() => editHandler(row.id)}
                               ></Box>
+                              </Link>
+                              
+                              <Link>
                               <Box
                                 component="img"
                                 src={bin}
                                 sx={{ cursor: "pointer" }}
                                 onClick={() => deleteHandler(row.id)}
                               ></Box>
+                              </Link>
                             </Box>
                           </TableCell>
                         </TableRow>
@@ -217,8 +245,9 @@ const User = ({ adduser }) => {
             </Table>
           </TableContainer>
               ) : (
-               inputValue ? <Typography>Search data is not found</Typography> : <Typography>Table data is not found</Typography>
-             
+                <Box sx={{mt :'5rem'}}>
+                <Alert severity="warning">Data is not found — check it out!</Alert>
+                </Box>
               )}
 
       
@@ -243,7 +272,11 @@ const User = ({ adduser }) => {
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
+        
       </Box>
+      {/* {show === 'userdetailview' && <Outlet />}
+      {show === 'adduser' && <Outlet />} */}
+        
     </Fragment>
   );
 };

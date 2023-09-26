@@ -31,7 +31,7 @@ export default function signUpData(data, authCtx, login, naviagte,notify,Swal) {
             'success'
           )
           notify('Login successfully')
-          naviagte("/home");
+          naviagte("/dashboard");
           
         } else {
           Swal.fire(
