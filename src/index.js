@@ -7,7 +7,8 @@ import { ThemeProvider, createTheme } from "@mui/material";
 import { Provider } from "react-redux";
 import store from "./store";
 import { AuthContextProvider } from './store/auth-context';
-
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistStore } from 'redux-persist';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const theme = createTheme({
@@ -24,12 +25,16 @@ const theme = createTheme({
   },
 });
 
+let persistor = persistStore(store);
+
 root.render(
   
   <Provider store={store}>
   <AuthContextProvider>
   <ThemeProvider theme={theme}>
+  <PersistGate persistor={persistor}>
     <App />
+    </PersistGate>
     </ThemeProvider>
     </AuthContextProvider>
     </Provider>
