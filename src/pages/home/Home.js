@@ -94,7 +94,7 @@ const Home = () => {
               position: "sticky",
               top : 0,
               boxSizing: "border-box",
-              overflow: 'hidden',
+              // overflow: 'hidden',
               
             }}
           >

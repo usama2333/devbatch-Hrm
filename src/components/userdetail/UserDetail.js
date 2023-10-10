@@ -295,6 +295,7 @@ const UserDetail = () => {
           </Box>
         </Modal>
       </Box>
+      
     </Fragment>
   );
 };

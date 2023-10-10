@@ -26,6 +26,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from 'sweetalert2';
+import signUpApi from "../../api/signupApi";
 
 
 const initialValues = {
@@ -55,7 +56,11 @@ const Signup = () => {
       initialValues: initialValues,
       validationSchema: signupSchema,
       onSubmit: (values, action) => {
-        signUpData(values,authCtx,login,navigate,notify,Swal);
+
+        signUpApi(values,authCtx,login,navigate,notify,Swal)
+        
+        // signUpData(values,authCtx,login,navigate,notify,Swal);
+
         
         dispatch(tableActions.setSignup(values));
 

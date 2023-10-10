@@ -31,6 +31,7 @@ import AuthContext from "../../store/auth-context";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from 'sweetalert2';
+import loginApi from "../../api/loginApi";
 
 
 const initialValues = {
@@ -64,7 +65,9 @@ const Login = () => {
       initialValues: initialValues,
       validationSchema: loginSchema,
       onSubmit: (values, action) => {
-        signUpData(values,authCtx,login,navigate,notify,Swal);
+        // signUpData(values,authCtx,login,navigate,notify,Swal);
+        console.log(values,'login values...........')
+        loginApi(values,authCtx,login,navigate,notify,Swal)
        
        
       },
