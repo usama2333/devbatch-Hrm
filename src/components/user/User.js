@@ -12,7 +12,7 @@ import {
   TableContainer,
   Typography,
 } from "@mui/material";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useLayoutEffect, useState } from "react";
 import { Search } from "@mui/icons-material";
 import {
   tableHeader,
@@ -36,15 +36,19 @@ import TablePagination from "@mui/material/TablePagination";
 import Alert from '@mui/material/Alert';
 import { Link, Outlet } from "react-router-dom";
 import viewProfile from '../../assests/images/viewProfile.png';
+import allUsersApi from "../../api/allUsersApi";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import deleteUserApi from "../../api/deleteApi";
 
+const notify = (error) => toast(error);
 const User = ({ adduser }) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.table.data);
   
   const show = useSelector((state) => state.table.show);
   const edit = useSelector((state) => state.table.edit);
-  const allUsers = useSelector((state) => state.table.allusers);
-  console.log(data, 'all data.............................')
+ 
 
   const [searchData, setesearchData] = useState([]);
   const [howManyRow, sethowManyRow] = useState(data?.length);
@@ -72,7 +76,8 @@ const User = ({ adduser }) => {
   };
 
   const editHandler = (id) => {
-    const editData = data.filter((item) => item.id === id);
+    const editData = data.filter((item) => item._id === id);
+    console.log(editData, 'edit data......................')
 
     dispatch(tableActions.setEdit(editData));
     dispatch(tableActions.setShow("updateuser"));
@@ -84,9 +89,8 @@ const User = ({ adduser }) => {
     }
   };
   const deleteHandler = (id) => {
-    const updatedData = data.filter((item) => item.id !== id);
-    console.log(updatedData, 'UPdated data........')
-    dispatch(tableActions.setData(updatedData));
+    deleteUserApi(id);
+    allUsersApi(notify, dispatch,tableActions);
   };
 
   const handleInputChange = (event) => {
@@ -100,6 +104,16 @@ const User = ({ adduser }) => {
   };
 
   const sortedData = [...data].reverse()
+
+useLayoutEffect(() => {
+  allUsersApi(notify, dispatch,tableActions);
+},[allUsersApi])
+
+  useEffect(() => {
+     console.log('data............................................................')
+    //  
+     dispatch(tableActions.setData(data));
+  },[data])
 
 
   return (
@@ -234,7 +248,7 @@ const User = ({ adduser }) => {
                                 component="img"
                                 src={editt}
                                 sx={{ mr: "0.7rem", cursor: "pointer" }}
-                                onClick={() => editHandler(row.id)}
+                                onClick={() => editHandler(row._id)}
                               ></Box>
                               </Link>
                               
@@ -243,7 +257,7 @@ const User = ({ adduser }) => {
                                 component="img"
                                 src={bin}
                                 sx={{ cursor: "pointer" }}
-                                onClick={() => deleteHandler(row.id)}
+                                onClick={() => deleteHandler(row._id)}
                               ></Box>
                               </Link>
                             </Box>
@@ -286,7 +300,7 @@ const User = ({ adduser }) => {
       </Box>
       {/* {show === 'userdetailview' && <Outlet />}
       {show === 'adduser' && <Outlet />} */}
-        
+        <ToastContainer/>
     </Fragment>
   );
 };

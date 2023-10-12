@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import allUsersApi from "../../api/allUsersApi";
+import updateUserApi from "../../api/updateApi";
 
 const initialValues = {
   name: "",
@@ -59,14 +60,6 @@ const AddUser = () => {
     }
   };
 
-  // const test = {
-  //   id: checkid,
-  //   status: status,
-  //   created: "12-20-2023",
-  //   deactive: "13-20-2023",
-  //   image: selectedImage ? URL.createObjectURL(selectedImage) : emptyUser,
-  //   time: "12:20AM",
-  // };
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
@@ -76,23 +69,14 @@ const AddUser = () => {
 
          console.log(values,'values in the component.................')
          
-        newUserApi(values, navigate)
-        allUsersApi(notify, dispatch,tableActions)
+        newUserApi(values, navigate);
+
+        console.log(edit[0]._id,'id...................')
+
+        {edit.length &&  updateUserApi(values,edit[0]._id,navigate)}
+       
+        allUsersApi(notify, dispatch,tableActions);
         dispatch(tableActions.setShow("user"));
-
-        // const newData = [{ ...values, ...test }];
-        // const allData = [...data, ...newData];
-
-        // if (editData.length !== 0) {
-        //   const updatedData = allData.filter(
-        //     (item) => item.id !== editData[0].id
-        //   );
-        //   dispatch(tableActions.setData(updatedData));
-        //   dispatch(tableActions.setShow("user"));
-        // } else {
-        //   dispatch(tableActions.setData(allData));
-        //   dispatch(tableActions.setShow("user"));
-        // }
 
       },
     });
