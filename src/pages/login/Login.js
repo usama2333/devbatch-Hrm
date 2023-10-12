@@ -32,6 +32,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from 'sweetalert2';
 import loginApi from "../../api/loginApi";
+import allUsersApi from "../../api/allUsersApi";
 
 
 const initialValues = {
@@ -67,7 +68,8 @@ const Login = () => {
       onSubmit: (values, action) => {
         // signUpData(values,authCtx,login,navigate,notify,Swal);
         console.log(values,'login values...........')
-        loginApi(values,authCtx,login,navigate,notify,Swal)
+        loginApi(values,authCtx,login,navigate,notify,Swal,dispatch,tableActions)
+        allUsersApi(notify, Swal , dispatch,tableActions)
        
        
       },

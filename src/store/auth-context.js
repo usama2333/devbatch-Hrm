@@ -7,6 +7,8 @@ const AuthContext = React.createContext({
   isLoggedIn: false,
   login: (token) => {},
   logout: () => {},
+  email: '',
+  name:'',
 });
 
 export const AuthContextProvider = (props) => {
@@ -31,7 +33,7 @@ export const AuthContextProvider = (props) => {
        console.log('token is removed from local storage');
     };
   
-    const loginHandler = (token) => {
+    const loginHandler = (token, email,name,id) => {
      setToken(token);
      localStorage.setItem('token' , token);
      console.log('Data is found');

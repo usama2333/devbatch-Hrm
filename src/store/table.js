@@ -9,6 +9,8 @@ const initialState = {
   edit: [],
   signup : [],
   login : false,
+  allusers: [],
+  nav:[]
 };
 
 const tableSlice = createSlice({
@@ -24,6 +26,9 @@ const tableSlice = createSlice({
     setData(state, action) {
       state.data = action.payload;
     },
+    setallUsers(state, action) {
+      state.allusers = action.payload;
+    },
     setView(state, action) {
       state.view = action.payload;
     },
@@ -38,6 +43,9 @@ const tableSlice = createSlice({
     },
     setLogin(state, action) {
       state.login = action.payload;
+    },
+    setNav(state, action) {
+      state.nav = action.payload;
     },
   },
 });

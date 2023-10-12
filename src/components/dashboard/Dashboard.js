@@ -15,6 +15,7 @@ import blue from "../../assests/images/red.png";
 
 const Dashboard = () => {
   const data = useSelector((state) => state.table.data);
+  const navData = useSelector((state) => state.table.nav);
   const [lastdata, setLastdata] = useState([]);
 
   useEffect(() => {
@@ -64,7 +65,7 @@ const Dashboard = () => {
           >
             <Box sx={{ mt: {xxs : '0rem' , xs : '1rem', sm : '4rem'},mb : {xs : '0.5rem'} }}>
               <Typography sx={welcome}>Welcome</Typography>
-              <Typography sx={nameTypo}>{lastdata.name}</Typography>
+              <Typography sx={nameTypo}>{navData.user.name}</Typography>
             </Box>
 
             <Box sx={calanderMain}>

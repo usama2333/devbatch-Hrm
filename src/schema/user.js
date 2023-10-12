@@ -10,6 +10,6 @@ export const userSchema = Yup.object({
       .matches(/^\d{10}$/, 'Phone number must be 10 digits'),
   cnic: Yup.string()
       .required('CNIC is required')
-      .matches(/^[0-9]{13}$/, 'CNIC must be 13 digits long'),
+      .matches(/^[0-9]{5}-[0-9]{7}-[0-9]$/, 'CNIC must be in the format XXXXX-XXXXXXX-X'),
   address: Yup.string().min(2).max(25).required("Please enter your address"),
 });

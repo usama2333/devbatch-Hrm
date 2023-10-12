@@ -77,6 +77,8 @@ import devbatchLogo from "../../assests/images/devbatchLogo.png";
 import QR from "../../assests/images/QR.png";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import { Link, Outlet } from "react-router-dom";
+import viewProfile from '../../assests/images/viewProfile.png';
+import emptyUser from '../../assests/images/emptyUser.png'
 
 const UserDetail = () => {
   const [open, setOpen] = React.useState(false);
@@ -97,24 +99,26 @@ const UserDetail = () => {
     window.print();
   }
 
+  console.log(view, 'view...............')
+
   return (
     <Fragment>            
       <Box sx={detailMainBox}>
         <Box sx={detailInner}>
           <Box sx={flexSx}>
-            <Box component="img" sx={flexImg} src={view[0].image}></Box>
+            <Box component="img" sx={flexImg} src={view[0].image ? view[0].image : emptyUser}></Box>
           </Box>
 
           <Box sx={otherFlex}>
             <Box sx={nameFlex}>
               <Box>
-                <Typography sx={nameSx}>{view[0].name}</Typography>
-                <Typography sx={desigSx}>{view[0].desgination}</Typography>
+                <Typography sx={nameSx}>{view[0].name ? view[0].name : "NA" }</Typography>
+                <Typography sx={desigSx}>{view[0].designation ? view[0].designation : 'NA'}</Typography>
               </Box>
 
               <Box sx={statusSx}>
-                <Box>{view[0].status === "Activated" ? yellowBox : redBox}</Box>
-                <Typography sx={statusTypo}>{view[0].status}</Typography>
+                <Box>{view[0].status === "activated" ? yellowBox : redBox}</Box>
+                <Typography sx={statusTypo}>{view[0].status ? view[0].status : 'NA'}</Typography>
               </Box>
 
               <Box sx={btnBox}>
@@ -138,7 +142,7 @@ const UserDetail = () => {
               <Box>
                 <LocationOnIcon style={{ color: "#707787" }} />
               </Box>
-              <Typography sx={addressSx}>{view[0].address}</Typography>
+              <Typography sx={addressSx}>{view[0].address ? view[0].address : 'NA'}</Typography>
             </Box>
 
             <Box sx={infoBox}></Box>
@@ -156,10 +160,10 @@ const UserDetail = () => {
                   </Box>
 
                   <Box sx={dFlex}>
-                    <Typography sx={dView}>{view[0].department}</Typography>
+                    <Typography sx={dView}>{view[0].department ? view[0].department : 'NA'}</Typography>
 
-                    <Typography sx={cView}>{view[0].cnic}</Typography>
-                    <Typography sx={createdView}>{view[0].created}</Typography>
+                    <Typography sx={cView}>{view[0].cnic ? view[0].cnic : 'NA'}</Typography>
+                    <Typography sx={createdView}>{view[0].createdAt ? view[0].createdAt : 'NA'}</Typography>
                   </Box>
                 </Box>
               </Box>
@@ -173,10 +177,10 @@ const UserDetail = () => {
                   </Box>
 
                   <Box sx={lastFlex}>
-                    <Typography sx={mailTypo}>{view[0].email}</Typography>
+                    <Typography sx={mailTypo}>{view[0].email ? view[0].email : 'NA'}</Typography>
 
-                    <Typography sx={phoneTypo}>{view[0].phone}</Typography>
-                    <Typography sx={genderTypo}>{view[0].gender}</Typography>
+                    <Typography sx={phoneTypo}>{view[0].phone ? view[0].phone : 'NA'}</Typography>
+                    <Typography sx={genderTypo}>{view[0].gender ? view[0].gender : 'NA'}</Typography>
                   </Box>
                 </Box>
               </Box>
@@ -219,14 +223,14 @@ const UserDetail = () => {
                     <Box
                       component="img"
                       sx={firstImg}
-                      src={view[0].image}
+                      src={view[0].image ? view[0].image : viewProfile}
                     ></Box>
                   </Box>
 
                   <Box sx={firstNameBox}>
-                    <Typography sx={nameTypo}>{view[0].name}</Typography>
+                    <Typography sx={nameTypo}>{view[0].name ? view[0].name : 'NA'}</Typography>
                     <Typography sx={desginationTypo}>
-                      {view[0].designation}
+                      {view[0].designation ? view[0].designation : 'NA'}
                     </Typography>
                   </Box>
 
@@ -240,15 +244,15 @@ const UserDetail = () => {
                       <Typography sx={typoKey}>Issue Date:</Typography>
                     </Box>
                     <Box>
-                      <Typography sx={typoValue}>DB-00555</Typography>
-                      <Typography sx={typoValue}>{view[0].email}</Typography>
-                      <Typography sx={typoValue}>{view[0].phone}</Typography>
+                      <Typography sx={typoValue}>{`DB-${view[0]._id}`}</Typography>
+                      <Typography sx={typoValue}>{view[0].email ? view[0].email : 'NA'}</Typography>
+                      <Typography sx={typoValue}>{view[0].phone ? view[0].phone : 'NA'}</Typography>
                       <Typography sx={typoValue}>
-                        {view[0].department}
+                        {view[0].department ? view[0].department : 'NA'}
                       </Typography>
 
-                      <Typography sx={typoValue}>{view[0].cnic}</Typography>
-                      <Typography sx={typoValue}>{view[0].created}</Typography>
+                      <Typography sx={typoValue}>{view[0].cnic ? view[0].cnic : 'NA'}</Typography>
+                      <Typography sx={typoValue}>{view[0].createdAt ? view[0].createdAt : 'NA'}</Typography>
                     </Box>
                   </Box>
                 </Box>

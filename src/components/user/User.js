@@ -35,12 +35,16 @@ import { tableActions } from "../../store/table";
 import TablePagination from "@mui/material/TablePagination";
 import Alert from '@mui/material/Alert';
 import { Link, Outlet } from "react-router-dom";
+import viewProfile from '../../assests/images/viewProfile.png';
 
 const User = ({ adduser }) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.table.data);
+  
   const show = useSelector((state) => state.table.show);
   const edit = useSelector((state) => state.table.edit);
+  const allUsers = useSelector((state) => state.table.allusers);
+  console.log(data, 'all data.............................')
 
   const [searchData, setesearchData] = useState([]);
   const [howManyRow, sethowManyRow] = useState(data?.length);
@@ -57,11 +61,12 @@ const User = ({ adduser }) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-  //
+  
 
   const viewHandler = (id) => {
     dispatch(tableActions.setShow("userdetailview"));
-    const viewData = data.filter((item) => item.id === id);
+    const viewData = data.filter((item) => item._id === id);
+    console.log(viewData, 'View data ................')
     dispatch(tableActions.setView(viewData));
     
   };
@@ -80,6 +85,7 @@ const User = ({ adduser }) => {
   };
   const deleteHandler = (id) => {
     const updatedData = data.filter((item) => item.id !== id);
+    console.log(updatedData, 'UPdated data........')
     dispatch(tableActions.setData(updatedData));
   };
 
@@ -92,6 +98,8 @@ const User = ({ adduser }) => {
     );
     setesearchData(filteredData);
   };
+
+  const sortedData = [...data].reverse()
 
 
   return (
@@ -162,7 +170,8 @@ const User = ({ adduser }) => {
               <TableBody>
              
                 {/* {(searchData?.length ? searchData : itemsToDisplay).map((row, index) => { */}
-                {(inputValue?.length ? searchData : data)
+                
+                {(inputValue?.length ? searchData : sortedData)
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
                     if (index < howManyRow)
@@ -179,29 +188,29 @@ const User = ({ adduser }) => {
                             component="th"
                             scope="row"
                           >
-                            {row.name}
+                            {row.name ? row.name : 'NA'}
                           </TableCell>
 
                           <TableCell sx={{ tableBodyText }} align="left">
                             <Box sx={{ display: "flex" }}>
                               <Box sx={{ mr: "0.8rem" }}>
-                                {row.status === "Activated"
+                                {row.status === "activated"
                                   ? yellowBox
                                   : redBox}
                               </Box>
-                              <Box>{row.status}</Box>
+                              <Box>{row.status ? row.status : 'NA'}</Box>
                             </Box>
                           </TableCell>
                           <TableCell sx={{ tableBodyText }} align="left">
-                            {row.department}
+                            {row.department ? row.department : 'NA'}
                           </TableCell>
                           <TableCell sx={{ tableBodyText }} align="left">
-                            <Box>{row.created}</Box>
-                            <Box>{row.time}</Box>
+                            <Box>{row.createdAt ? row.createdAt : 'NA'}</Box>
+                            {/* <Box>{row.time}</Box> */}
                           </TableCell>
                           <TableCell sx={{ tableBodyText }} align="left">
-                            <Box>{row.deactive}</Box>
-                            <Box>{row.time}</Box>
+                            <Box>{row.updatedAt ? row.updatedAt : 'NA'}</Box>
+                            {/* <Box>{row.time}</Box> */}
                           </TableCell>
                           <TableCell sx={{ tableBodyText }} align="left">
                             <Box
@@ -216,10 +225,11 @@ const User = ({ adduser }) => {
                                 component="img"
                                 src={eyes}
                                 sx={{ mr: "0.7rem", cursor: "pointer" }}
-                                onClick={() => viewHandler(row.id)}
+                                onClick={() => viewHandler(row._id)}
                               ></Box>
                               </Link>
                               <Link to = '/adduser'>
+                              
                               <Box
                                 component="img"
                                 src={editt}

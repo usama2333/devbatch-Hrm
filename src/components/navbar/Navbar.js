@@ -29,17 +29,22 @@ import Badge from "@mui/material/Badge";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import TestNotifications from "../notification/TestNotifications";
+import pie from '../../assests/images/pie.png'
+
 
 const Navbarr = () => {
   const authCtx = useContext(AuthContext);
   const show = useSelector((state) => state.table.show);
   const data = useSelector((state) => state.table.data);
+  const navData = useSelector((state) => state.table.nav);
   const [lastdata, setLastdata] = useState([]);
 
   const dispatch = useDispatch();
   const [auth, setAuth] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
   const navigate = useNavigate();
+
+  console.log(navData,'nav......................')
 
   const handleChange = (event) => {
     setAuth(event.target.checked);
@@ -107,9 +112,9 @@ const Navbarr = () => {
             </Box> */}
 
             <Stack sx={navStack}>
-              <Typography sx={navTypo}>{lastdata.name}</Typography>
+              <Typography sx={navTypo}>{navData.user.name}</Typography>
 
-              <Typography sx={navEmail}>{lastdata.email}</Typography>
+              <Typography sx={navEmail}>{navData.user.email}</Typography>
             </Stack>
             {auth && (
               <Box>
@@ -122,7 +127,7 @@ const Navbarr = () => {
                   color="inherit"
                 >
                   {/* <AccountCircle /> */}
-                  <Box component="img" sx={pieIcon} src={lastdata.image}></Box>
+                  <Box component="img" sx={pieIcon} src={pie}></Box>
                 </IconButton>
                 <Menu
                   sx={{ mt: "55px", boxSizing: "border-box" }}

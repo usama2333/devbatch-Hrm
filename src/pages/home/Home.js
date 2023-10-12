@@ -20,9 +20,12 @@ const Home = () => {
   const firstH = enable ? "10%" : "20%";
   const secondH = enable ? "90%" : "80%";
   const displayText = enable ? "none" : "grid";
+  const allUsers = useSelector((state) => state.table.data);
+
+  
 
   useLayoutEffect(() => {
-    dispatch(tableActions.setData(tableDummy));
+    dispatch(tableActions.setData(allUsers));
   }, []);
   const heightHandler = () => {
     dispatch(tableActions.setCheck());

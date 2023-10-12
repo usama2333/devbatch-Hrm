@@ -4,6 +4,9 @@ import { userName, userRecent } from "./style";
 
 
 const RecentTable = ({data}) => {
+
+  const sortedData = [...data].reverse().slice(0, 10)
+
  
   return (
     <Fragment>
@@ -30,18 +33,18 @@ const RecentTable = ({data}) => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {data.map((row,index) => (
+                {sortedData.map((row,index) => (
                   <TableRow
                     key={index}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell  component="th" scope="row">
-                      {row.name}
+                      {row.name ? row.name : 'NA'}
                     </TableCell>
-                    <TableCell sx={userRecent} align="left">{row.department}</TableCell>
+                    <TableCell sx={userRecent} align="left">{row.department ? row.department : 'NA'}</TableCell>
                     <TableCell align="left">
                       
-                      <Box sx={userRecent}>{`${row.time} ${row.created}`}</Box>
+                      <Box sx={userRecent}>{row.createdAt ? row.createdAt : 'NA'}</Box>
                     </TableCell>
                    
                     
