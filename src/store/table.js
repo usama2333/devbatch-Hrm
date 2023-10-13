@@ -10,7 +10,8 @@ const initialState = {
   signup : [],
   login : false,
   allusers: [],
-  nav:[]
+  nav:[],
+  del: ''
 };
 
 const tableSlice = createSlice({
@@ -46,6 +47,9 @@ const tableSlice = createSlice({
     },
     setNav(state, action) {
       state.nav = action.payload;
+    },
+    setDel(state, action) {
+      state.del = action.payload;
     },
   },
 });

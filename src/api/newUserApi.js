@@ -24,12 +24,13 @@ export default async function newUserApi(
     if (response.status === 200 || response.status === 201) {
       console.log("Create user succesfully");
       console.log(response, " create user response...........");
-    //   notify("User is creates");
+    
       naviagte("/user");
+      notify("User is created");
     }
   } catch (error) {
     console.log(error.message);
 
-    // notify(error.message);
+    notify(error.message);
   }
 }

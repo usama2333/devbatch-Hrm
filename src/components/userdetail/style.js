@@ -27,6 +27,7 @@ export const flexSx = {
   alignSelf : {xxs : 'center'},
 };
 export const flexImg = {
+  objectFit: 'contain',
   height: {
     xxs: "120px",
     xs: "140px",

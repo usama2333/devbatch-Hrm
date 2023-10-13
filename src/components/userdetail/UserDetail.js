@@ -223,7 +223,7 @@ const UserDetail = () => {
                     <Box
                       component="img"
                       sx={firstImg}
-                      src={view[0].image ? view[0].image : viewProfile}
+                      src={view[0].image ? view[0].image : emptyUser}
                     ></Box>
                   </Box>
 

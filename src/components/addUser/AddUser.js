@@ -69,11 +69,11 @@ const AddUser = () => {
 
          console.log(values,'values in the component.................')
          
-        newUserApi(values, navigate);
+        newUserApi(values, navigate,notify);
 
         console.log(edit[0]._id,'id...................')
 
-        {edit.length &&  updateUserApi(values,edit[0]._id,navigate)}
+        {edit.length &&  updateUserApi(values,edit[0]._id,navigate,notify)}
        
         allUsersApi(notify, dispatch,tableActions);
         dispatch(tableActions.setShow("user"));

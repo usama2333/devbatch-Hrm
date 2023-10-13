@@ -25,12 +25,13 @@ export default async function updateUserApi(
     if (response.status === 200 || response.status === 201) {
       console.log("updates user succesfully");
       console.log(response, " updated user response...........");
-    //   notify("User is creates");
+      
       naviagte("/user");
+      notify("User is updated");
     }
   } catch (error) {
     console.log(error.message);
 
-    // notify(error.message);
+    notify(error.message);
   }
 }
