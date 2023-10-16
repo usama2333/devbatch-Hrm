@@ -1,5 +1,5 @@
 import { Box, Container, Stack, Typography,TextField,Button } from "@mui/material";
-import React, { Fragment , useState, useEffect} from "react";
+import React, { Fragment , useState, useEffect, useLayoutEffect} from "react";
 import backgroundImg from "../../assests/images/loginBack.png";
 
 import {
@@ -24,22 +24,21 @@ import { resetSchema } from "../../schema/reset";
 import resetApi from "../../api/resetApi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-
-
-
+import forgotApi from "../../api/forgotApi";
 
 
 const notify = (error) => toast(error);
 
 const Reset = () => {
-  const [countdown, setCountdown] = useState(15);
+  const [countdown, setCountdown] = useState(0);
   const otp = useSelector((state) => state.table.otp);
+  const [otpp, setOtpp] = useState(otp.otp);
   console.log(otp , 'test api ...................')
   const navigate = useNavigate();
   const dispatch = useDispatch();
  
   console.log(otp.data.email,'email.............')
+  
 
   const initialValues = {
     email: otp?.data?.email ?  otp?.data?.email : "",
@@ -58,9 +57,29 @@ const Reset = () => {
       }
     }, 1000);
 
+    console.log('clear')
     // Clean up the interval when the component unmounts
     return () => clearInterval(timer);
+   
   }, [countdown]);
+
+  useEffect(() => {
+    console.log('change effect')
+    
+  },[otpp],countdown)
+
+  // useEffect(() => {
+  //   setCountdown(5)
+  // },[])
+
+ 
+
+  const  otpHandler = () => {
+      console.log('otp handler')
+      forgotApi(otp?.data,navigate,notify,dispatch,tableActions,setOtpp,setCountdown,otpp);
+      console.log(otpp, 'otpppp effect')
+  }
+  
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
@@ -121,9 +140,10 @@ const Reset = () => {
                           <span style={{ color: "red" }}>&nbsp;*</span>
                         ) : null}
                         </Typography>
-                        <Typography>
-
-                        </Typography>
+                        
+                        {/* <Typography>
+                          {otp.otp}
+                        </Typography> */}
                       <TextField
                         sx={{ width : '100%' }}
                         variant="outlined"
@@ -199,7 +219,7 @@ const Reset = () => {
                     </Button>
                   </form>
                   <Typography sx={alreadyAccount}>
-                    If you have already account please?{" "}
+                    {/* If you have already account please?{" "} */}
                     <span
                       onClick={signinHandler}
                       style={{
@@ -210,6 +230,25 @@ const Reset = () => {
                     >
                       Sign in
                     </span>
+                    {/* <span
+                      // onClick={resetHandler}
+                      style={{
+                        color: "#FE8062",
+                        textDecoration: "underline",
+                        cursor: "pointer",
+                      }}
+                    >
+                      Regenerate OTP
+                    </span> */}
+                    <Button disabled={countdown !==0 ? true : false} onClick={otpHandler} sx={{
+                      
+                      ml :'3rem',
+                       color: "#FFFFFF",                 
+                       background: "#FE8062 0% 0% no-repeat padding-box",
+                       "&:hover": {
+                         backgroundColor: "#d66145",
+                       },
+                    }}  variant="contained">Resend OTP</Button>
                   </Typography>
                 </Box>
               </Box>

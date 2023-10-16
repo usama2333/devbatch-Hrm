@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default async function forgotApi(
-  data,navigate,notify,dispatch,tableActions
+  data,navigate,notify,dispatch,tableActions,setOttp,setCountdown,ottp
  
 ) {
   try {
@@ -16,16 +16,15 @@ export default async function forgotApi(
     if (response.status === 200 || response.status === 201) {
       console.log(response, "Forgot response response.......");
       console.log(response.data.otp, "token..............");
-      notify(`One Time OTP: ${response.data.otp}`);
-      
+    //   notify(`One Time OTP: ${response.data.otp}`);
+    if(ottp) {
+        setOttp(response.data.otp);
+        setCountdown(15);
+    }
+   
       dispatch(tableActions.setOtp(response.data));
       dispatch(tableActions.setReset(true));
       navigate("/reset");
-    //   setTimeout(() => {
-    //     // Code to be executed after 5 seconds
-    //     console.log("5 seconds have passed.");
-    //     navigate("/reset");
-    // }, 3000);
       
     }
   } catch (error) {

@@ -13,7 +13,9 @@ const initialState = {
   allusers: [],
   nav:[],
   del: '',
-  otp: []
+  otp: [],
+  count : 0
+  
 };
 
 const tableSlice = createSlice({
@@ -58,6 +60,9 @@ const tableSlice = createSlice({
     },
     setReset(state, action) {
       state.reset = action.payload;
+    },
+    setCount(state, action) {
+      state.count = action.payload;
     },
   },
 });

@@ -40,7 +40,9 @@ const Forgot = () => {
   const signinHandler = () => {
     navigate('/login')
   };
-
+//   useLayoutEffect(() => {
+//     dispatch(tableActions.setLogin(false));
+//   },);
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
