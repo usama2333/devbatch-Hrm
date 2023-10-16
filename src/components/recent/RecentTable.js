@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Box,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,Paper } from "@mui/material";
 import { userName, userRecent } from "./style";
-
+import { format } from 'date-fns';
 
 const RecentTable = ({data}) => {
 
@@ -29,7 +29,7 @@ const RecentTable = ({data}) => {
                 >
                   <TableCell sx={userName}>User Name</TableCell>
                   <TableCell sx={userName} align="left">Department</TableCell>
-                  <TableCell sx={userName} align="left">Timing/Date</TableCell>
+                  <TableCell sx={userName} align="left">Date/Timing</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -44,7 +44,11 @@ const RecentTable = ({data}) => {
                     <TableCell sx={userRecent} align="left">{row.department ? row.department : 'NA'}</TableCell>
                     <TableCell align="left">
                       
-                      <Box sx={userRecent}>{row.createdAt ? row.createdAt : 'NA'}</Box>
+                      {/* <Box sx={userRecent}>{row.createdAt ? row.createdAt : 'NA'}</Box> */}
+                      <Box>{row.createdAt ? ( 
+                                  format(new Date(row.createdAt), 'MM/dd/yyyy HH:mm:ss')
+                                ) : ("NA")}</Box>
+                                
                     </TableCell>
                    
                     

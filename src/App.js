@@ -17,11 +17,13 @@ import User from "./components/user/User";
 import AddUser from "./components/addUser/AddUser";
 import UserDetail from "./components/userdetail/UserDetail";
 import {useSelector } from "react-redux";
+import Forgot from "./pages/forgot/Forgot";
 
 function App() {
   
   
   const login = useSelector((state) => state.table.login);
+  const reset = useSelector((state) => state.table.reset);
   const authCtx = useContext(AuthContext);
 
   return (
@@ -43,10 +45,14 @@ function App() {
           </Route>
         
        </Route>
+       {!reset ? (
+          <Route path="/reset" element={<Navigate to="/forgot" />} />
+        ) : null}
 
        <Route element={<Login/>} path="/login" exact/>
        <Route element={<Signup/>} path="/signup" exact/>
        <Route element={<Reset/>} path="/reset" exact/>
+       <Route element={<Forgot/>} path="/forgot" exact/>
 
       </Routes>
     </Router>

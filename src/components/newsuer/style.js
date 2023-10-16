@@ -95,6 +95,7 @@ export const secondUserFlex = {
                 justifyContent : 'space-between',
                 mt: "0.7rem",
                 // mr: "2rem",
+    
 }
 
 export const firstUserTypo = {
@@ -109,6 +110,13 @@ export const firstUserTypo = {
     },
     letterSpacing: "0px",
     color: "#707787",
+    // "& .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root": {
+    //     "&:hover": {
+    //         border : '5px solid red'
+    //     },
+       
+    //   },
+     
 }
 
 export const sendLinkBtn = {

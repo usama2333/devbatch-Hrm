@@ -33,6 +33,7 @@ export default async function loginApi(
         response.data.token,
       );
       dispatch(tableActions.setNav(response.data.payload));
+      dispatch(tableActions.setReset(false));
     }
   } catch (error) {
     console.log(error.message);

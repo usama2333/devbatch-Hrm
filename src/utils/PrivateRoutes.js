@@ -11,6 +11,7 @@ const PrivateRoutes = () => {
     
     return(
         login ? <Outlet/> : <Navigate to='/login'/>
+        // true ? <Outlet/> : <Navigate to='/login'/>
     )
 
 }

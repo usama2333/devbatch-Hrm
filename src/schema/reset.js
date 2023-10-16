@@ -2,7 +2,7 @@ import * as Yup from "yup";
 
 export const resetSchema = Yup.object({
     email: Yup.string().email().required("Please enter your email"), 
-    password: Yup.string().min(8).required("Please enter your password"),
+    otp: Yup.string().matches(/^\d{4}$/, 'OTP must be a 4-digit number').required('OTP is required'),
     newpassword: Yup.string().min(8).required("Please enter your password"),
     confirmpassword: Yup.string()
       .required()

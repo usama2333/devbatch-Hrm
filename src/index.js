@@ -10,6 +10,8 @@ import { AuthContextProvider } from './store/auth-context';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
 
+import { outlinedInputClasses } from '@mui/material/OutlinedInput';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const theme = createTheme({
   breakpoints: {
@@ -22,6 +24,55 @@ const theme = createTheme({
       xl: 1500,
       custom: 1920,
     },
+  },
+  components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '--TextField-brandBorderColor': '#E0E3E7',
+          '--TextField-brandBorderHoverColor': '#B2BAC2',
+          '--TextField-brandBorderFocusedColor': '#c5cbd1',
+          '& label.Mui-focused': {
+            color: 'var(--TextField-brandBorderFocusedColor)',
+          },
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        notchedOutline: {
+          borderColor: 'var(--TextField-brandBorderColor)',
+        },
+        root: {
+          [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
+            borderColor: 'var(--TextField-brandBorderHoverColor)',
+          },
+          [`&.Mui-focused .${outlinedInputClasses.notchedOutline}`]: {
+            borderColor: 'var(--TextField-brandBorderFocusedColor)',
+          },
+        },
+      },
+    },
+
+    // MuiSelect: {
+    //   styleOverrides: {
+    //     notchedOutline: {
+    //       borderColor: 'var(--TextField-brandBorderColor)',
+    //     },
+    //     outlined: {
+    //       // Set the border color to match the focused color of the TextField
+    //       borderColor: 'var(--TextField-brandBorderFocusedColor)',
+    //       '&:hover': {
+    //         borderColor: 'red',
+    //         background : 'red'
+    //       },
+    //     },
+       
+    //     },
+    //   },
+    
+    
+    
   },
 });
 

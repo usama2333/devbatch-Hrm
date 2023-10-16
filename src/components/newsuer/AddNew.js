@@ -1,4 +1,4 @@
-import React, { Fragment, useRef } from "react";
+import React, { Fragment, useRef, useState } from "react";
 import icon from "../../assests/images/icon.png";
 import { Box, Button, Stack, Typography, TextField } from "@mui/material";
 import {
@@ -13,20 +13,25 @@ import {
 } from "./style";
 
 const AddNew = () => {
-  const inputRef = useRef(null);
+  const inputRef = useRef('usama@gmail.com');
+  const [email, setEmail] = useState('');
   
 
+  const emailHandler = (e) => {
+     setEmail(e.target.value)
+  }
   const sendEmail = (event) => {
     event.preventDefault();
-    const inputValue = inputRef.current.value;
-    console.log(inputRef.current.value,',,,,,,,,,,')
-
-    const emailSubject = inputValue;
+   
+    console.log(email,'........email')
+    const emailSubject = email;
     const emailBody = 'https://devbatch-hrm.vercel.app/login';
     const mailtoLink = `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
+ 
     // Open the user's default email client with the pre-populated email
     window.location.href = mailtoLink;
+    setEmail('');
     // inputRef.current.value = ''
   };
 
@@ -38,7 +43,7 @@ const AddNew = () => {
           <Typography sx={addEmail}>
             Add an Email & send the magic link to users.
           </Typography>
-        <form onSubmit={sendEmail}>
+        <form  onSubmit={sendEmail}>
           <Stack
             direction="row"
             justifyContent="space-between"
@@ -47,17 +52,21 @@ const AddNew = () => {
             sx={{ boxSizing: "border-box" }}
           >
             <Box sx={firstUserFlex}>
-              <TextField
+              <TextField 
+                // color="info"
                 sx={firstUserTypo}
                 fullWidth
                 size="small"
                 id="outlined-basic"
                 autoComplete="off"
-                placeholder="hassan@gmail.com"
+                placeholder="usama@gmail.com"
                 variant="outlined"
                 type="search"
-                ref={inputRef}
-                // value={inputRef}
+                // ref={inputRef}
+                value={email}
+                onChange={emailHandler}
+                
+               
               />
             </Box>
 

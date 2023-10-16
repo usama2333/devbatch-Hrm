@@ -79,6 +79,7 @@ import UploadFileIcon from "@mui/icons-material/UploadFile";
 import { Link, Outlet } from "react-router-dom";
 import viewProfile from '../../assests/images/viewProfile.png';
 import emptyUser from '../../assests/images/emptyUser.png'
+import { format } from 'date-fns';
 
 const UserDetail = () => {
   const [open, setOpen] = React.useState(false);
@@ -100,6 +101,10 @@ const UserDetail = () => {
   }
 
   console.log(view, 'view...............')
+  const date = new Date(view[0].createdAt);
+
+  // Format the date into a simpler form
+  const formattedDate = format(date, 'MM/dd/yyyy HH:mm:ss');
 
   return (
     <Fragment>            
@@ -163,7 +168,7 @@ const UserDetail = () => {
                     <Typography sx={dView}>{view[0].department ? view[0].department : 'NA'}</Typography>
 
                     <Typography sx={cView}>{view[0].cnic ? view[0].cnic : 'NA'}</Typography>
-                    <Typography sx={createdView}>{view[0].createdAt ? view[0].createdAt : 'NA'}</Typography>
+                    <Typography sx={createdView}>{view[0].createdAt ? formattedDate : 'NA'}</Typography>
                   </Box>
                 </Box>
               </Box>
@@ -244,7 +249,8 @@ const UserDetail = () => {
                       <Typography sx={typoKey}>Issue Date:</Typography>
                     </Box>
                     <Box>
-                      <Typography sx={typoValue}>{`DB-${view[0]._id}`}</Typography>
+                      {/* <Typography sx={typoValue}>{`DB-${view[0]._id}`}</Typography> */}
+                      <Typography sx={typoValue}>DB-808</Typography>
                       <Typography sx={typoValue}>{view[0].email ? view[0].email : 'NA'}</Typography>
                       <Typography sx={typoValue}>{view[0].phone ? view[0].phone : 'NA'}</Typography>
                       <Typography sx={typoValue}>
@@ -252,7 +258,8 @@ const UserDetail = () => {
                       </Typography>
 
                       <Typography sx={typoValue}>{view[0].cnic ? view[0].cnic : 'NA'}</Typography>
-                      <Typography sx={typoValue}>{view[0].createdAt ? view[0].createdAt : 'NA'}</Typography>
+                      {/* <Typography sx={typoValue}>{view[0].createdAt ? view[0].createdAt : 'NA'}</Typography> */}
+                      <Typography sx={typoValue}>{view[0].createdAt ? formattedDate : 'NA'}</Typography>
                     </Box>
                   </Box>
                 </Box>

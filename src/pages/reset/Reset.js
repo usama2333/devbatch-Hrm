@@ -1,7 +1,6 @@
 import { Box, Container, Stack, Typography,TextField,Button } from "@mui/material";
-import React, { Fragment,useContext,useLayoutEffect } from "react";
+import React, { Fragment , useState, useEffect} from "react";
 import backgroundImg from "../../assests/images/loginBack.png";
-import AuthContext from "../../store/auth-context";
 
 import {
   absBox,
@@ -18,44 +17,57 @@ import {
   signUpTypo,
 } from "./style";
 import { useFormik } from "formik";
-// import { resetSchema } from "../../schema/signup";
 import { tableActions } from "../../store/table";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { resetSchema } from "../../schema/reset";
+import resetApi from "../../api/resetApi";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
-const initialValues = {
-  email: "",
-  password: "",
-  newpassword: "",
-  confirmpassword: "",
-};
+
+
+
+
+const notify = (error) => toast(error);
 
 const Reset = () => {
-  const login = useSelector((state) => state.table.login);
-  const authCtx =  useContext(AuthContext);
+  const [countdown, setCountdown] = useState(15);
+  const otp = useSelector((state) => state.table.otp);
+  console.log(otp , 'test api ...................')
   const navigate = useNavigate();
   const dispatch = useDispatch();
  
+  console.log(otp.data.email,'email.............')
 
+  const initialValues = {
+    email: otp?.data?.email ?  otp?.data?.email : "",
+    otp: "",
+    newpassword: "",
+    confirmpassword: "",
+  };
   const signinHandler = () => {
     navigate('/login')
   };
-  useLayoutEffect(() => {
-    dispatch(tableActions.setLogin(false));
-  },);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (countdown > 0) {
+        setCountdown(countdown - 1);
+      }
+    }, 1000);
+
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(timer);
+  }, [countdown]);
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
       validationSchema: resetSchema,
       onSubmit: (values, action) => {
-        // signUpData(values,authCtx,login,navigate);
-        
-        // dispatch(tableActions.setSignup(values));
-
-       
+        console.log(values, 'reset values in the form ')
+        resetApi(values,navigate,notify,dispatch,tableActions)    
       },
     });
   return (
@@ -101,23 +113,27 @@ const Reset = () => {
                     <Stack>
                       <Typography style={{
                           color:
-                            errors.password && touched.password ? "red" : "#344054",
+                            errors.otp && touched.otp ? "red" : "#344054",
                         }} sx={emailTypo}>
-                        Password
-                        {errors.password && touched.password ? (
+                          
+                        {`OTP:  ${countdown === 0 ? '' : otp.otp}  ${countdown ? `sec ${countdown}` : ''} `}
+                        {errors.otp && touched.otp ? (
                           <span style={{ color: "red" }}>&nbsp;*</span>
                         ) : null}
+                        </Typography>
+                        <Typography>
+
                         </Typography>
                       <TextField
                         sx={{ width : '100%' }}
                         variant="outlined"
                         type="password"
                         // size="small"
-                        id="password"
-                        name="password"
+                        id="otp"
+                        name="otp"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values.password}
+                        value={values.otp}
                         inputProps={{ style: { font: 'normal normal normal 14px/17px Product Sans', boxSizing : 'border-box', padding : '2.3rem 1rem',border: 'none !important',} }}
                       />
                      
@@ -205,6 +221,7 @@ const Reset = () => {
           </Box>
         </Stack>
       </Container>
+      <ToastContainer />
     </Fragment>
   );
 };

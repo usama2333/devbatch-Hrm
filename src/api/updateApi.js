@@ -32,6 +32,6 @@ export default async function updateUserApi(
   } catch (error) {
     console.log(error.message);
 
-    notify(error.message);
+    // notify(error.message);
   }
 }

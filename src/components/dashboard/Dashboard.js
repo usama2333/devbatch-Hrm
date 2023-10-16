@@ -12,6 +12,8 @@ import { useSelector } from "react-redux";
 import DateRange from "../datepicker/DateRange";
 import red from "../../assests/images/blue.png";
 import blue from "../../assests/images/red.png";
+import LineChart from "./LineChart";
+
 
 const Dashboard = () => {
   const data = useSelector((state) => state.table.data);
@@ -112,6 +114,16 @@ const Dashboard = () => {
           <Box sx={graphFlex}>
             <Typography sx={userGeneral}>Users (General)</Typography>
             <Box component="img" sx={userImSx} src={graph}></Box>
+             {/* <Box sx={{
+            height : '300px',
+            maxWidth : '490px',
+            width : '100%',
+            overflow : 'hidden',
+            
+        }}>
+            <LineChart/>
+        </Box> */}
+          
           </Box>
           <Box sx={recentFlex}>
             <Typography sx={recentTypo}>Recent Users</Typography>

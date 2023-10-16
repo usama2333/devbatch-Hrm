@@ -41,6 +41,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import deleteUserApi from "../../api/deleteApi";
 import Modal from "@mui/material/Modal";
+import { format } from 'date-fns';
 
 const style = {
   position: "absolute",
@@ -253,12 +254,22 @@ const User = ({ adduser }) => {
                               {row.department ? row.department : "NA"}
                             </TableCell>
                             <TableCell sx={{ tableBodyText }} align="left">
-                              <Box>{row.createdAt ? row.createdAt : "NA"}</Box>
-                              {/* <Box>{row.time}</Box> */}
+                            <Box>{row.createdAt ? ( 
+                                  format(new Date(row.createdAt), 'MM/dd/yyyy')
+                                ) : ("NA")}</Box>
+                                 <Box>{row.createdAt ? ( 
+                                  format(new Date(row.createdAt), 'HH:mm:ss')
+                                ) : ("NA")}</Box>
+                              
                             </TableCell>
                             <TableCell sx={{ tableBodyText }} align="left">
-                              <Box>{row.updatedAt ? row.updatedAt : "NA"}</Box>
-                              {/* <Box>{row.time}</Box> */}
+                              <Box>{row.updatedAt ? ( 
+                                  format(new Date(row.updatedAt), 'MM/dd/yyyy')
+                                ) : ("NA")}</Box>
+                                 <Box>{row.updatedAt ? ( 
+                                  format(new Date(row.updatedAt), 'HH:mm:ss')
+                                ) : ("NA")}</Box>
+                              
                             </TableCell>
                             <TableCell sx={{ tableBodyText }} align="left">
                               <Box
@@ -350,7 +361,7 @@ const User = ({ adduser }) => {
                 No
               </Button>
               <Button onClick={deleteUser}  variant="contained" color="error">
-                Delete
+                Yes
               </Button>
             </Box>
           </Box>

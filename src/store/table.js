@@ -9,9 +9,11 @@ const initialState = {
   edit: [],
   signup : [],
   login : false,
+  reset: false,
   allusers: [],
   nav:[],
-  del: ''
+  del: '',
+  otp: []
 };
 
 const tableSlice = createSlice({
@@ -50,6 +52,12 @@ const tableSlice = createSlice({
     },
     setDel(state, action) {
       state.del = action.payload;
+    },
+    setOtp(state, action) {
+      state.otp = action.payload;
+    },
+    setReset(state, action) {
+      state.reset = action.payload;
     },
   },
 });

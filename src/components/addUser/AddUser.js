@@ -18,16 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 import allUsersApi from "../../api/allUsersApi";
 import updateUserApi from "../../api/updateApi";
 
-const initialValues = {
-  name: "",
-  email: "",
-  designation: "",
-  department: "",
-  gender: "",
-  phone: "",
-  cnic: "",
-  address: "",
-};
+
 
 const notify = (error) => toast(error);
 
@@ -60,6 +51,17 @@ const AddUser = () => {
     }
   };
 
+  const initialValues = {
+    name: edit[0]?.name ? edit[0]?.name : "",
+    email: edit[0]?.email ? edit[0]?.email : "",
+    designation: edit[0]?.designation ? edit[0]?.designation: "",
+    department: edit[0]?.department ? edit[0]?.department: "",
+    gender: edit[0]?.gender ? edit[0]?.gender: "",
+    phone: edit[0]?.phone ? edit[0]?.phone: "",
+    cnic: edit[0]?.cnic ? edit[0]?.cnic: "",
+    address: edit[0]?.address ? edit[0]?.address: "",
+  };
+
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
@@ -69,7 +71,8 @@ const AddUser = () => {
 
          console.log(values,'values in the component.................')
          
-        newUserApi(values, navigate,notify);
+        
+        {!edit.length && newUserApi(values, navigate,notify)}
 
         console.log(edit[0]._id,'id...................')
 
@@ -120,7 +123,8 @@ const AddUser = () => {
                 name="name"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.name.length ? values.name : edit[0]?.name}
+                // value={values.name.length ? values.name : edit[0]?.name}
+                value={values.name}
               />
 
               <Typography
@@ -144,7 +148,7 @@ const AddUser = () => {
                 name="email"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.email.length ? values.email : edit[0]?.email}
+                value={values.email}
               />
 
               <Typography
@@ -172,9 +176,7 @@ const AddUser = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={
-                  values.designation.length
-                    ? values.designation
-                    : edit[0]?.designation
+                  values.designation
                 }
               />
 
@@ -200,9 +202,7 @@ const AddUser = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={
-                  values.department.length
-                    ? values.department
-                    : edit[0]?.department
+                  values.department
                 }
               >
                 <MenuItem value={"IT"}>IT</MenuItem>
@@ -224,6 +224,11 @@ const AddUser = () => {
                 ) : null}
               </InputLabel>
               <Select
+              sx={{
+                '& .MuiInputBase-input': {
+                 
+                },
+              }}
                 labelId="demo-simple-select-label"
                 fullWidth
                 size="small"
@@ -231,13 +236,14 @@ const AddUser = () => {
                 name="gender"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.gender.length ? values.gender : edit[0]?.gender}
+                value={values.gender}
               >
                 <MenuItem value={"male"}>Male</MenuItem>
                 <MenuItem value={"female"}>Female</MenuItem>
                 <MenuItem value={"other"}>other</MenuItem>
               </Select>
             </Box>
+            
 
             <Box sx={{ flex : 'calc((100% - 2rem) / 2)', }}>
               <Box sx={dummyImgFlex}>
@@ -317,7 +323,7 @@ const AddUser = () => {
                 name="phone"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.phone.length ? values.phone : edit[0]?.phone}
+                value={values.phone}
               />
 
               <Typography
@@ -341,7 +347,7 @@ const AddUser = () => {
                 name="cnic"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.cnic.length ? values.cnic : edit[0]?.cnic}
+                value={values.cnic}
               />
 
               <Typography
@@ -366,7 +372,7 @@ const AddUser = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={
-                  values.address.length ? values.address : edit[0]?.address
+                  values.address
                 }
               />
             </Box>
