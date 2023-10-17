@@ -239,7 +239,7 @@ export const dFlex = {
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
-  mr : {xxs : '1.5rem', sm : '0rem'}
+  // mr : {xxs : '2.5rem', sm : '0rem'}
 };
 export const dView = {
   font: {
@@ -277,7 +277,8 @@ export const emailMainFlex = {
 };
 export const emailInnerFlex = {
   display: "flex",
-  justifyContent: "space-between",
+  justifyContent: {xxs : 'space-evenly', sm :'space-between'},
+
 };
 export const emailBoxFlex = {
   display: "flex",
@@ -315,6 +316,8 @@ export const lastFlex = {
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
+
+ 
 };
 export const mailTypo = {
   font: {

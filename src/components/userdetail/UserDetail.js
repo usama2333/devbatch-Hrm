@@ -157,7 +157,7 @@ const UserDetail = () => {
 
             <Box sx={departFlex}>
               <Box sx={departInnerFlex}>
-                <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                <Box sx={{ display: "flex", justifyContent: {xxs : 'space-evenly' , sm :'space-between'} }}>
                   <Box sx={departBox}>
                     <Typography sx={departTypo}>Department:</Typography>
                     <Typography sx={cnicTypo}>CNIC:</Typography>

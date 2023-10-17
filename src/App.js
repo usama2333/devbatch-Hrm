@@ -18,6 +18,7 @@ import AddUser from "./components/addUser/AddUser";
 import UserDetail from "./components/userdetail/UserDetail";
 import {useSelector } from "react-redux";
 import Forgot from "./pages/forgot/Forgot";
+import CheckIn from "./components/checkin/CheckIn";
 
 function App() {
   
@@ -41,6 +42,7 @@ function App() {
              <Route element={<User/>} path="user" exact/>
              <Route element={<AddUser/>} path="adduser" exact  />
              <Route element={<UserDetail/>} path="userdetail" exact/>
+             <Route element={<CheckIn/>} path="checkin" exact/>
             
           </Route>
         

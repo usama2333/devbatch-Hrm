@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React, { Fragment } from "react";
-import { departBox, departInnerBox, nameBox, userBox } from "./style";
+import { departBox, departInnerBox, nameBox, nameBoxAnother, userBox } from "./style";
 
 const Department = ({ img, name, user,data }) => {
   return (
@@ -12,7 +12,7 @@ const Department = ({ img, name, user,data }) => {
             src={img}
             sx={{ height: "1.4rem", width: "1.4rem" }}
           ></Box>
-          <Typography sx={nameBox}>{name}</Typography>
+          <Typography sx={name === 'Department' ? nameBoxAnother : nameBox}>{name}</Typography>
         </Box>
         <Typography sx={userBox}>{user}</Typography>
       </Box>

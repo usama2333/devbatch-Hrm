@@ -97,6 +97,7 @@ const Navbarr = () => {
               {show === "adduser" && "Add Users"}
               {show === "updateuser" && "Edit Users"}
               {show === "userdetailview" && "User Detail"}
+              {show === "checkin" && "Check In/Out"}
             </Typography>
             
             {/* <Box component="img" sx={bellIconBox} src={bell}></Box> */}

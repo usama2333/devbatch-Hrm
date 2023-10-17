@@ -28,6 +28,15 @@ export const nameBox = {
     ml: "0.7rem",
 }
 
+export const nameBoxAnother = {
+    font: {xxs : "normal normal bold 14px/20px Product Sans",xs : "normal normal bold 14px/20px Product Sans", sm : "normal normal bold 18px/22px Product Sans"},
+    letterSpacing: "0px",
+
+    color: "#4FC8B4",
+    opacity: 1,
+    ml: "0.7rem",
+}
+
 export const userBox= {
     font: {xxs : "normal normal bold 18px/20px Product Sans",xs : "normal normal bold 18px/20px Product Sans", sm : "normal normal bold 21px/25px Product Sans"},
     letterSpacing: "0px",

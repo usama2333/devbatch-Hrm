@@ -14,7 +14,9 @@ const initialState = {
   nav:[],
   del: '',
   otp: [],
-  count : 0
+  count : 0,
+  checkin:[],
+  checktime:''
   
 };
 
@@ -63,6 +65,12 @@ const tableSlice = createSlice({
     },
     setCount(state, action) {
       state.count = action.payload;
+    },
+    setCheckin(state, action) {
+      state.checkin = action.payload;
+    },
+    setChecktime(state, action) {
+      state.checktime = action.payload;
     },
   },
 });

@@ -7,7 +7,7 @@ import { tableActions } from "../../store/table";
 import PersonIcon from "@mui/icons-material/Person";
 import WidgetsIcon from "@mui/icons-material/Widgets";
 import { Link, Outlet } from "react-router-dom";
-
+import FingerprintIcon from '@mui/icons-material/Fingerprint';
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -60,6 +60,9 @@ const Home = () => {
     dispatch(tableActions.setShow("user"));
   };
 
+  const checkHandler = () => {
+    dispatch(tableActions.setShow("checkin"));
+  };
   const addUserHandler = () => {
     dispatch(tableActions.setShow("adduser"));
     if(edit.length !== 0 ) {
@@ -241,6 +244,55 @@ const Home = () => {
                 </Typography>
               </Stack>
               </Link>
+
+              <Link 
+             style={{textDecoration : 'none'}}
+            to="/checkin">
+              <Stack
+                onClick={checkHandler}
+                direction="row"
+                alignItems="center"
+                sx={{
+                  mt: "1rem",
+                  width: "100%",
+                  padding: "1rem 0",
+                  boxSizing: "border-box",
+                  cursor: "pointer",
+                  background:
+                    show === "checkin" &&
+                    "transparent linear-gradient(90deg, #FFFFFF26 0%, #4A90E200 100%) 0% 0% no-repeat border-box ",
+                }}
+              >
+               
+                <Box sx={{ pl: { xxs: "0.5rem", xs: "1rem", sm: "2rem" } }}>
+                  <FingerprintIcon
+                    sx={{
+                      fontSize: "20px",
+                      color: show === "checkin" ? "#FFFFFF" : "#F6C2B5",
+                    }}
+                  />
+                </Box>
+                {/* <Box sx={{ml: { xxs: "1rem",xs: "1rem", sm: "2rem", color : 'red' }}} component="img" src={user}></Box> */}
+                
+                <Typography
+                
+                  sx={{
+                    font: {
+                      lg: "normal normal normal 15px/18px Product Sans",
+                      xxs: "normal normal normal 12px/15px Product Sans",
+                    },
+                    letterSpacing: "0px",
+                    color: show === "checkin" ? "#FFFFFF" : "#F6C2B5",
+                    pl: "1.3rem",
+                    opacity: 1,
+                    display: displayText,
+                  }}
+                >
+                  Check In
+                </Typography>
+              </Stack>
+              </Link>
+
             </Box>
           </Box>
           <Box

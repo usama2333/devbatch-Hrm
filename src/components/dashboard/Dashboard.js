@@ -51,7 +51,7 @@ const Dashboard = () => {
     },
     {
       img: red,
-      name: "Departmnet",
+      name: "Department",
       user: result.length,
     },
   ];
@@ -120,8 +120,8 @@ const Dashboard = () => {
             width : '100%',
             overflow : 'hidden',
             
-        }}>
-            <LineChart/>
+        }}> */}
+            {/* <LineChart/>
         </Box> */}
           
           </Box>
