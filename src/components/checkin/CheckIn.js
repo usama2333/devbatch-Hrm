@@ -45,9 +45,9 @@ const CheckIn = () => {
   const checkin = useSelector((state) => state.table.checkin);
   const [initialTime, setInitialTime] = useState(false);
 
-  console.log(checktime, "check time .................");
-  console.log(checkin.checkInTime, "Check in Time in time ..........");
-  console.log(checkin.checkOutTime, "Check out Time in time ..........");
+  // console.log(checktime, "check time .................");
+  // console.log(checkin.checkInTime, "Check in Time in time ..........");
+  // console.log(checkin.checkOutTime, "Check out Time in time ..........");
 
   const checkInHandler = () => {
     checkInApi(navData.user.id, authCtx.token);
@@ -155,11 +155,12 @@ const CheckIn = () => {
                 pt: "2rem",
               }}
             >
-              {initialTime
+              {/* {initialTime
                 ? checkin.checkInTime
                   ? format(new Date(checkin.checkInTime), "HH:mm:ss")
                   : "NA"
-                : "00:00:00"}
+                : "00:00:00"} */}
+                00:00:00
             </Typography>
             <Box
               sx={{
@@ -267,9 +268,9 @@ const CheckIn = () => {
                 >
                   <LoginIcon sx={{ color: "white" }} />
                   <Typography sx={{ color: "white", mt: "1rem" }}>
-                    {checkin.checkInTime
+                    {/* {checkin.checkInTime
                       ? format(new Date(checkin.checkInTime), "HH:mm:ss")
-                      : "NA"}
+                      : "NA"} */}
                   </Typography>
                   <Typography sx={{ color: "white", mt: "0.5rem" }}>
                     Check In
@@ -286,9 +287,9 @@ const CheckIn = () => {
                 >
                   <LogoutIcon sx={{ color: "white" }} />
                   <Typography sx={{ color: "white", mt: "1rem" }}>
-                    {checkin.checkOutTime
+                    {/* {checkin.checkOutTime
                       ? format(new Date(checkin.checkOutTime), "HH:mm:ss")
-                      : "NA"}
+                      : "NA"} */}
                   </Typography>
                   <Typography sx={{ color: "white", mt: "0.5rem" }}>
                     Check Out
@@ -305,7 +306,8 @@ const CheckIn = () => {
                 >
                   <QueryBuilderIcon sx={{ color: "white" }} />
                   <Typography sx={{ color: "white", mt: "1rem" }}>
-                    {checktime.slice(0,22)}
+                    {/* {checktime.slice(0, 22)} */}
+                    check time
                   </Typography>
                   <Typography sx={{ color: "white", mt: "0.5rem" }}>
                     Working Hours
